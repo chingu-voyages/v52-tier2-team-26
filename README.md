@@ -40,4 +40,4 @@ coding!
 - Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
 
    ...
-- Teammate name #: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Lisa Rexroad: [GitHub](https://github.com/lrexroad) / [LinkedIn](https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/)
