@@ -1,5 +1,6 @@
 import { useRequest } from "../contexts/RequestsContext";
 import { useState } from "react";
+import fetchAddresses from "../data/AddressAPI";
 
 const NewRequest = () => {
   const [name, setName] = useState("");
@@ -9,6 +10,8 @@ const NewRequest = () => {
   const [time, setTime] = useState("");
 
   const { addRequest } = useRequest();
+
+  fetchAddresses();
 
   const handleRequestSubmit = (e) => {
     e.preventDefault();
