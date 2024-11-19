@@ -1,6 +1,6 @@
 import { useRequest } from "../contexts/RequestsContext";
 import { useState } from "react";
-import fetchAddresses from "../data/AddressAPI";
+import fetchAddresses from "../data/addresses";
 
 const NewRequest = () => {
   const [name, setName] = useState("");

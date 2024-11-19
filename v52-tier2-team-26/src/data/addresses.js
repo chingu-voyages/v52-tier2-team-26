@@ -15,6 +15,7 @@ const fetchAddresses = async (id) => {
         `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`
       );
     }
+    console.log(data);
     console.log(addresses);
     return addresses;
   } catch {
