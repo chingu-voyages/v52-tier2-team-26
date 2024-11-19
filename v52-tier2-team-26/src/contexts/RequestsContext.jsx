@@ -13,7 +13,6 @@ export const RequestProvider = ({ children }) => {
 
   console.log(requestList);
 
-  //initialize user list in localStorage
   if (!localStorage.getItem("requestList")) {
     localStorage.setItem("requestList", JSON.stringify(requestList));
   }
