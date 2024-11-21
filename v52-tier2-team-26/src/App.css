@@ -1,38 +1,306 @@
+:root {
+  --background: #008C66;
+  --accent: #FBBF24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* display: flex; */
+}
+
+#root {
+  flex-grow: 1; /* Keep App width consistent across components */
+  /* Center align app */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1400px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  box-shadow: 0px 0px 15px gray;
+  /* transition: all .5s */
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.Header,
+.Footer {
+  width: 100%;
+  background-color: var(--background);
+}
+
+/* Header & NavBar styles */
+.Header {
+  padding: 1.5rem 0;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Nav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-size: 1.75rem;
+}
+
+.Nav .admin-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+svg {
+  display: block; /* Remove extra whitespace on bottom */
+  margin-right: 1.1rem;
+  font-size: 1.75rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.admin-login,
+.site-title {
+  text-decoration: none;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.admin-login {
+  font-size: 1rem;
+  background-color: var(--accent);
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.admin-login:visited,
+.site-title:visited {
+  color: black;
+}
+
+/* Component styles */
+.Home,
+.Missing,
+.AdminLogin {
+  width: 100%;
+  flex-grow: 1; /* grow vertically to fill space */
+  /* padding: 1rem; */
+  /* Sticky footer */
+  overflow-y: auto; 
+}
+
+/* Admin Login page styles */
+.AdminLogin,
+.Missing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminLogin p {
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Hide input label from UI */
+.AdminLogin label,
+.Footer label {
+  position: absolute;
+  left: -99999px;
+}
+
+.AdminLogin input,
+.AdminLogin button {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.AdminLogin input {
+  width: 200px;
+  margin-right: 0.5rem;
+}
+
+.AdminLogin button {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--background);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Missing 404 page styles */
+.Missing p {
+  padding: 1rem;
+}
+
+
+/* Footer Styles */
+.Footer {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-footer-section {
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(3, 1fr) 2fr;
+  grid-column-gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+.Footer h4 {
+  color: var(--accent);
+  font-weight: normal;
+  padding-bottom: 0.5rem;
+}
+
+.Footer p,
+.Footer a {
+  color: white;
+}
+
+.team-members a,
+.resident-links p,
+.community-links p {
+  line-height: 2rem;
+}
+
+.team-members {
+  display: flex;
+  flex-direction: column;
+}
+
+form.email-sign-up {
+  padding: 2rem 0 0 1.5rem;
+}
+
+.email-sign-up p{
+  line-height: 1.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.email-sign-up input,
+.email-sign-up button {
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.email-sign-up input {
+  width: 75%;
+  padding: 1rem 0.75rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.email-sign-up button {
+  background-color: #2569d7;
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+  /* width: calc(25% - 5px); */
+}
+
+.bottom-footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bottom-footer-section .bottom-links,
+.bottom-footer-section .github-links {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.bottom-footer-section .bottom-links p {
+  margin-right: 3rem;
+}
+
+.github-links svg {
+  margin-right: 0.75rem;
+}
+
+
+/* ==== TABLET MEDIA QUERIES ===== */
+@media (max-width: 700px) {
+  .top-footer-section {
+    display: flex;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .top-footer-section > div {
+    margin-bottom: 1.75rem;
+  }
+
+  form.email-sign-up {
+    padding: 0;
+  }
+
+  .email-sign-up input,
+  .email-sign-up button {
+    width: 100%;
+    border: 1px solid var(--accent);
+    padding: 0.75rem;
+  }
+
+  .email-sign-up input {
+    margin-bottom: 0.5rem;
+    background-color: transparent;
+    color: white;
+  }
+
+  .email-sign-up input::placeholder {
+    color: white;
+  }
+}
+
+/* ==== MOBILE MEDIA QUERIES ===== */
+@media (max-width: 480px) {
+  .admin-wrapper svg {
+    font-size: 2rem;
+  }
+
+  .admin-icon {
+    margin: 0;
+  }
+
+  .bottom-footer-section .bottom-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bottom-footer-section .bottom-links p {
+    margin-bottom: 1rem;
   }
 }

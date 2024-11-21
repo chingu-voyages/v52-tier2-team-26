@@ -36,7 +36,9 @@ const UserLogin = () => {
   };
 
   return (
-    <div>
+    <main className="AdminLogin">
+      <p>Welcome to the Administrator Portal!<br /> 
+      You can login to view upcoming solar appointments using your <b>city hall employee email address</b>.</p>
       <form onSubmit={handleLoginSubmit}>
         <label>Enter Email</label>
         <input
@@ -46,12 +48,11 @@ const UserLogin = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
         <button>Submit</button>
       </form>
-      <button onClick={logOut}>Log-out</button>
+      {/* <button onClick={logOut}>Log-out</button> */}
       {loggedIn === true ? <RequestList /> : false}
-    </div>
+    </main>
   );
 };
 

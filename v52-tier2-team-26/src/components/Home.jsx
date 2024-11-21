@@ -4,8 +4,9 @@ import HowTo from "./HowTo";
 const Home = () => {
   return (
     <main className="Home">
-      <h1>Homepage</h1>
-      <HowTo />
+      <div className="wrapper">
+        <HowTo />
+      </div>
     </main>
   );
 };
