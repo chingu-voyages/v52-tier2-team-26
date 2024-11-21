@@ -23,7 +23,8 @@ body {
 }
 
 #root {
-  flex-grow: 1; /* Keep App width consistent across components */
+  flex-grow: 1;
+  /* Keep App width consistent across components */
   /* Center align app */
   display: flex;
   justify-content: center;
@@ -33,7 +34,8 @@ body {
 .App {
   width: 100%;
   max-width: 1400px;
-  /* height: 100vh; */ /* Removed for now to adjust other Component heights */
+  /* height: 100vh; */
+  /* Removed for now to adjust other Component heights */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -79,7 +81,8 @@ body {
 }
 
 svg {
-  display: block; /* Remove extra whitespace on bottom */
+  display: block;
+  /* Remove extra whitespace on bottom */
   margin-right: 1.1rem;
   font-size: 1.75rem;
   color: white;
@@ -109,7 +112,8 @@ svg {
 .Missing,
 .AdminLogin {
   width: 100%;
-  flex-grow: 1; /* grow vertically to fill space */
+  flex-grow: 1;
+  /* grow vertically to fill space */
   /* Sticky footer */
   /* overflow-y: auto;  */
 }
@@ -133,7 +137,7 @@ svg {
 }
 
 .AdminLogin h2 {
-  margin: 1rem 0;
+  margin: 1.5rem 0 1rem 0;
 }
 
 .AdminLogin p {
@@ -173,6 +177,7 @@ svg {
 
 p.no-account {
   margin-top: 2.5rem;
+  padding: 0 2rem;
   text-align: center;
   font-size: 1rem;
   line-height: 1.4rem;
@@ -297,12 +302,27 @@ form.email-sign-up {
 
 /* ==== TABLET MEDIA QUERIES ===== */
 @media (max-width: 700px) {
+
+  /* ===== Admin Login Page Styles ====== */
+  .AdminLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Height of background img */
+    height: 700px;
+  }
+
+  .login-wrapper {
+    position: static;
+  }
+
+  /* ===== Footer Styles ====== */
   .top-footer-section {
     display: flex;
     flex-direction: column;
   }
 
-  .top-footer-section > div {
+  .top-footer-section>div {
     margin-bottom: 1.75rem;
   }
 
@@ -326,10 +346,25 @@ form.email-sign-up {
   .email-sign-up input::placeholder {
     color: white;
   }
+
+  .bottom-footer-section {
+    justify-content: center;
+  }
 }
 
 /* ==== MOBILE MEDIA QUERIES ===== */
 @media (max-width: 480px) {
+
+  /* ===== Admin Login Page Styles ====== */
+  .AdminLogin {
+    /* Height of background img */
+    height: 600px;
+  }
+
+  .login-wrapper {
+    margin: 1rem;
+  }
+
   .admin-wrapper svg {
     font-size: 2rem;
   }
@@ -338,6 +373,7 @@ form.email-sign-up {
     margin: 0;
   }
 
+  /* ===== Footer Styles ====== */
   .bottom-footer-section .bottom-links {
     flex-direction: column;
     align-items: flex-start;
