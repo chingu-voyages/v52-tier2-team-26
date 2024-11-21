@@ -171,7 +171,8 @@ svg {
   margin-top: 1rem;
 }
 
-.login-wrapper form button:hover {
+.login-wrapper form button:hover,
+.email-sign-up button:hover {
   background-color: var(--button-hover);
 }
 
@@ -196,6 +197,7 @@ p.no-account {
 .Missing p {
   padding: 1rem;
 }
+
 
 /* ========= Footer Styles ========= */
 .Footer {
@@ -266,7 +268,7 @@ form.email-sign-up {
 }
 
 .email-sign-up button {
-  background-color: #2569d7;
+  background-color: var(--button);
   color: white;
   padding: 1rem;
   cursor: pointer;
