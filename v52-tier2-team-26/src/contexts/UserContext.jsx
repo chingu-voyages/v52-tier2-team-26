@@ -9,9 +9,9 @@ export function useUser() {
 
 export const UserProvider = ({ children }) => {
   const [userList, setUserList] = useState(users);
-  const [user, setUser] = useState(null);
-
   console.log(userList);
+  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
   //initialize user list in localStorage
   if (!localStorage.getItem("userList")) {
