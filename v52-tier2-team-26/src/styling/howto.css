@@ -321,4 +321,55 @@
   margin-left: 8vw;
   margin-right: 8vw;
   padding: 50px;
+  overflow-x: auto;
+}
+
+.reviews-container {
+  height: 20vh;
+  float: left;
+  display: flex;
+}
+
+.reviews-info {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 10px;
+  width: 25vw;
+  margin-right: 2vw;
+  padding: 0.2vw;
+}
+
+.reviews-img-div {
+}
+
+.reviews-img {
+  height: 6vh;
+  width: 3.8vw;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  border-radius: 50%;
+}
+
+.reviews-content-div {
+  margin-left: 1vw;
+  align-items: start;
+  text-align: left;
+}
+
+.reviews-desc {
+  width: 18vw;
+  font-size: 0.8vw;
+  font-weight: 600;
+}
+.reviews-name {
+  margin-top: 4vh;
+  margin-bottom: 0vh;
+  font-size: 0.8vw;
+  font-weight: 600;
+}
+.reviews-job {
+  font-size: 0.8vw;
+  margin-top: 0vh;
+  color: rgb(160, 160, 160);
 }
