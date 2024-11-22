@@ -1,0 +1,324 @@
+.together-wrapper {
+  background-color: rgb(243, 243, 243);
+  margin-left: 8vw;
+  margin-right: 8vw;
+  padding: 50px;
+}
+
+.why-statement {
+  height: 1vh;
+  text-align: left;
+  font-size: 0.9vw;
+  margin-left: 5vw;
+  color: dodgerblue;
+}
+
+.together-statement {
+  text-align: left;
+  margin-left: 5vw;
+  font-size: 2vw;
+  width: 35vw;
+}
+
+/* RESIDENTS */
+
+.residents-parters-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4vh;
+}
+
+.residents-div {
+  flex: 1;
+  background-color: #159461;
+  margin-left: 5vw;
+  margin-right: 1vw;
+}
+
+.residents-img {
+  height: 40vh;
+  background-image: url(https://www.viperit.co.uk/wp-content/uploads/family-open-door.jpg);
+  background-size: cover;
+}
+
+.residents-info {
+  text-align: left;
+  padding: 30px;
+}
+
+.residents-name {
+  height: 0.5vh;
+  font-size: 0.6vw;
+  color: rgb(255, 217, 2);
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.residents-title {
+  font-size: 0.9vw;
+  color: rgb(32, 54, 54);
+}
+
+.residents-desc {
+  font-size: 0.7vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+
+/* PARTNERS */
+
+.partners-div {
+  flex: 1;
+  background-color: #159461;
+  margin-right: 5vw;
+  margin-left: 1vw;
+}
+
+.partners-img {
+  height: 40vh;
+  background-image: url(https://media.istockphoto.com/id/1346125238/photo/group-of-successful-business-people-showing-thumbs-up.jpg?s=612x612&w=0&k=20&c=x1TjuZu43WLjL6XBn2wvbECou2wHRHg4L8WoUPsyihE=);
+  background-size: cover;
+}
+
+.partners-info {
+  text-align: left;
+  padding: 30px;
+}
+.partners-name {
+  height: 0.5vh;
+  font-size: 0.6vw;
+  color: rgb(255, 217, 2);
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+.partners-title {
+  font-size: 0.9vw;
+  color: rgb(32, 54, 54);
+}
+.partners-desc {
+  font-size: 0.7vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+
+/* PURPOSE */
+
+.purpose-wrapper {
+  background-color: rgb(243, 243, 243);
+  margin-top: 2vh;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  padding: 50px;
+}
+
+.purpose-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 0vh;
+  background-color: #159461;
+}
+
+.save-div {
+}
+
+.save-info {
+  text-align: left;
+  margin-left: 1vw;
+}
+.save-img {
+  display: flex;
+  margin-top: 1vh;
+  margin-left: 1vw;
+  height: 24vh;
+  width: 21vw;
+}
+.save-title {
+  font-size: 0.9vw;
+  color: rgb(255, 217, 2);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.save-desc {
+  width: 20vw;
+  font-size: 0.7vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+.protect-div {
+}
+.protect-info {
+  text-align: left;
+}
+.protect-img {
+  display: flex;
+  margin-top: 1vh;
+  height: 24vh;
+  width: 21vw;
+}
+.protect-title {
+  font-size: 0.9vw;
+  color: rgb(255, 217, 2);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.protect-desc {
+  width: 20vw;
+  font-size: 0.7vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+.independence-div {
+}
+.independence-img {
+  display: flex;
+  margin-top: 1vh;
+  margin-right: 1vw;
+  height: 24vh;
+  width: 21vw;
+}
+.independence-info {
+  text-align: left;
+}
+.independence-title {
+  font-size: 0.9vw;
+  color: rgb(255, 217, 2);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.independence-desc {
+  width: 20vw;
+  font-size: 0.7vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+
+/* PROCESS */
+
+.process-wrapper {
+  background-color: rgb(243, 243, 243);
+  margin-top: 2vh;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  padding: 50px;
+}
+
+.process-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.path-div {
+  flex: 1.5;
+  text-align: left;
+}
+
+.path-title {
+  width: 30vw;
+  font-size: 2vw;
+  margin-top: 0vh;
+  margin-bottom: 0vh;
+}
+.path-desc {
+  width: 25vw;
+  font-size: 1.4vh;
+  margin-bottom: 3vh;
+  color: rgb(90, 90, 90);
+  letter-spacing: 1px;
+}
+.path-img {
+  display: flex;
+  height: 26vh;
+  width: 24vw;
+}
+
+.steps-div {
+  flex: 1;
+  text-align: left;
+  background-color: #159461;
+}
+
+.steps-contact {
+  margin-bottom: 4vh;
+}
+.steps-contact-title {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.steps-number {
+  font-size: 0.8vw;
+  text-align: center;
+  margin-left: 0;
+  padding: 10px;
+  width: 1.5vw;
+  border-radius: 10px;
+  background-color: white;
+}
+.steps-title {
+  font-size: 0.9vw;
+  margin-left: 1vw;
+  color: rgb(255, 217, 2);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.steps-desc {
+  margin-top: 0vh;
+  margin-bottom: 0vh;
+  width: 22vw;
+  margin-left: 3.5vw;
+  font-size: 0.7vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+.steps-audit {
+  margin-bottom: 4vh;
+}
+.steps-audit-title {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.steps-recommend {
+}
+.steps-recommend-title {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.qualify-div {
+  height: 9vh;
+  display: flex;
+  text-align: center;
+  align-items: end;
+}
+.qualify-button {
+  height: 4vh;
+  font-size: 0.7vw;
+  border: transparent;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgb(53, 53, 233);
+}
+
+/* REVIEWS */
+
+.reviews-wrapper {
+  background-color: rgb(243, 243, 243);
+  margin-top: 2vh;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  padding: 50px;
+}
