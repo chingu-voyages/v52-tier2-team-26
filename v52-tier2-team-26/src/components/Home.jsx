@@ -1,10 +1,11 @@
 import React from "react";
+import HowTo from "./HowTo";
 
 const Home = () => {
   return (
     <main className="Home">
       <div className="wrapper">
-        <h1>Homepage</h1>
+        <HowTo />
       </div>
     </main>
   );
