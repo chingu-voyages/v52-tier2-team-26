@@ -1,6 +1,8 @@
 :root {
   --background: #008C66;
   --accent: #FBBF24;
+  --button: #3A75BB;
+  --button-hover: #2E5E96;
 }
 
 * {
@@ -21,7 +23,8 @@ body {
 }
 
 #root {
-  flex-grow: 1; /* Keep App width consistent across components */
+  flex-grow: 1;
+  /* Keep App width consistent across components */
   /* Center align app */
   display: flex;
   justify-content: center;
@@ -31,7 +34,8 @@ body {
 .App {
   width: 100%;
   max-width: 1400px;
-  height: 100vh;
+  /* height: 100vh; */
+  /* Removed for now to adjust other Component heights */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -51,7 +55,8 @@ body {
   background-color: var(--background);
 }
 
-/* Header & NavBar styles */
+
+/* ========== Header & NavBar styles ========== */
 .Header {
   padding: 1.5rem 0;
   display: flex;
@@ -66,7 +71,8 @@ body {
 }
 
 .Header h1 {
-  font-size: 1.75rem;
+  font-size: 2rem;
+  color: white;
 }
 
 .Nav .admin-wrapper {
@@ -75,7 +81,8 @@ body {
 }
 
 svg {
-  display: block; /* Remove extra whitespace on bottom */
+  display: block;
+  /* Remove extra whitespace on bottom */
   margin-right: 1.1rem;
   font-size: 1.75rem;
   color: white;
@@ -100,66 +107,99 @@ svg {
   color: black;
 }
 
-/* Component styles */
+/* GLOBAL Component styles */
 .Home,
 .Missing,
 .AdminLogin {
   width: 100%;
-  flex-grow: 1; /* grow vertically to fill space */
-  /* padding: 1rem; */
+  flex-grow: 1;
+  /* grow vertically to fill space */
   /* Sticky footer */
-  overflow-y: auto; 
+  /* overflow-y: auto;  */
 }
 
-/* Admin Login page styles */
-.AdminLogin,
+/* ===== Admin Login Page Styles ====== */
+.AdminLogin {
+  background: url("../src/images/login-img.png");
+  position: relative;
+  height: 800px;
+}
+
+.login-wrapper {
+  background-color: rgba(255, 255, 255, 0.88);
+  max-width: 450px;
+  height: 500px;
+  padding: 4rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 10px;
+  position: absolute;
+  right: 8%;
+  top: 18.5%;
+}
+
+.AdminLogin h2 {
+  margin: 1.5rem 0 1rem 0;
+}
+
+.AdminLogin p {
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+}
+
+.login-wrapper form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.login-wrapper form label {
+  color: var(--background);
+  margin-bottom: 0.5rem;
+}
+
+.login-wrapper form input,
+.login-wrapper form button {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.login-wrapper form button {
+  cursor: pointer;
+  color: white;
+  font-size: 0.9rem;
+  background-color: var(--button);
+  margin-top: 1rem;
+}
+
+.login-wrapper form button:hover,
+.email-sign-up button:hover {
+  background-color: var(--button-hover);
+}
+
+p.no-account {
+  margin-top: 2.5rem;
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+
+/* ====== Missing 404 page styles ====== */
 .Missing {
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.AdminLogin p {
-  text-align: center;
-  padding: 1rem;
-  line-height: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-/* Hide input label from UI */
-.AdminLogin label,
-.Footer label {
-  position: absolute;
-  left: -99999px;
-}
-
-.AdminLogin input,
-.AdminLogin button {
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid black;
-}
-
-.AdminLogin input {
-  width: 200px;
-  margin-right: 0.5rem;
-}
-
-.AdminLogin button {
-  padding: 0.5rem 0.75rem;
-  background-color: var(--background);
-  color: white;
-  margin-bottom: 1rem;
-}
-
-/* Missing 404 page styles */
 .Missing p {
   padding: 1rem;
 }
 
 
-/* Footer Styles */
+/* ========= Footer Styles ========= */
 .Footer {
   padding: 4rem 0;
   display: flex;
@@ -202,9 +242,15 @@ form.email-sign-up {
   padding: 2rem 0 0 1.5rem;
 }
 
-.email-sign-up p{
+.email-sign-up p {
   line-height: 1.3rem;
   margin-bottom: 1.25rem;
+}
+
+/* Hide input label from UI */
+.Footer label {
+  position: absolute;
+  left: -99999px;
 }
 
 .email-sign-up input,
@@ -222,7 +268,7 @@ form.email-sign-up {
 }
 
 .email-sign-up button {
-  background-color: #2569d7;
+  background-color: var(--button);
   color: white;
   padding: 1rem;
   cursor: pointer;
@@ -252,14 +298,33 @@ form.email-sign-up {
 }
 
 
+
+
+
+
 /* ==== TABLET MEDIA QUERIES ===== */
 @media (max-width: 700px) {
+
+  /* ===== Admin Login Page Styles ====== */
+  .AdminLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Height of background img */
+    height: 700px;
+  }
+
+  .login-wrapper {
+    position: static;
+  }
+
+  /* ===== Footer Styles ====== */
   .top-footer-section {
     display: flex;
     flex-direction: column;
   }
 
-  .top-footer-section > div {
+  .top-footer-section>div {
     margin-bottom: 1.75rem;
   }
 
@@ -283,10 +348,25 @@ form.email-sign-up {
   .email-sign-up input::placeholder {
     color: white;
   }
+
+  .bottom-footer-section {
+    justify-content: center;
+  }
 }
 
 /* ==== MOBILE MEDIA QUERIES ===== */
 @media (max-width: 480px) {
+
+  /* ===== Admin Login Page Styles ====== */
+  .AdminLogin {
+    /* Height of background img */
+    height: 600px;
+  }
+
+  .login-wrapper {
+    margin: 1rem;
+  }
+
   .admin-wrapper svg {
     font-size: 2rem;
   }
@@ -295,6 +375,7 @@ form.email-sign-up {
     margin: 0;
   }
 
+  /* ===== Footer Styles ====== */
   .bottom-footer-section .bottom-links {
     flex-direction: column;
     align-items: flex-start;

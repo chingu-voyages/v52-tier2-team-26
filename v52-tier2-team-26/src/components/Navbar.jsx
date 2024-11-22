@@ -1,9 +1,10 @@
 import { FaRegQuestionCircle, FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
-    // Using 480px as the window size for mobile devices
-  const mobileMenu = window.innerWidth <= 480 ? true : false;
+  // Using 480px as the window size for mobile devices
+  const isMobileDevice = useMediaQuery({ maxWidth: 480 });
 
   return (
     <nav className="Nav wrapper">
@@ -13,7 +14,7 @@ const Navbar = () => {
       <div className="admin-wrapper">
         {/* TO DO: Add link to icon to FAQ page */}
         <FaRegQuestionCircle />
-        {mobileMenu ? (
+        {isMobileDevice ? (
           <Link to="login">
             <FaUserCircle className="admin-icon" />
           </Link>

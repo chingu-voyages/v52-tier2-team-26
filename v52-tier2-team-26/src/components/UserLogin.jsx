@@ -20,13 +20,13 @@ const UserLogin = () => {
     }
   };
 
-  const logOut = () => {
-    localStorage.setItem("currentUser", null);
-  };
+  // const logOut = () => {
+  //   localStorage.setItem("currentUser", null);
+  // };
 
-  console.log(user);
+  // console.log(user);
 
-  console.log(loggedIn);
+  // console.log(loggedIn);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -37,21 +37,25 @@ const UserLogin = () => {
 
   return (
     <main className="AdminLogin">
-      <p>Welcome to the Administrator Portal!<br /> 
-      You can login to view upcoming solar appointments using your <b>city hall employee email address</b>.</p>
-      <form onSubmit={handleLoginSubmit}>
-        <label>Enter Email</label>
-        <input
-          id="email"
-          type="text"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <button>Submit</button>
-      </form>
-      {/* <button onClick={logOut}>Log-out</button> */}
-      {loggedIn === true ? <RequestList /> : false}
+        <div className="login-wrapper">
+          <h2>Login to your account</h2>
+          <p>Login to view upcoming solar appointments using your <b>city hall employee email address</b>.
+          </p>
+          <form onSubmit={handleLoginSubmit}>
+            <label>Email Address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="john.doe@cityhall.com"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button>Log in</button>
+          </form>
+          <p className="no-account">No account yet? Contact city hall to ask about becoming a community partner.</p>
+          {/* <button onClick={logOut}>Log-out</button> */}
+          {loggedIn === true ? <RequestList /> : false}
+        </div>
     </main>
   );
 };
