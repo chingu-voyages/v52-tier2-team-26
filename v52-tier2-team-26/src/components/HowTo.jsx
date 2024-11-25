@@ -1,4 +1,5 @@
 import React from "react";
+import Reviews from "./Reviews";
 import "../styling/howto.css";
 
 const HowTo = () => {
@@ -146,9 +147,7 @@ const HowTo = () => {
           </div>
         </div>
       </div>
-      <div className="reviews-wrapper">
-        <h1>[Reviews]</h1>
-      </div>
+      <Reviews />
     </div>
   );
 };
