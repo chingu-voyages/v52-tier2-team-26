@@ -40,3 +40,4 @@ coding!
 - Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
 - Lisa Rexroad: [GitHub](https://github.com/lrexroad) / [LinkedIn](https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/)
 - Patrick Pate:  [GitHub](https://github.com/Patpate89)) / [LinkedIn](https://www.linkedin.com/in/patrick-pate)
+- Teresa Green:  [GitHub](https://github.com/Tegsy)) / [LinkedIn](https://www.linkedin.com/in/t-g-78b60b5/)
