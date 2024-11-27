@@ -5,12 +5,13 @@
 /* TOGETHER TOP SECTION -- First Section */
 .together-wrapper {
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
   width: 90%;
 }
 
 .why-statement {
   font-size: 1.8vh;
+  text-transform: uppercase;
   padding: 0.75rem 0 1rem 0;
   font-weight: bold;
   color: dodgerblue;
@@ -81,101 +82,83 @@
 }
 
 
-/* PURPOSE - Second Section */
+/* PURPOSE SECTION - Second Section */
 .purpose-wrapper {
-  background-color: rgb(243, 243, 243);
-  margin-top: 2vh;
-  margin-left: 8vw;
-  margin-right: 8vw;
-  padding: 50px;
+  width: 90%;
+  margin: 6rem auto 6rem auto;
+  /* margin-left: 8vw;
+  margin-right: 8vw; */
+  /* padding: 50px; */
 }
 
 .purpose-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-left: 5vw;
+  /* margin-left: 5vw;
   margin-right: 5vw;
-  margin-top: 0vh;
-  background-color: #159461;
+  margin-top: 0vh; */
+  background-color: var(--background);
 }
 
-.save-div {
-}
-
-.save-info {
-  text-align: left;
-  margin-left: 1vw;
-}
-.save-img {
-  display: flex;
-  margin-top: 1vh;
-  margin-left: 1vw;
-  height: 24vh;
-  width: 21vw;
-}
-.save-title {
-  font-size: 0.9vw;
-  color: rgb(255, 217, 2);
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.save-desc {
-  width: 20vw;
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
-}
-.protect-div {
-}
-.protect-info {
-  text-align: left;
-}
-.protect-img {
-  display: flex;
-  margin-top: 1vh;
-  height: 24vh;
-  width: 21vw;
-}
-.protect-title {
-  font-size: 0.9vw;
-  color: rgb(255, 217, 2);
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.protect-desc {
-  width: 20vw;
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
-}
+.save-div,
+.protect-div,
 .independence-div {
+  width: 34%;
+  padding: 1rem;
+  min-width: 0;
 }
+
+.save-img {
+  /* margin-top: 1vh;
+  margin-left: 1vw; */
+  /* height: 24vh; */
+  /* width: 21vw; */
+  background-image: url("https://www.incharge.org/wp-content/uploads/2015/06/Save-Money-Energy.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+.save-title,
+.protect-title,
+.independence-title {
+  font-size: 1vw;
+  color: rgb(255, 217, 2);
+  font-weight: 400;
+  padding: 0.75rem 0 0.5rem 0;
+  letter-spacing: 1px;
+}
+
+.save-desc,
+.protect-desc,
+.independence-desc {
+  font-size: 0.9vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+
+.protect-img {
+  /* display: flex;
+  margin-top: 1vh;
+  height: 24vh;
+  width: 21vw; */
+  background-image: url("https://thumbs.dreamstime.com/b/forest-trees-light-concepts-environmental-conservation-global-warming-plant-growing-inside-lamp-bul-bulb-over-125263650.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
 .independence-img {
-  display: flex;
+  /* display: flex;
   margin-top: 1vh;
   margin-right: 1vw;
   height: 24vh;
-  width: 21vw;
+  width: 21vw; */
+  background-image: url("https://blog.feniceenergy.com/wp-content/uploads/2024/04/solar-home-lighting-system.jpg");
+  background-size: cover;
+  height: 300px;
 }
-.independence-info {
-  text-align: left;
-}
-.independence-title {
-  font-size: 0.9vw;
-  color: rgb(255, 217, 2);
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.independence-desc {
-  width: 20vw;
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
-}
+
 
 /* PROCESS */
-
 .process-wrapper {
   background-color: rgb(243, 243, 243);
   margin-top: 2vh;
