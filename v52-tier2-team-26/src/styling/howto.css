@@ -158,122 +158,108 @@
 }
 
 
-/* PROCESS */
+/* PROCESS Section - Section 3 */
 .process-wrapper {
-  background-color: rgb(243, 243, 243);
-  margin-top: 2vh;
+  width: 90%;
+  margin: 0 auto;
+  /* margin-top: 2vh;
   margin-left: 8vw;
   margin-right: 8vw;
-  padding: 50px;
+  padding: 50px; */
 }
 
 .process-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  /* margin-left: 5vw;
+  margin-right: 5vw; */
 }
 
-.path-div {
-  flex: 1.5;
-  text-align: left;
+.path-div,
+.steps-div {
+  width: 40%;
 }
 
 .path-title {
-  width: 30vw;
-  font-size: 2vw;
-  margin-top: 0vh;
-  margin-bottom: 0vh;
+  font-size: 2.25vw;
 }
+
 .path-desc {
-  width: 25vw;
-  font-size: 1.4vh;
-  margin-bottom: 3vh;
+  font-size: 1.75vh;
+  margin: 1.5vh 0 3vh 0;
   color: rgb(90, 90, 90);
   letter-spacing: 1px;
+  line-height: 1.5rem;
 }
+
 .path-img {
-  display: flex;
-  height: 26vh;
-  width: 24vw;
+  background-image: url("https://img.freepik.com/premium-photo/cartoon-family-standing-front-house-with-solar-panels-roof-generative-ai_958192-26570.jpg");
+  background-size: cover;
+  height: 300px;
 }
 
+/* STEPS */
 .steps-div {
-  flex: 1;
-  text-align: left;
-  background-color: #159461;
+  background-color: var(--background);
+  position: relative;
 }
 
-.steps-contact {
+.steps-contact,
+.steps-audit {
   margin-bottom: 4vh;
 }
-.steps-contact-title {
-  height: 5vh;
+
+.steps-contact-title,
+.steps-audit-title,
+.steps-recommend-title {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
 }
 
 .steps-number {
-  font-size: 0.8vw;
-  text-align: center;
+  font-size: 0.9rem;
   margin-left: 0;
-  padding: 10px;
-  width: 1.5vw;
-  border-radius: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
   background-color: white;
 }
+
 .steps-title {
-  font-size: 0.9vw;
+  font-size: 1rem;
   margin-left: 1vw;
   color: rgb(255, 217, 2);
   font-weight: 600;
   letter-spacing: 1px;
 }
+
 .steps-desc {
-  margin-top: 0vh;
-  margin-bottom: 0vh;
-  width: 22vw;
+  width: 80%;
   margin-left: 3.5vw;
-  font-size: 0.7vw;
+  font-size: 1rem;
   color: rgb(238, 238, 238);
   letter-spacing: 1px;
 }
-.steps-audit {
-  margin-bottom: 4vh;
-}
-.steps-audit-title {
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.steps-recommend {
-}
-.steps-recommend-title {
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
+/* 
 .qualify-div {
-  height: 9vh;
-  display: flex;
-  text-align: center;
-  align-items: end;
-}
+  position: absolute;
+} */
+
 .qualify-button {
-  height: 4vh;
-  font-size: 0.7vw;
+  position: absolute;
+  bottom: 0;
+  /* height: 5vh; */
+  font-size: 1vw;
   border: transparent;
   border-radius: 2px;
   color: white;
   cursor: pointer;
-  padding: 10px;
+  padding: 12px 15px;
   background-color: rgb(53, 53, 233);
 }
+
+
 
 /* REVIEWS */
 

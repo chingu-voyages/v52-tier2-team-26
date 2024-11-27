@@ -121,6 +121,7 @@ svg {
 /* ===== Admin Login Page Styles ====== */
 .AdminLogin {
   background: url("../src/images/login-img.png");
+  background-size: cover;
   position: relative;
   height: 800px;
 }

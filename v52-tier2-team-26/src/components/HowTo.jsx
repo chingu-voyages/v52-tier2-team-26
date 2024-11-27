@@ -90,11 +90,7 @@ const HowTo = () => {
               simple steps to get started, receive personalized recommendations,
               and explore your options with no obligation.
             </p>
-            <img
-              src="https://img.freepik.com/premium-photo/cartoon-family-standing-front-house-with-solar-panels-roof-generative-ai_958192-26570.jpg"
-              className="path-img"
-              alt="A family walking into their house with solar panels"
-            />
+            <div className="path-img"></div>
           </div>
           <div className="steps-div">
             <div className="steps-contact">
