@@ -4,7 +4,7 @@ import "../styling/howto.css";
 
 const HowTo = () => {
   return (
-    <div>
+    <section className="HowTo">
       <div className="together-wrapper">
         <p className="why-statement">WHY COMPANY A</p>
         <h1 className="together-statement">
@@ -48,6 +48,7 @@ const HowTo = () => {
             <img
               src="https://www.incharge.org/wp-content/uploads/2015/06/Save-Money-Energy.jpg"
               className="save-img"
+              alt="Man reading a paper about sales."
             />
             <div className="save-info">
               <h3 className="save-title">Save on Energy Bills</h3>
@@ -62,6 +63,7 @@ const HowTo = () => {
             <img
               src="https://thumbs.dreamstime.com/b/forest-trees-light-concepts-environmental-conservation-global-warming-plant-growing-inside-lamp-bul-bulb-over-125263650.jpg"
               className="protect-img"
+              alt="People giving a thumbs up"
             />
             <div className="protect-info">
               <h3 className="protect-title">Help Protect the Planet</h3>
@@ -76,6 +78,7 @@ const HowTo = () => {
             <img
               src="https://blog.feniceenergy.com/wp-content/uploads/2024/04/solar-home-lighting-system.jpg"
               className="independence-img"
+              alt="A house with solar panels"
             />
             <div className="independence-info">
               <h3 className="independence-title">Energy Independence</h3>
@@ -102,6 +105,7 @@ const HowTo = () => {
             <img
               src="https://img.freepik.com/premium-photo/cartoon-family-standing-front-house-with-solar-panels-roof-generative-ai_958192-26570.jpg"
               className="path-img"
+              alt="A family walking into their house with solar panels"
             />
           </div>
           <div className="steps-div">
@@ -148,7 +152,7 @@ const HowTo = () => {
         </div>
       </div>
       <Reviews />
-    </div>
+    </section>
   );
 };
 
