@@ -56,7 +56,7 @@
   font-size: 0.8vw;
   color: rgb(255, 217, 2);
   padding-bottom: 0.5rem;
-  font-weight: 200;
+  font-weight: bold;
   letter-spacing: 1px;
 }
 
@@ -202,6 +202,7 @@
 .steps-div {
   background-color: var(--background);
   position: relative;
+  padding-bottom: 5rem;
 }
 
 .steps-contact,
@@ -219,7 +220,7 @@
 }
 
 .steps-number {
-  font-size: 0.9rem;
+  font-size: 1.2vw;
   margin-left: 0;
   padding: 5px 10px;
   border-radius: 6px;
@@ -227,7 +228,7 @@
 }
 
 .steps-title {
-  font-size: 1rem;
+  font-size: 1.3vw;
   margin-left: 1vw;
   color: rgb(255, 217, 2);
   font-weight: 600;
@@ -237,10 +238,11 @@
 .steps-desc {
   width: 80%;
   margin-left: 3.5vw;
-  font-size: 1rem;
+  font-size: 1.2vw;
   color: rgb(238, 238, 238);
   letter-spacing: 1px;
 }
+
 /* 
 .qualify-div {
   position: absolute;
@@ -286,6 +288,7 @@
   margin-right: 2vw;
   padding: 0.75rem;
 }
+
 /* 
 .reviews-img-div {
 } */
@@ -317,4 +320,124 @@
 .reviews-job {
   font-size: 0.8vw;
   color: rgb(160, 160, 160);
+}
+
+
+
+/* ===== TABLET STYLES ====== */
+/* Used 900px insteead of 700px as breakpoint in order to optimize font sizes -JJ */
+@media (max-width: 900px) {
+  .together-statement {
+    font-size: 1.5rem;
+    width: 80%;
+  }
+
+  .residents-name,
+  .partners-name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .residents-title,
+  .partners-title {
+    font-size: 0.9rem;
+  }
+
+  .residents-desc,
+  .partners-desc,
+  .save-desc,
+  .protect-desc,
+  .independence-desc {
+    font-size: 0.8rem;
+  }
+
+  .purpose-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .save-div,
+  .protect-div,
+  .independence-div {
+    width: 100%;
+  }
+
+  .save-title,
+  .protect-title,
+  .independence-title {
+    font-size: 1rem;
+  }
+
+  .path-title {
+    font-size: 1.2rem;
+  }
+
+  .path-desc {
+    font-size: 1rem;
+  }
+
+  .steps-number,
+  .steps-title {
+    font-size: 0.9rem;
+  }
+
+  .steps-desc,
+  .qualify-button {
+    font-size: 0.8rem;
+  }
+
+  .reviews-desc {
+    font-size: 0.65rem;
+  }
+
+  .reviews-name,
+  .reviews-job {
+    font-size: 0.55rem;
+  }
+}
+
+/* ===== MOBILE STYLES ====== */
+@media (max-width: 480px) {
+  .why-statement {
+    font-size: 1rem;
+  }
+
+  .together-statement {
+    width: 100%;
+  }
+
+  .residents-parters-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-container {
+    flex-direction: column;
+  }
+
+  .path-div,
+  .steps-div {
+    width: 100%;
+  }
+
+  .path-title {
+    font-size: 1.5rem;
+  }
+
+  .path-img {
+    margin-bottom: 1rem;
+  }
+
+  .reviews-info {
+    flex-direction: column;
+  }
+
+  .reviews-img {
+    height: 5vh;
+    margin-bottom: 0.5rem;
+  }
+
+  .reviews-desc {
+    width: 150px;
+  }
 }

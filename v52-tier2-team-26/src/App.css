@@ -377,6 +377,10 @@ form.email-sign-up {
   }
 
   /* ===== Footer Styles ====== */
+  .bottom-footer-section {
+    justify-content: flex-start;
+  }
+
   .bottom-footer-section .bottom-links {
     flex-direction: column;
     align-items: flex-start;

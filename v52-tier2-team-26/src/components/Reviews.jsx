@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+// import { useRef, useState } from "react";
 import reviews from "../data/reviews";
 
 const Reviews = () => {
