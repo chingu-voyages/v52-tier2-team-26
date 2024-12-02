@@ -1,38 +1,43 @@
+.HowTo {
+  background-color: var(--home-background);
+}
+
+/* TOGETHER TOP SECTION -- First Section */
 .together-wrapper {
-  background-color: rgb(243, 243, 243);
-  margin-left: 8vw;
-  margin-right: 8vw;
-  padding: 50px;
+  margin: 0 auto;
+  padding: 1rem 0 0 0;
+  width: 90%;
 }
 
 .why-statement {
-  height: 1vh;
-  text-align: left;
-  font-size: 0.9vw;
-  margin-left: 5vw;
+  font-size: 1.8vh;
+  text-transform: uppercase;
+  padding: 0.75rem 0 1rem 0;
+  font-weight: bold;
   color: dodgerblue;
 }
 
 .together-statement {
-  text-align: left;
-  margin-left: 5vw;
+  /* text-align: left; */
+  /* margin-left: 5vw; */
   font-size: 2vw;
   width: 35vw;
 }
 
 /* RESIDENTS */
-
 .residents-parters-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
   margin-top: 4vh;
 }
 
-.residents-div {
+.residents-div,
+.partners-div {
   flex: 1;
-  background-color: #159461;
-  margin-left: 5vw;
-  margin-right: 1vw;
+  background-color: var(--background);
+  /* margin-left: 5vw;
+  margin-right: 1vw; */
 }
 
 .residents-img {
@@ -41,335 +46,398 @@
   background-size: cover;
 }
 
-.residents-info {
-  text-align: left;
+.residents-info,
+.partners-info {
   padding: 30px;
 }
 
-.residents-name {
-  height: 0.5vh;
-  font-size: 0.6vw;
+.residents-name,
+.partners-name {
+  font-size: 0.8vw;
   color: rgb(255, 217, 2);
-  font-weight: 200;
+  padding-bottom: 0.5rem;
+  font-weight: bold;
   letter-spacing: 1px;
 }
 
-.residents-title {
-  font-size: 0.9vw;
+.residents-title,
+.partners-title {
+  font-size: 1.2vw;
   color: rgb(32, 54, 54);
+  padding-bottom: 0.5rem;
 }
 
-.residents-desc {
-  font-size: 0.7vw;
+.residents-desc,
+.partners-desc {
+  font-size: 0.9vw;
   color: rgb(238, 238, 238);
   letter-spacing: 1px;
 }
 
-/* PARTNERS */
-
-.partners-div {
-  flex: 1;
-  background-color: #159461;
-  margin-right: 5vw;
-  margin-left: 1vw;
-}
-
+/* PARTNERS IMG */
 .partners-img {
   height: 40vh;
   background-image: url(https://media.istockphoto.com/id/1346125238/photo/group-of-successful-business-people-showing-thumbs-up.jpg?s=612x612&w=0&k=20&c=x1TjuZu43WLjL6XBn2wvbECou2wHRHg4L8WoUPsyihE=);
   background-size: cover;
 }
 
-.partners-info {
-  text-align: left;
-  padding: 30px;
-}
-.partners-name {
-  height: 0.5vh;
-  font-size: 0.6vw;
-  color: rgb(255, 217, 2);
-  font-weight: 200;
-  letter-spacing: 1px;
-}
-.partners-title {
-  font-size: 0.9vw;
-  color: rgb(32, 54, 54);
-}
-.partners-desc {
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
-}
 
-/* PURPOSE */
-
+/* PURPOSE SECTION - Second Section */
 .purpose-wrapper {
-  background-color: rgb(243, 243, 243);
-  margin-top: 2vh;
-  margin-left: 8vw;
-  margin-right: 8vw;
-  padding: 50px;
+  width: 90%;
+  margin: 6rem auto 6rem auto;
+  /* margin-left: 8vw;
+  margin-right: 8vw; */
+  /* padding: 50px; */
 }
 
 .purpose-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-left: 5vw;
+  /* margin-left: 5vw;
   margin-right: 5vw;
-  margin-top: 0vh;
-  background-color: #159461;
+  margin-top: 0vh; */
+  background-color: var(--background);
 }
 
-.save-div {
-}
-
-.save-info {
-  text-align: left;
-  margin-left: 1vw;
-}
-.save-img {
-  display: flex;
-  margin-top: 1vh;
-  margin-left: 1vw;
-  height: 24vh;
-  width: 21vw;
-}
-.save-title {
-  font-size: 0.9vw;
-  color: rgb(255, 217, 2);
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.save-desc {
-  width: 20vw;
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
-}
-.protect-div {
-}
-.protect-info {
-  text-align: left;
-}
-.protect-img {
-  display: flex;
-  margin-top: 1vh;
-  height: 24vh;
-  width: 21vw;
-}
-.protect-title {
-  font-size: 0.9vw;
-  color: rgb(255, 217, 2);
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.protect-desc {
-  width: 20vw;
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
-}
+.save-div,
+.protect-div,
 .independence-div {
+  width: 34%;
+  padding: 1rem;
+  min-width: 0;
 }
+
+.save-img {
+  /* margin-top: 1vh;
+  margin-left: 1vw; */
+  /* height: 24vh; */
+  /* width: 21vw; */
+  background-image: url("https://www.incharge.org/wp-content/uploads/2015/06/Save-Money-Energy.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+.save-title,
+.protect-title,
+.independence-title {
+  font-size: 1vw;
+  color: rgb(255, 217, 2);
+  font-weight: 400;
+  padding: 0.75rem 0 0.5rem 0;
+  letter-spacing: 1px;
+}
+
+.save-desc,
+.protect-desc,
+.independence-desc {
+  font-size: 0.9vw;
+  color: rgb(238, 238, 238);
+  letter-spacing: 1px;
+}
+
+.protect-img {
+  /* display: flex;
+  margin-top: 1vh;
+  height: 24vh;
+  width: 21vw; */
+  background-image: url("https://thumbs.dreamstime.com/b/forest-trees-light-concepts-environmental-conservation-global-warming-plant-growing-inside-lamp-bul-bulb-over-125263650.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
 .independence-img {
-  display: flex;
+  /* display: flex;
   margin-top: 1vh;
   margin-right: 1vw;
   height: 24vh;
-  width: 21vw;
-}
-.independence-info {
-  text-align: left;
-}
-.independence-title {
-  font-size: 0.9vw;
-  color: rgb(255, 217, 2);
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.independence-desc {
-  width: 20vw;
-  font-size: 0.7vw;
-  color: rgb(238, 238, 238);
-  letter-spacing: 1px;
+  width: 21vw; */
+  background-image: url("https://blog.feniceenergy.com/wp-content/uploads/2024/04/solar-home-lighting-system.jpg");
+  background-size: cover;
+  height: 300px;
 }
 
-/* PROCESS */
 
+/* PROCESS Section - Section 3 */
 .process-wrapper {
-  background-color: rgb(243, 243, 243);
-  margin-top: 2vh;
+  width: 90%;
+  margin: 0 auto;
+  /* margin-top: 2vh;
   margin-left: 8vw;
   margin-right: 8vw;
-  padding: 50px;
+  padding: 50px; */
 }
 
 .process-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  /* margin-left: 5vw;
+  margin-right: 5vw; */
 }
 
-.path-div {
-  flex: 1.5;
-  text-align: left;
+.path-div,
+.steps-div {
+  width: 40%;
 }
 
 .path-title {
-  width: 30vw;
-  font-size: 2vw;
-  margin-top: 0vh;
-  margin-bottom: 0vh;
+  font-size: 2.25vw;
 }
+
 .path-desc {
-  width: 25vw;
-  font-size: 1.4vh;
-  margin-bottom: 3vh;
+  font-size: 1.75vh;
+  margin: 1.5vh 0 3vh 0;
   color: rgb(90, 90, 90);
   letter-spacing: 1px;
+  line-height: 1.5rem;
 }
+
 .path-img {
-  display: flex;
-  height: 26vh;
-  width: 24vw;
+  background-image: url("https://img.freepik.com/premium-photo/cartoon-family-standing-front-house-with-solar-panels-roof-generative-ai_958192-26570.jpg");
+  background-size: cover;
+  height: 300px;
 }
 
+/* STEPS */
 .steps-div {
-  flex: 1;
-  text-align: left;
-  background-color: #159461;
+  background-color: var(--background);
+  position: relative;
+  padding-bottom: 5rem;
 }
 
-.steps-contact {
+.steps-contact,
+.steps-audit {
   margin-bottom: 4vh;
 }
-.steps-contact-title {
-  height: 5vh;
+
+.steps-contact-title,
+.steps-audit-title,
+.steps-recommend-title {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
 }
 
 .steps-number {
-  font-size: 0.8vw;
-  text-align: center;
+  font-size: 1.2vw;
   margin-left: 0;
-  padding: 10px;
-  width: 1.5vw;
-  border-radius: 10px;
+  padding: 5px 10px;
+  border-radius: 6px;
   background-color: white;
 }
+
 .steps-title {
-  font-size: 0.9vw;
+  font-size: 1.3vw;
   margin-left: 1vw;
   color: rgb(255, 217, 2);
   font-weight: 600;
   letter-spacing: 1px;
 }
+
 .steps-desc {
-  margin-top: 0vh;
-  margin-bottom: 0vh;
-  width: 22vw;
+  width: 80%;
   margin-left: 3.5vw;
-  font-size: 0.7vw;
+  font-size: 1.2vw;
   color: rgb(238, 238, 238);
   letter-spacing: 1px;
 }
-.steps-audit {
-  margin-bottom: 4vh;
-}
-.steps-audit-title {
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.steps-recommend {
-}
-.steps-recommend-title {
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 
+/* 
 .qualify-div {
-  height: 9vh;
-  display: flex;
-  text-align: center;
-  align-items: end;
-}
+  position: absolute;
+} */
+
 .qualify-button {
-  height: 4vh;
-  font-size: 0.7vw;
+  position: absolute;
+  bottom: 0;
+  /* height: 5vh; */
+  font-size: 1vw;
   border: transparent;
   border-radius: 2px;
   color: white;
   cursor: pointer;
-  padding: 10px;
+  padding: 12px 15px;
   background-color: rgb(53, 53, 233);
 }
 
-/* REVIEWS */
 
+
+/* ==== REVIEWS Component ==== */
 .reviews-wrapper {
-  background-color: rgb(243, 243, 243);
-  margin-top: 2vh;
-  margin-left: 8vw;
+  background-color: var(--home-background);
+  width: 100%;
+  margin: 6rem auto 0 auto;
+  /* margin-left: 8vw;
   margin-right: 8vw;
-  padding: 50px;
+  padding: 50px; */
   overflow-x: auto;
 }
 
 .reviews-container {
-  height: 20vh;
+  padding-bottom: 2rem;
   float: left;
   display: flex;
 }
 
 .reviews-info {
   display: flex;
-  flex-direction: row;
   background-color: white;
-  border-radius: 10px;
-  width: 25vw;
+  border-radius: 6px;
+  /* width: 25vw; */
   margin-right: 2vw;
-  padding: 0.2vw;
+  padding: 0.75rem;
 }
 
+/* 
 .reviews-img-div {
-}
+} */
 
 .reviews-img {
   height: 6vh;
-  width: 3.8vw;
-  margin-left: 1vw;
-  margin-top: 1vh;
+  /* width: 3.8vw; */
+  /* margin-left: 1vw;
+  margin-top: 1vh; */
   border-radius: 50%;
 }
 
 .reviews-content-div {
   margin-left: 1vw;
-  align-items: start;
-  text-align: left;
 }
 
 .reviews-desc {
   width: 18vw;
-  font-size: 0.8vw;
+  font-size: 1vw;
   font-weight: 600;
 }
+
 .reviews-name {
   margin-top: 4vh;
-  margin-bottom: 0vh;
   font-size: 0.8vw;
   font-weight: 600;
 }
+
 .reviews-job {
   font-size: 0.8vw;
-  margin-top: 0vh;
   color: rgb(160, 160, 160);
+}
+
+
+
+/* ===== TABLET STYLES ====== */
+/* Used 900px insteead of 700px as breakpoint in order to optimize font sizes -JJ */
+@media (max-width: 900px) {
+  .together-statement {
+    font-size: 1.5rem;
+    width: 80%;
+  }
+
+  .residents-name,
+  .partners-name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .residents-title,
+  .partners-title {
+    font-size: 0.9rem;
+  }
+
+  .residents-desc,
+  .partners-desc,
+  .save-desc,
+  .protect-desc,
+  .independence-desc {
+    font-size: 0.8rem;
+  }
+
+  .purpose-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .save-div,
+  .protect-div,
+  .independence-div {
+    width: 100%;
+  }
+
+  .save-title,
+  .protect-title,
+  .independence-title {
+    font-size: 1rem;
+  }
+
+  .path-title {
+    font-size: 1.2rem;
+  }
+
+  .path-desc {
+    font-size: 1rem;
+  }
+
+  .steps-number,
+  .steps-title {
+    font-size: 0.9rem;
+  }
+
+  .steps-desc,
+  .qualify-button {
+    font-size: 0.8rem;
+  }
+
+  .reviews-desc {
+    font-size: 0.65rem;
+  }
+
+  .reviews-name,
+  .reviews-job {
+    font-size: 0.55rem;
+  }
+}
+
+/* ===== MOBILE STYLES ====== */
+@media (max-width: 480px) {
+  .why-statement {
+    font-size: 1rem;
+  }
+
+  .together-statement {
+    width: 100%;
+  }
+
+  .residents-parters-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-container {
+    flex-direction: column;
+  }
+
+  .path-div,
+  .steps-div {
+    width: 100%;
+  }
+
+  .path-title {
+    font-size: 1.5rem;
+  }
+
+  .path-img {
+    margin-bottom: 1rem;
+  }
+
+  .reviews-info {
+    flex-direction: column;
+  }
+
+  .reviews-img {
+    height: 5vh;
+    margin-bottom: 0.5rem;
+  }
+
+  .reviews-desc {
+    width: 150px;
+  }
 }

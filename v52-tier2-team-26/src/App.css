@@ -1,4 +1,5 @@
 :root {
+  --home-background: rgb(243, 243, 243);
   --background: #008C66;
   --accent: #FBBF24;
   --button: #3A75BB;
@@ -33,14 +34,13 @@ body {
 
 .App {
   width: 100%;
-  max-width: 1400px;
+  /* max-width: 1400px; */
   /* height: 100vh; */
   /* Removed for now to adjust other Component heights */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0px 0px 15px gray;
   /* transition: all .5s */
 }
 
@@ -121,6 +121,7 @@ svg {
 /* ===== Admin Login Page Styles ====== */
 .AdminLogin {
   background: url("../src/images/login-img.png");
+  background-size: cover;
   position: relative;
   height: 800px;
 }
@@ -376,6 +377,10 @@ form.email-sign-up {
   }
 
   /* ===== Footer Styles ====== */
+  .bottom-footer-section {
+    justify-content: flex-start;
+  }
+
   .bottom-footer-section .bottom-links {
     flex-direction: column;
     align-items: flex-start;
