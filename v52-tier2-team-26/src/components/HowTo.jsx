@@ -4,9 +4,9 @@ import "../styling/howto.css";
 
 const HowTo = () => {
   return (
-    <div>
+    <section className="HowTo">
       <div className="together-wrapper">
-        <p className="why-statement">WHY COMPANY A</p>
+        <p className="why-statement">Why company a</p>
         <h1 className="together-statement">
           Together We Shine: Serving Residents & Community Partners
         </h1>
@@ -45,10 +45,7 @@ const HowTo = () => {
       <div className="purpose-wrapper">
         <div className="purpose-container">
           <div className="save-div">
-            <img
-              src="https://www.incharge.org/wp-content/uploads/2015/06/Save-Money-Energy.jpg"
-              className="save-img"
-            />
+            <div className="save-img"></div>
             <div className="save-info">
               <h3 className="save-title">Save on Energy Bills</h3>
               <p className="save-desc">
@@ -59,10 +56,7 @@ const HowTo = () => {
             </div>
           </div>
           <div className="protect-div">
-            <img
-              src="https://thumbs.dreamstime.com/b/forest-trees-light-concepts-environmental-conservation-global-warming-plant-growing-inside-lamp-bul-bulb-over-125263650.jpg"
-              className="protect-img"
-            />
+            <div className="protect-img"></div>
             <div className="protect-info">
               <h3 className="protect-title">Help Protect the Planet</h3>
               <p className="protect-desc">
@@ -73,10 +67,7 @@ const HowTo = () => {
             </div>
           </div>
           <div className="independence-div">
-            <img
-              src="https://blog.feniceenergy.com/wp-content/uploads/2024/04/solar-home-lighting-system.jpg"
-              className="independence-img"
-            />
+            <div className="independence-img"></div>
             <div className="independence-info">
               <h3 className="independence-title">Energy Independence</h3>
               <p className="independence-desc">
@@ -99,10 +90,7 @@ const HowTo = () => {
               simple steps to get started, receive personalized recommendations,
               and explore your options with no obligation.
             </p>
-            <img
-              src="https://img.freepik.com/premium-photo/cartoon-family-standing-front-house-with-solar-panels-roof-generative-ai_958192-26570.jpg"
-              className="path-img"
-            />
+            <div className="path-img"></div>
           </div>
           <div className="steps-div">
             <div className="steps-contact">
@@ -148,7 +136,7 @@ const HowTo = () => {
         </div>
       </div>
       <Reviews />
-    </div>
+    </section>
   );
 };
 

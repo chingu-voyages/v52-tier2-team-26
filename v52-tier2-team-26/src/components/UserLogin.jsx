@@ -42,7 +42,7 @@ const UserLogin = () => {
           <p>Login to view upcoming solar appointments using your <b>city hall employee email address</b>.
           </p>
           <form onSubmit={handleLoginSubmit}>
-            <label>Email Address</label>
+            <label for="email">Email Address</label>
             <input
               id="email"
               type="email"

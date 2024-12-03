@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+// import { useRef, useState } from "react";
 import reviews from "../data/reviews";
 
 const Reviews = () => {
@@ -8,7 +8,7 @@ const Reviews = () => {
         {reviews.map((item) => (
           <div key={item.id} className="reviews-info">
             <div className="reviews-img-div">
-              <img className="reviews-img" src={item.imgURL} />
+              <img className="reviews-img" src={item.imgURL} alt="Avatar of reviewer"/>
             </div>
             <div className="reviews-content-div">
               <p className="reviews-desc">"{item.desc}"</p>

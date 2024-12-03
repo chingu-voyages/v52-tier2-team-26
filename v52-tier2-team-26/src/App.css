@@ -1,4 +1,5 @@
 :root {
+  --home-background: rgb(243, 243, 243);
   --background: #008C66;
   --accent: #FBBF24;
   --button: #3A75BB;
@@ -33,14 +34,13 @@ body {
 
 .App {
   width: 100%;
-  max-width: 1400px;
+  /* max-width: 1400px; */
   /* height: 100vh; */
   /* Removed for now to adjust other Component heights */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0px 0px 15px gray;
   /* transition: all .5s */
 }
 
@@ -110,7 +110,8 @@ svg {
 /* GLOBAL Component styles */
 .Home,
 .Missing,
-.AdminLogin {
+.AdminLogin,
+.SolarForm {
   width: 100%;
   flex-grow: 1;
   /* grow vertically to fill space */
@@ -121,6 +122,7 @@ svg {
 /* ===== Admin Login Page Styles ====== */
 .AdminLogin {
   background: url("../src/images/login-img.png");
+  background-size: cover;
   position: relative;
   height: 800px;
 }
@@ -184,6 +186,108 @@ p.no-account {
   line-height: 1.4rem;
 }
 
+/* ===== Solar Form Page Styles ====== */
+.SolarForm {
+  background-color: var(--home-background);
+  padding-top: 3rem;
+}
+
+.form-wrapper {
+  display: flex;
+}
+
+.form,
+.form-imgs {
+  width: 50%;
+}
+
+.building-img {
+  height: 800px;
+  /* width: 100%; */
+  border: 2px solid red;
+}
+
+.form,
+.request-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+  width: 60%;
+  align-self: center;
+  margin: 6rem 0;
+}
+
+.heading-text h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.heading-text p {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: rgb(109, 106, 106);
+}
+
+/* Request Form Styles */
+.request-form h3 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.request-form p {
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+}
+
+.request-form label {
+  color: var(--background);
+  margin-bottom: 0.4rem;
+}
+
+.request-form input,
+.request-form select {
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.request-form input,
+.request-form select,
+.request-form button {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgb(186, 185, 185);
+}
+
+.request-form input#date {
+  margin-bottom: 1.5rem;
+}
+
+.request-form button {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.request-form button[type="submit"] {
+  background-color: var(--button);
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.request-form button:hover {
+  border: 1px solid var(--accent);
+}
+
+.request-form button[type="submit"]:hover {
+  background-color: var(--button-hover);
+}
+
+.cancel:hover {
+  color: white;
+  background-color: darkred;
+}
 
 /* ====== Missing 404 page styles ====== */
 .Missing {
@@ -376,6 +480,10 @@ form.email-sign-up {
   }
 
   /* ===== Footer Styles ====== */
+  .bottom-footer-section {
+    justify-content: flex-start;
+  }
+
   .bottom-footer-section .bottom-links {
     flex-direction: column;
     align-items: flex-start;
