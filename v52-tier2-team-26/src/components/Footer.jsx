@@ -22,15 +22,24 @@ const Footer = () => {
             <a target="blank" href="https://www.linkedin.com/in/patrick-pate">
               Patrick Pate
             </a>
+            <a target="blank" href="https://www.linkedin.com/in/cgoutsou/">
+              Carolina Goutsou
+            </a>
             <a
               target="blank"
               href="https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/"
             >
               Lisa Rexroad
             </a>
-            {/* <a target="blank" href="">Carolina</a>
-            <a target="blank" href="">Val Lysenko</a>
-            <a target="blank" href="">Teresa Green</a> */}
+            <a target="blank" href="https://www.linkedin.com/in/t-g-78b60b5/">
+              Teresa Green
+            </a>
+            <a
+              target="blank"
+              href="https://www.linkedin.com/in/valeriylysenko/"
+            >
+              Val Lysenko
+            </a>
           </div>
           <div className="resident-links">
             <h4>Resident</h4>
