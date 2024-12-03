@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from "./Layout";
 import Missing from "./components/Missing";
 import Home from "./components/Home";
+import SolarForm from "./components/SolarForm";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Layout />} >
             <Route index element={<Home />} />
             <Route path="login" element={<UserLogin />} />
+            <Route path="apply" element={<SolarForm />} />
             <Route path="*" element={<Missing />} />
           </Route>
         </Routes>

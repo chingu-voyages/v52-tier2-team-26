@@ -110,7 +110,8 @@ svg {
 /* GLOBAL Component styles */
 .Home,
 .Missing,
-.AdminLogin {
+.AdminLogin,
+.SolarForm {
   width: 100%;
   flex-grow: 1;
   /* grow vertically to fill space */
@@ -183,6 +184,51 @@ p.no-account {
   text-align: center;
   font-size: 1rem;
   line-height: 1.4rem;
+}
+
+/* ===== Solar Form Page Styles ====== */
+.SolarForm {
+  background-color: var(--home-background);
+  padding-top: 3rem;
+}
+
+.form-wrapper {
+  display: flex;
+}
+
+.form,
+.form-imgs {
+  width: 50%;
+}
+
+.building-img {
+  height: 800px;
+  /* width: 100%; */
+  border: 2px solid red;
+}
+
+.form,
+.request-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+  width: 60%;
+  align-self: center;
+  margin-top: 6rem;
+}
+
+.heading-text h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.heading-text p {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgb(109, 106, 106);
 }
 
 
