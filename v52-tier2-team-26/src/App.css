@@ -1,7 +1,7 @@
 :root {
   --home-background: rgb(243, 243, 243);
   --background: #008C66;
-  --accent: #FBBF24;
+  --accent: #FFB800;
   --button: #3A75BB;
   --button-hover: #2E5E96;
 }
@@ -14,6 +14,7 @@
 
 html {
   font-size: 16px;
+  color: #333333;
 }
 
 body {
@@ -201,12 +202,6 @@ p.no-account {
   width: 50%;
 }
 
-.building-img {
-  height: 800px;
-  /* width: 100%; */
-  border: 2px solid red;
-}
-
 .form,
 .request-form {
   display: flex;
@@ -216,7 +211,7 @@ p.no-account {
 .form-content {
   width: 60%;
   align-self: center;
-  margin: 6rem 0;
+  margin: 5rem 0 6rem 0;
 }
 
 .heading-text h2 {
@@ -273,7 +268,7 @@ p.no-account {
 .request-form button[type="submit"] {
   background-color: var(--button);
   color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .request-form button:hover {
@@ -287,6 +282,17 @@ p.no-account {
 .cancel:hover {
   color: white;
   background-color: darkred;
+}
+
+/* Form graphics styling */
+.building-img {
+  height: 785px;
+  background-image: url(../src/images/building-img.png);
+  background-size: cover;
+}
+
+.form-imgs iframe {
+  margin: 3rem 0 6rem 0;
 }
 
 /* ====== Missing 404 page styles ====== */
@@ -420,6 +426,42 @@ form.email-sign-up {
 
   .login-wrapper {
     position: static;
+  }
+
+  /* ===== Solar Form Page Styles ====== */
+  .form-wrapper {
+    flex-direction: column;
+  }
+
+  .form,
+  .form-imgs {
+    width: 100%;
+  }
+
+  .form {
+    order: 2;
+  }
+
+  .form-imgs {
+    order: 1;
+  }
+
+  .form-content {
+    margin-top: 3.5rem;
+    width: 90%;
+  }
+
+  .heading-text h2 {
+    font-size: 2rem;
+  }
+
+  /* Form graphics styling */
+  .building-img {
+    height: 500px;
+  }
+
+  .form-imgs iframe {
+    display: none;
   }
 
   /* ===== Footer Styles ====== */
