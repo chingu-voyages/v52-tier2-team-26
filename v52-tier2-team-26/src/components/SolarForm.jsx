@@ -53,8 +53,19 @@ const SolarForm = () => {
         </div>
 
         <div className="form-imgs">
-          <div className="building-img">{/* Building image goes here */}</div>
-          <figure>{/* Google map goes here */}</figure>
+          <div className="building-img"></div>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7033.303859259271!2d-118.24563974879914!3d34.05356082842473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c64f3b01358f%3A0x5723556b26dfefac!2sLos%20Angeles%20City%20Hall!5e0!3m2!1sen!2sus!4v1733266312319!5m2!1sen!2sus"
+              title="LA City Hall"
+              width="100%"
+              height="450"
+              style={{border: 0}}
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </figure>
         </div>
       </div>
     </main>
