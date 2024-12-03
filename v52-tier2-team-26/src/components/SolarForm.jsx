@@ -6,7 +6,7 @@ const SolarForm = () => {
           <div className="form-content">
             <div className="heading-text">
               <h2>You're eligible for a free LA Solar Panel Evaluation!</h2>
-              <p>Please complete the form below to get started!</p>
+              <p>Please complete the form below to get started.</p>
             </div>
             <form className="request-form">
               <label for="fname">First Name</label>
@@ -22,7 +22,6 @@ const SolarForm = () => {
               <input
                 id="email"
                 type="email"
-                placeholder="john.doe@cityhall.com"
                 //   onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -42,11 +41,13 @@ const SolarForm = () => {
                 <option value="2PM-4PM">2 PM - 4 PM</option>
               </select>
               <p>
-                Please note that preferred timeslots are requested but not
+                *Please note that preferred timeslots are requested but not
                 garaunteed.
               </p>
 
               <button type="submit">Submit</button>
+              {/* TO DO: create function to set inputs blank & navigate to Home */}
+              <button className="cancel">Cancel Request</button>
             </form>
           </div>
         </div>
