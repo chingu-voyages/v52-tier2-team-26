@@ -308,6 +308,7 @@ p.no-account {
   height: 785px;
   background-image: url(../src/images/building-img.png);
   background-size: cover;
+  border-radius: 6px;
 }
 
 .form-imgs iframe {
