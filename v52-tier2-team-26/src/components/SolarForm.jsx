@@ -1,4 +1,43 @@
+import { useState } from "react";
+import requests from "../data/requests";
+
 const SolarForm = () => {
+  const [requestsList, setRequestsList] = useState([requests]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  // Info gathered from inputs
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [date, setDate] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
+  // TO DO: Need an API call to verify address input
+  const [address, setAddress] = useState("");
+
+  // Update local storage each time requestsLsit changes
+
+  const addNewRequest = () => {
+    const newRequest = {};
+    newRequest.id = new Date().getTime().toString(36);
+    newRequest.name = `${firstName} ${lastName}`;
+    newRequest.email = email;
+    newRequest.phoneNumber = phoneNumber;
+    newRequest.date = date;
+    newRequest.time = preferredTime;
+
+    // TO DO: Integrate address API
+    newRequest.address = address;
+
+    setRequestsList([newRequest, ...requestsList]);
+  };
+  console.log(requestsList);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addNewRequest();
+    setIsSubmitted(true);
+  }
+
   return (
     <main className="SolarForm">
       <div className="wrapper form-wrapper">
@@ -8,33 +47,62 @@ const SolarForm = () => {
               <h2>You're eligible for a free LA Solar Panel Evaluation!</h2>
               <p>Please complete the form below to get started.</p>
             </div>
-            <form className="request-form">
-              <label for="fname">First Name</label>
-              <input id="fname" type="text" required />
+            <form className="request-form" onSubmit={handleSubmit}>
+              <label htmlFor="fname">First Name</label>
+              <input
+                id="fname"
+                type="text"
+                required
+                onChange={(e) => setFirstName(e.target.value)}
+              />
 
-              <label for="lname">Last Name</label>
-              <input id="lname" type="text" required />
+              <label htmlFor="lname">Last Name</label>
+              <input
+                id="lname"
+                type="text"
+                required
+                onChange={(e) => setLastName(e.target.value)}
+              />
 
-              <label for="address">Home Address</label>
-              <input id="address" type="text" required />
+              <label htmlFor="address">Home Address</label>
+              <input
+                id="address"
+                type="text"
+                required
+                onChange={(e) => setAddress(e.target.value)}
+              />
 
-              <label for="email">Email Address</label>
+              <label htmlFor="email">Email Address</label>
               <input
                 id="email"
                 type="email"
-                //   onChange={(e) => setEmail(e.target.value)}
                 required
+                onChange={(e) => setEmail(e.target.value)}
               />
 
-              <label for="phone">Phone Number</label>
-              <input id="phone" type="number" required />
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                id="phone"
+                type="number"
+                required
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
 
               <h3>Choose Your Preferred Timeslot!</h3>
-              <label for="date">Date</label>
-              <input id="date" type="date" required />
+              <label htmlFor="date">Date</label>
+              <input
+                id="date"
+                type="date"
+                required
+                onChange={(e) => setDate(e.target.value)}
+              />
 
-              <label for="timeslot">Timeslot</label>
-              <select name="timeslot" for="timeslot">
+              <label htmlFor="timeslot">Timeslot</label>
+              <select
+                name="timeslot"
+                htmlFor="timeslot"
+                onChange={(e) => setPreferredTime(e.target.value)}
+              >
                 <option value="8AM-10AM">8 AM - 10 AM</option>
                 <option value="10AM-12PM">10 AM - 12 PM</option>
                 <option value="12PM-2PM">12 PM - 2 PM</option>
@@ -52,6 +120,11 @@ const SolarForm = () => {
           </div>
         </div>
 
+        {/* ADD popup Message Here! */}
+        <div className="success-message">
+
+        </div>
+
         <div className="form-imgs">
           <div className="building-img"></div>
           <figure>
@@ -60,10 +133,10 @@ const SolarForm = () => {
               title="LA City Hall"
               width="100%"
               height="450"
-              style={{border: 0}}
-              allowfullscreen=""
+              style={{ border: 0 }}
+              allowFullScreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </figure>
         </div>

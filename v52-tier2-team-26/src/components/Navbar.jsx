@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="Nav wrapper">
       <Link to="/" className="site-title">
-        <h1>App Name</h1>
+        <h1>SolarBooker</h1>
       </Link>
       <div className="admin-wrapper">
         {/* TO DO: Add link to icon to FAQ page */}

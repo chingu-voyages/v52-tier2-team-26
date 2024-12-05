@@ -6,7 +6,7 @@ const HowTo = () => {
   return (
     <section className="HowTo">
       <div className="together-wrapper">
-        <p className="why-statement">Why company a</p>
+        <p className="why-statement">Why SolarBooker</p>
         <h1 className="together-statement">
           Together We Shine: Serving Residents & Community Partners
         </h1>

@@ -11,7 +11,7 @@ export const RequestProvider = ({ children }) => {
   const [requestList, setRequestList] = useState(requests);
   const [request, setRequest] = useState(null);
 
-  console.log(requestList);
+  // console.log(requestList);
 
   if (!localStorage.getItem("requestList")) {
     localStorage.setItem("requestList", JSON.stringify(requestList));
