@@ -198,7 +198,8 @@ p.no-account {
 }
 
 .form,
-.form-imgs {
+.form-imgs,
+.submission-msg {
   width: 50%;
 }
 
@@ -214,6 +215,24 @@ p.no-account {
   margin: 5rem 0 6rem 0;
 }
 
+/* Success Message styles */
+.submission-msg-wrapper {
+  width: 80%;
+  margin-top: 5rem;
+}
+
+.submission-msg h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.submission-msg p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  line-height: 1.6rem;
+}
+
+/* More Form styles */
 .heading-text h2 {
   font-size: 2.5rem;
   text-align: center;
@@ -434,7 +453,9 @@ form.email-sign-up {
   }
 
   .form,
-  .form-imgs {
+  .form-imgs,
+  .submission-msg,
+  .submission-msg-wrapper {
     width: 100%;
   }
 
@@ -453,6 +474,16 @@ form.email-sign-up {
 
   .heading-text h2 {
     font-size: 2rem;
+  }
+
+  /* Submission message */
+  .submission-msg-wrapper {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .submission-msg h4 {
+    margin-top: 0;
   }
 
   /* Form graphics styling */
