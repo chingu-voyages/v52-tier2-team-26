@@ -4,10 +4,11 @@ import UserLogin from "./components/UserLogin";
 // import NewRequest from "./components/NewRequest";
 // import Username from "./Navbar/Username";
 import "./App.css";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Missing from "./components/Missing";
 import Home from "./components/Home";
+import Dashboard from "./components/dashboard/Dashboard";
 import SolarForm from "./components/SolarForm";
 
 function App() {
@@ -15,15 +16,16 @@ function App() {
     <UserProvider>
       <RequestProvider>
         <Routes>
-          <Route path="/" element={<Layout />} >
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="login" element={<UserLogin />} />
             <Route path="apply" element={<SolarForm />} />
             <Route path="*" element={<Missing />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
       </RequestProvider>
-    </UserProvider >
+    </UserProvider>
   );
 }
 
