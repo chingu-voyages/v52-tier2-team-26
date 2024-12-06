@@ -20,8 +20,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<UserLogin />} />
             <Route path="apply" element={<SolarForm />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="*" element={<Missing />} />
-            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
       </RequestProvider>
