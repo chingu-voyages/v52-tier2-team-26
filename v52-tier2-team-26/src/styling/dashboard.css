@@ -1,12 +1,15 @@
 .dash-wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
+
 .dash-header {
   margin-top: 3vh;
   height: 21vh;
-  width: 65vw;
+  /* width: 65vw; */
   display: flex;
   flex-direction: column;
-  background-color: #008c66;
+  background-color: var(--background);
 }
 
 .dash-statement {
