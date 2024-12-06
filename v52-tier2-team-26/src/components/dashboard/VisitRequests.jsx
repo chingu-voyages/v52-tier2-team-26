@@ -18,6 +18,8 @@ import ToggleSwitch from "../../ui/ToggleSwitch";
 const VisitRequests = () => {
   const [page, setPage] = useState(1);
 
+  const numRequests = requests.length
+
   const page1 = requests.slice(0, 8);
   const page2 = requests.slice(8, 16);
   const page3 = requests.slice(16, 24);
@@ -152,7 +154,7 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p> */}
               </div>
-              <div
+              {numRequests < 8 ? null : <div
                 className="dash-menu-next-div"
                 onClick={() => {
                   setPage(2);
@@ -163,7 +165,7 @@ const VisitRequests = () => {
                   className="dash-menu-forward-icon"
                   style={{ fontSize: "0.7vw", color: "#929292" }}
                 />
-              </div>
+              </div>}
             </div>
           </div>
         ) : null}
@@ -231,7 +233,7 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
-              <div
+              { numRequests < 16 ? null : <div
                 className="dash-menu-next-div"
                 onClick={() => {
                   setPage(3);
@@ -242,7 +244,7 @@ const VisitRequests = () => {
                   className="dash-menu-forward-icon"
                   style={{ fontSize: "0.7vw", color: "#929292" }}
                 />
-              </div>
+              </div>}
             </div>
           </div>
         ) : null}
@@ -310,7 +312,7 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
-              <div
+              { numRequests < 24 ? null : <div
                 className="dash-menu-next-div"
                 onClick={() => {
                   setPage(4);
@@ -321,7 +323,7 @@ const VisitRequests = () => {
                   className="dash-menu-forward-icon"
                   style={{ fontSize: "0.7vw", color: "#929292" }}
                 />
-              </div>
+              </div> }
             </div>
           </div>
         ) : null}
