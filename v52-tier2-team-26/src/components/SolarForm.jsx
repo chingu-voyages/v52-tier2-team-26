@@ -51,18 +51,18 @@ const SolarForm = () => {
     scrollToTop();
   };
 
-  //   const clearFormFields = () => {
-  //     setFirstName("");
-  //     setLastName("");
-  //     setAddress("");
-  //     setEmail("");
-  //     setPhoneNumber("");
-  //     setDate("");
-  //     setPreferredTime("");
-  //   }
+  const clearFormFields = () => {
+    setFirstName("");
+    setLastName("");
+    setAddress("");
+    setEmail("");
+    setPhoneNumber("");
+    setDate("");
+    setPreferredTime("");
+  };
 
   const cancelRequest = () => {
-    // clearFormFields();
+    clearFormFields();
     navigate("/");
     scrollToTop();
   };
