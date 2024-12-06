@@ -9,7 +9,7 @@ export function useUser() {
 
 export const UserProvider = ({ children }) => {
   // const [userList, setUserList] = useState(users);
-  console.log(users);
+  // console.log(users);
   // const [user, setUser] = useState(null);
   // const [user, setUser] = useState({});
 
