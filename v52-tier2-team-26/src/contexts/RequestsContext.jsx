@@ -11,8 +11,6 @@ export const RequestProvider = ({ children }) => {
   const [requestList, setRequestList] = useState(requests);
   const [request, setRequest] = useState(null);
 
-  // console.log(requestList);
-
   if (!localStorage.getItem("requestList")) {
     localStorage.setItem("requestList", JSON.stringify(requestList));
   }
@@ -24,7 +22,7 @@ export const RequestProvider = ({ children }) => {
     }
   }, []);
 
-  const addRequest = (name, email, phone, address, time) => {
+  const addRequest = (name, email, phone, address, time, status) => {
     const id = new Date().getTime().toString(36);
 
     let newRequest = {
@@ -34,13 +32,23 @@ export const RequestProvider = ({ children }) => {
       phone: phone,
       address: address,
       time: time,
+      status: status,
     };
+
     setRequestList([...requestList, newRequest]);
     localStorage.setItem(
       "requestList",
       JSON.stringify([...requestList, newRequest])
     );
     alert("New request successfully added!");
+  };
+
+  const updateStatus = (status) => {
+    const updatedRequest = {
+      ...request,
+      status: status,
+    };
+    updateRequestinLocalStorage(updatedRequest);
   };
 
   const updateRequestinLocalStorage = (requestToUpdate) => {
@@ -50,7 +58,6 @@ export const RequestProvider = ({ children }) => {
     let newRequestList = requestList;
     newRequestList[requestListUpdateIndex] = requestToUpdate;
     setRequest(requestToUpdate);
-    localStorage.setItem("currentUser", JSON.stringify(requestToUpdate));
     setRequestList(newRequestList);
     localStorage.setItem("requestList", JSON.stringify(newRequestList));
   };
@@ -61,6 +68,7 @@ export const RequestProvider = ({ children }) => {
         setRequest,
         useRequest,
         addRequest,
+        updateStatus,
         updateRequestinLocalStorage,
       }}
     >

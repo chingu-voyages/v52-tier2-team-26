@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useRequest } from "../../contexts/RequestsContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import PersonIcon from "@mui/icons-material/Person";
@@ -10,27 +11,39 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import DownloadPDF from "../../ui/DownloadPDF";
 import requests from "../../data/requests";
+import users from "../../data/users";
 import "../../styling/dashboard.css";
-import { Checkbox } from "@mui/material";
-import ToggleSwitch from "../../ui/ToggleSwitch";
 
 const VisitRequests = () => {
   const [page, setPage] = useState(1);
+  const [newRequests, setNewRequests] = useState(requests);
 
-  const numRequests = requests.length
+  const { updateStatus } = useRequest();
+  const downloadRef = useRef(null);
+
+  const numRequests = requests.length;
 
   const page1 = requests.slice(0, 8);
   const page2 = requests.slice(8, 16);
   const page3 = requests.slice(16, 24);
   const page4 = requests.slice(24, 32);
 
-  console.log(page1);
-  console.log(page2);
-  console.log(page3);
+  const handleEditStatus = (id, newStatus) => {
+    setNewRequests((prevRequests) =>
+      prevRequests.map((item) => {
+        if (item.id === id) {
+          return { ...item, status: newStatus };
+          updateStatus(newStatus);
+        }
+        return item;
+      })
+    );
+  };
 
   return (
-    <div className="dash-menu">
+    <div ref={downloadRef} className="dash-menu">
       <div className="dash-menu-header">
         <div className="dash-menu-header-left">
           <h3 className="dash-menu-header-title">
@@ -42,8 +55,8 @@ const VisitRequests = () => {
           </p>
         </div>
         <div className="dash-menu-header-right">
-          <button className="filter-button">Filter</button>
-          <button className="cancel-button">Cancel Request</button>
+          <button className="filter-button">Sort</button>
+          <button className="cancel-button">Save Changes</button>
           <MoreVertOutlinedIcon
             className="dash-menu-header-icon"
             style={{ fontSize: "0.9vw", color: "#696969" }}
@@ -100,7 +113,6 @@ const VisitRequests = () => {
             {" "}
             {page1.map((item) => (
               <div key={item.id} className="dash-menu-req-container">
-                <input type="checkbox" className="dash-menu-req-checkbox" />
                 <div className="dash-menu-req-img-div">
                   <img className="dash-menu-req-img" src={item.imgUrl} />
                 </div>
@@ -123,7 +135,6 @@ const VisitRequests = () => {
                 <p className="dash-menu-req-time">{item.time}</p>
                 {item.status === "Scheduled" ? (
                   <div className="dash-menu-req-status-div">
-                    <ToggleSwitch className="dash-menu-req-status-toggle" />
                     <p className="dash-menu-req-status-scheduled">
                       {item.status}
                     </p>
@@ -131,7 +142,6 @@ const VisitRequests = () => {
                 ) : null}
                 {item.status === "Pending" ? (
                   <div className="dash-menu-req-status-div">
-                    <ToggleSwitch className="dash-menu-req-status-toggle" />
                     <p className="dash-menu-req-status-pending">
                       {item.status}
                     </p>
@@ -147,25 +157,21 @@ const VisitRequests = () => {
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
-              <div className="">
-                {/* <ArrowBackIosIcon
-                  className="dash-menu-back-icon"
-                  style={{ fontSize: "0.7vw", color: "#929292" }}
-                />
-                <p className="dash-menu-previous-text">Previous</p> */}
-              </div>
-              {numRequests < 8 ? null : <div
-                className="dash-menu-next-div"
-                onClick={() => {
-                  setPage(2);
-                }}
-              >
-                <p className="dash-menu-next-text">Next</p>
-                <ArrowForwardIosIcon
-                  className="dash-menu-forward-icon"
-                  style={{ fontSize: "0.7vw", color: "#929292" }}
-                />
-              </div>}
+              <div className=""></div>
+              {numRequests < 8 ? null : (
+                <div
+                  className="dash-menu-next-div"
+                  onClick={() => {
+                    setPage(2);
+                  }}
+                >
+                  <p className="dash-menu-next-text">Next</p>
+                  <ArrowForwardIosIcon
+                    className="dash-menu-forward-icon"
+                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         ) : null}
@@ -174,7 +180,6 @@ const VisitRequests = () => {
             {" "}
             {page2.map((item) => (
               <div key={item.id} className="dash-menu-req-container">
-                <input type="checkbox" className="dash-menu-req-checkbox" />
                 <div className="dash-menu-req-img-div">
                   <img className="dash-menu-req-img" src={item.imgUrl} />
                 </div>
@@ -197,7 +202,6 @@ const VisitRequests = () => {
                 <p className="dash-menu-req-time">{item.time}</p>
                 {item.status === "Scheduled" ? (
                   <div className="dash-menu-req-status-div">
-                    <ToggleSwitch className="dash-menu-req-status-toggle" />
                     <p className="dash-menu-req-status-scheduled">
                       {item.status}
                     </p>
@@ -205,7 +209,6 @@ const VisitRequests = () => {
                 ) : null}
                 {item.status === "Pending" ? (
                   <div className="dash-menu-req-status-div">
-                    <ToggleSwitch className="dash-menu-req-status-toggle" />
                     <p className="dash-menu-req-status-pending">
                       {item.status}
                     </p>
@@ -233,18 +236,20 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
-              { numRequests < 16 ? null : <div
-                className="dash-menu-next-div"
-                onClick={() => {
-                  setPage(3);
-                }}
-              >
-                <p className="dash-menu-next-text">Next</p>
-                <ArrowForwardIosIcon
-                  className="dash-menu-forward-icon"
-                  style={{ fontSize: "0.7vw", color: "#929292" }}
-                />
-              </div>}
+              {numRequests < 16 ? null : (
+                <div
+                  className="dash-menu-next-div"
+                  onClick={() => {
+                    setPage(3);
+                  }}
+                >
+                  <p className="dash-menu-next-text">Next</p>
+                  <ArrowForwardIosIcon
+                    className="dash-menu-forward-icon"
+                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         ) : null}
@@ -253,7 +258,6 @@ const VisitRequests = () => {
             {" "}
             {page3.map((item) => (
               <div key={item.id} className="dash-menu-req-container">
-                <input type="checkbox" className="dash-menu-req-checkbox" />
                 <div className="dash-menu-req-img-div">
                   <img className="dash-menu-req-img" src={item.imgUrl} />
                 </div>
@@ -276,7 +280,6 @@ const VisitRequests = () => {
                 <p className="dash-menu-req-time">{item.time}</p>
                 {item.status === "Scheduled" ? (
                   <div className="dash-menu-req-status-div">
-                    <ToggleSwitch className="dash-menu-req-status-toggle" />
                     <p className="dash-menu-req-status-scheduled">
                       {item.status}
                     </p>
@@ -284,7 +287,6 @@ const VisitRequests = () => {
                 ) : null}
                 {item.status === "Pending" ? (
                   <div className="dash-menu-req-status-div">
-                    <ToggleSwitch className="dash-menu-req-status-toggle" />
                     <p className="dash-menu-req-status-pending">
                       {item.status}
                     </p>
@@ -312,21 +314,29 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
-              { numRequests < 24 ? null : <div
-                className="dash-menu-next-div"
-                onClick={() => {
-                  setPage(4);
-                }}
-              >
-                <p className="dash-menu-next-text">Next</p>
-                <ArrowForwardIosIcon
-                  className="dash-menu-forward-icon"
-                  style={{ fontSize: "0.7vw", color: "#929292" }}
-                />
-              </div> }
+              {numRequests < 24 ? null : (
+                <div
+                  className="dash-menu-next-div"
+                  onClick={() => {
+                    setPage(4);
+                  }}
+                >
+                  <p className="dash-menu-next-text">Next</p>
+                  <ArrowForwardIosIcon
+                    className="dash-menu-forward-icon"
+                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         ) : null}
+      </div>
+      <div className="downloadPDF-div">
+        <DownloadPDF
+          filename={`"Visit-Requests(page ${page})"`}
+          contentRef={downloadRef}
+        />
       </div>
     </div>
   );

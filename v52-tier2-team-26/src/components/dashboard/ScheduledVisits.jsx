@@ -12,8 +12,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import requests from "../../data/requests";
 import "../../styling/dashboard.css";
-import { Checkbox } from "@mui/material";
-import ToggleSwitch from "../../ui/ToggleSwitch";
 
 const ScheduledVisits = () => {
   const scheduledRequests = requests.filter((i) => i.status === "Scheduled");
@@ -86,7 +84,6 @@ const ScheduledVisits = () => {
       <div className="dash-menu-req-wrapper">
         {scheduledRequests.map((item) => (
           <div key={item.id} className="dash-menu-req-container">
-            <input type="checkbox" className="dash-menu-req-checkbox" />
             <div className="dash-menu-req-img-div">
               <img className="dash-menu-req-img" src={item.imgUrl} />
             </div>
@@ -109,13 +106,11 @@ const ScheduledVisits = () => {
             <p className="dash-menu-req-time">{item.time}</p>
             {item.status === "Scheduled" ? (
               <div className="dash-menu-req-status-div">
-                <ToggleSwitch className="dash-menu-req-status-toggle" />
                 <p className="dash-menu-req-status-scheduled">{item.status}</p>
               </div>
             ) : null}
             {item.status === "Pending" ? (
               <div className="dash-menu-req-status-div">
-                <ToggleSwitch className="dash-menu-req-status-toggle" />
                 <p className="dash-menu-req-status-pending">{item.status}</p>
               </div>
             ) : null}
