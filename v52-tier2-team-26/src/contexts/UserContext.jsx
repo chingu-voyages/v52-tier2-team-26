@@ -8,13 +8,13 @@ export function useUser() {
 }
 
 export const UserProvider = ({ children }) => {
-
   // JORDANS CODE
   const [userList, setUserList] = useState(
     JSON.parse(localStorage.getItem("userList")) || users
   );
-  const [currentUser, setCurrentUser] = useState( JSON.parse(localStorage.getItem("currentUser")) || "");
-
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("currentUser")) || ""
+  );
 
   // UPDATE LOCAL STORAGE when User List changes
   useEffect(() => {
@@ -33,12 +33,11 @@ export const UserProvider = ({ children }) => {
   // const [user, setUser] = useState(null);
   // const [user, setUser] = useState({});
 
-
   // //initialize user list in localStorage
   // if (!localStorage.getItem("userList")) {
   //   localStorage.setItem("userList", JSON.stringify(users));
   // }
-  
+
   //if user was logged in last session, use them as active account
   // useEffect(() => {
   //   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -84,18 +83,16 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={
-        {
-          // setUser,
-          // useUser,
-          // login,
-          // updateUserinLocalStorage,
-          userList,
-          setUserList,
-          currentUser,
-          setCurrentUser
-        }
-      }
+      value={{
+        // setUser,
+        // useUser,
+        // login,
+        // updateUserinLocalStorage,
+        userList,
+        setUserList,
+        currentUser,
+        setCurrentUser,
+      }}
     >
       {children}
     </UserContext.Provider>
