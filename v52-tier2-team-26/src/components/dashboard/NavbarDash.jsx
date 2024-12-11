@@ -52,7 +52,7 @@ const NavbarDash = ({ category, setCategory, tripView, setTripView }) => {
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "#1212ce" }}
               />{" "}
-              Schedule Visits
+              Scheduled Visits
             </p>
           </div>
         ) : (
@@ -66,7 +66,7 @@ const NavbarDash = ({ category, setCategory, tripView, setTripView }) => {
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "#159461" }}
               />{" "}
-              Schedule Visits
+              Scheduled Visits
             </p>
           </div>
         )}

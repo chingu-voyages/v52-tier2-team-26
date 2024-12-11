@@ -15,7 +15,15 @@ import "../../styling/dashboard.css";
 
 const ScheduledVisits = () => {
   const { requestList } = useRequest();
+  const [page, setPage] = useState(1);
   const scheduledRequests = requestList.filter((i) => i.status === "Scheduled");
+
+  const numRequests = scheduledRequests.length;
+
+  const page1 = scheduledRequests.slice(0, 10);
+  const page2 = scheduledRequests.slice(10, 20);
+  const page3 = scheduledRequests.slice(20, 30);
+  const page4 = scheduledRequests.slice(30, 40);
 
   return (
     <div className="dash-menu">
@@ -30,12 +38,12 @@ const ScheduledVisits = () => {
           </p>
         </div>
         <div className="dash-menu-header-right">
-          <button className="filter-button">Filter</button>
+          {/* <button className="filter-button">Filter</button>
           <button className="cancel-button">Plan Trip</button>
           <MoreVertOutlinedIcon
             className="dash-menu-header-icon"
             style={{ fontSize: "0.9vw", color: "#696969" }}
-          />
+          /> */}
         </div>
       </div>
       <div className="dash-menu-labels">
@@ -83,61 +91,250 @@ const ScheduledVisits = () => {
         </p>
       </div>
       <div className="dash-menu-req-wrapper">
-        {scheduledRequests.map((item) => (
-          <div key={item.id} className="dash-menu-req-container">
-            <div className="dash-menu-req-img-div">
-              <img className="dash-menu-req-img" src={item.imgUrl} />
+        {page === 1 ? (
+          <div>
+            {" "}
+            {page1.map((item) => (
+              <div key={item.id} className="dash-menu-req-container">
+                <div className="dash-menu-req-img-div">
+                  <img className="dash-menu-req-img" src={item.imgUrl} />
+                </div>
+                <div className="dash-menu-req-name-div">
+                  <p className="dash-menu-req-name">{item.name}</p>
+                  <p className="dash-menu-req-email">{item.email}</p>
+                </div>
+                <p className="dash-menu-req-address">{item.address}</p>
+                <p className="dash-menu-req-phone">{item.phone}</p>
+                <div className="dash-menu-req-date-div">
+                  <p className="dash-menu-req-date-title">Date</p>
+                  <div className="dash-menu-req-date-container">
+                    <p className="dash-menu-req-date">{item.date}</p>
+                    <CalendarTodayIcon
+                      className="dash-menu-req-date-icon"
+                      style={{ fontSize: "0.9vw", color: "#929292" }}
+                    />
+                  </div>
+                </div>
+                <p className="dash-menu-req-time">{item.time}</p>
+                {item.status === "Scheduled" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-scheduled">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Pending" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-pending">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Cancelled" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-cancelled">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Completed" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-completed">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            ))}
+            <div className="dash-menu-req-pages-div">
+              <div className=""></div>
+              {numRequests < 11 ? null : (
+                <div
+                  className="dash-menu-next-div"
+                  onClick={() => {
+                    setPage(2);
+                  }}
+                >
+                  <p className="dash-menu-next-text">Next</p>
+                  <ArrowForwardIosIcon
+                    className="dash-menu-forward-icon"
+                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                  />
+                </div>
+              )}
             </div>
-            <div className="dash-menu-req-name-div">
-              <p className="dash-menu-req-name">{item.name}</p>
-              <p className="dash-menu-req-email">{item.email}</p>
-            </div>
-            <p className="dash-menu-req-address">{item.address}</p>
-            <p className="dash-menu-req-phone">{item.phone}</p>
-            <div className="dash-menu-req-date-div">
-              <p className="dash-menu-req-date-title">Date</p>
-              <div className="dash-menu-req-date-container">
-                <p className="dash-menu-req-date">{item.date}</p>
-                <CalendarTodayIcon
-                  className="dash-menu-req-date-icon"
-                  style={{ fontSize: "0.9vw", color: "#929292" }}
+          </div>
+        ) : null}
+        {page === 2 ? (
+          <div>
+            {" "}
+            {page2.map((item) => (
+              <div key={item.id} className="dash-menu-req-container">
+                <div className="dash-menu-req-img-div">
+                  <img className="dash-menu-req-img" src={item.imgUrl} />
+                </div>
+                <div className="dash-menu-req-name-div">
+                  <p className="dash-menu-req-name">{item.name}</p>
+                  <p className="dash-menu-req-email">{item.email}</p>
+                </div>
+                <p className="dash-menu-req-address">{item.address}</p>
+                <p className="dash-menu-req-phone">{item.phone}</p>
+                <div className="dash-menu-req-date-div">
+                  <p className="dash-menu-req-date-title">Date</p>
+                  <div className="dash-menu-req-date-container">
+                    <p className="dash-menu-req-date">{item.date}</p>
+                    <CalendarTodayIcon
+                      className="dash-menu-req-date-icon"
+                      style={{ fontSize: "0.9vw", color: "#929292" }}
+                    />
+                  </div>
+                </div>
+                <p className="dash-menu-req-time">{item.time}</p>
+                {item.status === "Scheduled" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-scheduled">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Pending" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-pending">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Cancelled" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-cancelled">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Completed" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-completed">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            ))}
+            <div className="dash-menu-req-pages-div">
+              <div
+                className="dash-menu-previous-div"
+                onClick={() => {
+                  setPage(1);
+                }}
+              >
+                <ArrowBackIosIcon
+                  className="dash-menu-back-icon"
+                  style={{ fontSize: "0.7vw", color: "#929292" }}
                 />
+                <p className="dash-menu-previous-text">Previous</p>
               </div>
+              {numRequests < 21 ? null : (
+                <div
+                  className="dash-menu-next-div"
+                  onClick={() => {
+                    setPage(3);
+                  }}
+                >
+                  <p className="dash-menu-next-text">Next</p>
+                  <ArrowForwardIosIcon
+                    className="dash-menu-forward-icon"
+                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                  />
+                </div>
+              )}
             </div>
-            <p className="dash-menu-req-time">{item.time}</p>
-            {item.status === "Scheduled" ? (
-              <div className="dash-menu-req-status-div">
-                <p className="dash-menu-req-status-scheduled">{item.status}</p>
-              </div>
-            ) : null}
-            {item.status === "Pending" ? (
-              <div className="dash-menu-req-status-div">
-                <p className="dash-menu-req-status-pending">{item.status}</p>
-              </div>
-            ) : null}
-            {item.status === "Cancelled" ? (
-              <div className="dash-menu-req-status-div">
-                <p className="dash-menu-req-status-cancelled">{item.status}</p>
-              </div>
-            ) : null}
           </div>
-        ))}
-        <div className="dash-menu-req-pages-div">
-          <div className="dash-menu-previous-div">
-            <ArrowBackIosIcon
-              className="dash-menu-back-icon"
-              style={{ fontSize: "0.7vw", color: "#929292" }}
-            />
-            <p className="dash-menu-previous-text">Previous</p>
+        ) : null}
+        {page === 3 ? (
+          <div>
+            {" "}
+            {page3.map((item) => (
+              <div key={item.id} className="dash-menu-req-container">
+                <div className="dash-menu-req-img-div">
+                  <img className="dash-menu-req-img" src={item.imgUrl} />
+                </div>
+                <div className="dash-menu-req-name-div">
+                  <p className="dash-menu-req-name">{item.name}</p>
+                  <p className="dash-menu-req-email">{item.email}</p>
+                </div>
+                <p className="dash-menu-req-address">{item.address}</p>
+                <p className="dash-menu-req-phone">{item.phone}</p>
+                <div className="dash-menu-req-date-div">
+                  <p className="dash-menu-req-date-title">Date</p>
+                  <div className="dash-menu-req-date-container">
+                    <p className="dash-menu-req-date">{item.date}</p>
+                    <CalendarTodayIcon
+                      className="dash-menu-req-date-icon"
+                      style={{ fontSize: "0.9vw", color: "#929292" }}
+                    />
+                  </div>
+                </div>
+                <p className="dash-menu-req-time">{item.time}</p>
+                {item.status === "Scheduled" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-scheduled">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Pending" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-pending">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Cancelled" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-cancelled">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+                {item.status === "Completed" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-completed">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            ))}
+            <div className="dash-menu-req-pages-div">
+              <div
+                className="dash-menu-previous-div"
+                onClick={() => {
+                  setPage(2);
+                }}
+              >
+                <ArrowBackIosIcon
+                  className="dash-menu-back-icon"
+                  style={{ fontSize: "0.7vw", color: "#929292" }}
+                />
+                <p className="dash-menu-previous-text">Previous</p>
+              </div>
+              {numRequests < 31 ? null : (
+                <div
+                  className="dash-menu-next-div"
+                  onClick={() => {
+                    setPage(4);
+                  }}
+                >
+                  <p className="dash-menu-next-text">Next</p>
+                  <ArrowForwardIosIcon
+                    className="dash-menu-forward-icon"
+                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                  />
+                </div>
+              )}
+            </div>
           </div>
-          <div className="dash-menu-next-div">
-            <p className="dash-menu-next-text">Next</p>
-            <ArrowForwardIosIcon
-              className="dash-menu-forward-icon"
-              style={{ fontSize: "0.7vw", color: "#929292" }}
-            />
-          </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

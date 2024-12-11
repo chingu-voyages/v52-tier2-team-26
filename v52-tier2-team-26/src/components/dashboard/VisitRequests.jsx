@@ -15,6 +15,7 @@ import DownloadPDF from "../../ui/DownloadPDF";
 import requests from "../../data/requests";
 import users from "../../data/users";
 import "../../styling/dashboard.css";
+import fetchAddresses from "../../data/addresses";
 
 const VisitRequests = () => {
   const { requestList } = useRequest();
@@ -30,10 +31,14 @@ const VisitRequests = () => {
 
   const numRequests = requestList.length;
 
-  const page1 = requestList.slice(0, 8);
-  const page2 = requestList.slice(8, 16);
-  const page3 = requestList.slice(16, 24);
-  const page4 = requestList.slice(24, 32);
+  const page1 = requestList.slice(0, 10);
+  const page2 = requestList.slice(10, 20);
+  const page3 = requestList.slice(20, 30);
+  const page4 = requestList.slice(30, 40);
+
+  const addresses = fetchAddresses();
+
+  console.log(addresses);
 
   // const handleSort = () => {
   //   const sortRequests = [...requestList].sort((a, b) => {
@@ -183,6 +188,13 @@ const VisitRequests = () => {
                     </p>
                   </div>
                 ) : null}
+                {item.status === "Completed" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-completed">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
                 <select
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
@@ -196,7 +208,7 @@ const VisitRequests = () => {
             ))}
             <div className="dash-menu-req-pages-div">
               <div className=""></div>
-              {numRequests < 8 ? null : (
+              {numRequests < 11 ? null : (
                 <div
                   className="dash-menu-next-div"
                   onClick={() => {
@@ -259,6 +271,13 @@ const VisitRequests = () => {
                     </p>
                   </div>
                 ) : null}
+                {item.status === "Completed" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-completed">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
@@ -274,7 +293,7 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
-              {numRequests < 16 ? null : (
+              {numRequests < 21 ? null : (
                 <div
                   className="dash-menu-next-div"
                   onClick={() => {
@@ -337,6 +356,13 @@ const VisitRequests = () => {
                     </p>
                   </div>
                 ) : null}
+                {item.status === "Completed" ? (
+                  <div className="dash-menu-req-status-div">
+                    <p className="dash-menu-req-status-completed">
+                      {item.status}
+                    </p>
+                  </div>
+                ) : null}
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
@@ -352,7 +378,7 @@ const VisitRequests = () => {
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
-              {numRequests < 24 ? null : (
+              {numRequests < 31 ? null : (
                 <div
                   className="dash-menu-next-div"
                   onClick={() => {
