@@ -2,10 +2,10 @@ import React from "react";
 import HowTo from "./HowTo";
 import HeroSection from "./HeroSection"
 
-const Home = () => {
+const Home = ({ addresses }) => {
   return (
     <main className="Home">
-      <HeroSection />
+      <HeroSection addresses={addresses}/>
         <HowTo />
     </main>
   );
