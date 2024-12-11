@@ -1,4 +1,7 @@
 import '../styling/herosection.css';
+import Autocomplete from './Autcomplete';
+
+const suggestions = [ "Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grapes" ];
 
 export default function HeroSection() {
     return (
@@ -9,10 +12,8 @@ export default function HeroSection() {
                 <br />build a sustainable, greener future for Los Angeles!
             </p>
             <div className="row">
-                <input size= "40"
-                    placeholder= "Enter Address Here">
-                </input>
-                <button class = "btn">Take the First Step towards Solar</button>                
+                    <Autocomplete suggestions = {suggestions} />
+                    <button class = "btn">Take the First Step towards Solar</button>              
             </div>
 
         </div>
