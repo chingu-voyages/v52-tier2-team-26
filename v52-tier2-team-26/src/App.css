@@ -1,38 +1,569 @@
+:root {
+  --home-background: rgb(243, 243, 243);
+  --background: #008C66;
+  --accent: #FFB800;
+  --button: #3A75BB;
+  --button-hover: #2E5E96;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  color: #333333;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* display: flex; */
+}
+
+#root {
+  flex-grow: 1;
+  /* Keep App width consistent across components */
+  /* Center align app */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  /* max-width: 1400px; */
+  /* height: 100vh; */
+  /* Removed for now to adjust other Component heights */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  /* transition: all .5s */
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.Header,
+.Footer {
+  width: 100%;
+  background-color: var(--background);
+}
+
+
+/* ========== Header & NavBar styles ========== */
+.Header {
+  padding: 1.5rem 0;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Nav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-size: 2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Nav .admin-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+svg {
+  display: block;
+  /* Remove extra whitespace on bottom */
+  margin-right: 1.1rem;
+  font-size: 1.75rem;
+  color: white;
+}
+
+.admin-login,
+.site-title {
+  text-decoration: none;
+  color: black;
+}
+
+.admin-login {
+  font-size: 1rem;
+  background-color: var(--accent);
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.admin-login:visited,
+.site-title:visited {
+  color: black;
+}
+
+/* GLOBAL Component styles */
+.Home,
+.Missing,
+.AdminLogin,
+.SolarForm {
+  width: 100%;
+  flex-grow: 1;
+  /* grow vertically to fill space */
+  /* Sticky footer */
+  /* overflow-y: auto;  */
+}
+
+/* ===== Admin Login Page Styles ====== */
+.AdminLogin {
+  background: url("../src/images/login-img.png");
+  background-size: cover;
+  position: relative;
+  height: 800px;
+}
+
+.login-wrapper {
+  background-color: rgba(255, 255, 255, 0.88);
+  max-width: 450px;
+  height: 500px;
+  padding: 4rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 10px;
+  position: absolute;
+  right: 8%;
+  top: 18.5%;
+}
+
+.AdminLogin h2 {
+  margin: 1.5rem 0 1rem 0;
+}
+
+.AdminLogin p {
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+}
+
+.login-wrapper form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.login-wrapper form label {
+  color: var(--background);
+  margin-bottom: 0.5rem;
+}
+
+.login-wrapper form input,
+.login-wrapper form button {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.login-wrapper form button {
+  cursor: pointer;
+  color: white;
+  font-size: 0.9rem;
+  background-color: var(--button);
+  margin-top: 1rem;
+}
+
+.login-wrapper form button:hover,
+.email-sign-up button:hover {
+  background-color: var(--button-hover);
+}
+
+p.no-account {
+  margin-top: 2.5rem;
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+/* ===== Solar Form Page Styles ====== */
+.SolarForm {
+  background-color: var(--home-background);
+  padding-top: 3rem;
+}
+
+.form-wrapper {
+  display: flex;
+}
+
+.form,
+.form-imgs,
+.submission-msg {
+  width: 50%;
+}
+
+.form,
+.request-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+  width: 60%;
+  align-self: center;
+  margin: 5rem 0 6rem 0;
+}
+
+/* Success Message styles */
+.submission-msg-wrapper {
+  width: 80%;
+  margin-top: 5rem;
+}
+
+.submission-msg h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.submission-msg p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  line-height: 1.6rem;
+}
+
+/* More Form styles */
+.heading-text h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.heading-text p {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: rgb(109, 106, 106);
+}
+
+/* Request Form Styles */
+.request-form h3 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.request-form p {
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+}
+
+.request-form label {
+  color: var(--background);
+  margin-bottom: 0.4rem;
+}
+
+.request-form input,
+.request-form select {
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.request-form input,
+.request-form select,
+.request-form button {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgb(186, 185, 185);
+}
+
+.request-form input#date {
+  margin-bottom: 1.5rem;
+}
+
+.request-form button {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.request-form button[type="submit"] {
+  background-color: var(--button);
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.request-form button:hover {
+  border: 1px solid var(--accent);
+}
+
+.request-form button[type="submit"]:hover {
+  background-color: var(--button-hover);
+}
+
+.cancel:hover {
+  color: white;
+  background-color: darkred;
+}
+
+/* Form graphics styling */
+.building-img {
+  height: 785px;
+  background-image: url(../src/images/building-img.png);
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.form-imgs iframe {
+  margin: 3rem 0 6rem 0;
+}
+
+/* ====== Missing 404 page styles ====== */
+.Missing {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Missing p {
+  padding: 1rem;
+}
+
+
+/* ========= Footer Styles ========= */
+.Footer {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-footer-section {
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(3, 1fr) 2fr;
+  grid-column-gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+.Footer h4 {
+  color: var(--accent);
+  font-weight: normal;
+  padding-bottom: 0.5rem;
+}
+
+.Footer p,
+.Footer a {
+  color: white;
+}
+
+.team-members a,
+.resident-links p,
+.community-links p {
+  line-height: 2rem;
+}
+
+.team-members {
+  display: flex;
+  flex-direction: column;
+}
+
+form.email-sign-up {
+  padding: 2rem 0 0 1.5rem;
+}
+
+.email-sign-up p {
+  line-height: 1.3rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Hide input label from UI */
+.Footer label {
+  position: absolute;
+  left: -99999px;
+}
+
+.email-sign-up input,
+.email-sign-up button {
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.email-sign-up input {
+  width: 75%;
+  padding: 1rem 0.75rem;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.email-sign-up button {
+  background-color: var(--button);
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+  /* width: calc(25% - 5px); */
+}
+
+.bottom-footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bottom-footer-section .bottom-links,
+.bottom-footer-section .github-links {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.bottom-footer-section .bottom-links p {
+  margin-right: 3rem;
+}
+
+.github-links svg {
+  margin-right: 0.75rem;
+}
+
+
+
+
+
+
+/* ==== TABLET MEDIA QUERIES ===== */
+@media (max-width: 700px) {
+
+  /* ===== Admin Login Page Styles ====== */
+  .AdminLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Height of background img */
+    height: 700px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .login-wrapper {
+    position: static;
+  }
+
+  /* ===== Solar Form Page Styles ====== */
+  .form-wrapper {
+    flex-direction: column;
+  }
+
+  .form,
+  .form-imgs,
+  .submission-msg,
+  .submission-msg-wrapper {
+    width: 100%;
+  }
+
+  .form {
+    order: 2;
+  }
+
+  .form-imgs {
+    order: 1;
+  }
+
+  .form-content {
+    margin-top: 3.5rem;
+    width: 90%;
+  }
+
+  .heading-text h2 {
+    font-size: 2rem;
+  }
+
+  /* Submission message */
+  .submission-msg-wrapper {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .submission-msg h4 {
+    margin-top: 0;
+  }
+
+  /* Form graphics styling */
+  .building-img {
+    height: 500px;
+  }
+
+  .form-imgs iframe {
+    display: none;
+  }
+
+  /* ===== Footer Styles ====== */
+  .top-footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-footer-section>div {
+    margin-bottom: 1.75rem;
+  }
+
+  form.email-sign-up {
+    padding: 0;
+  }
+
+  .email-sign-up input,
+  .email-sign-up button {
+    width: 100%;
+    border: 1px solid var(--accent);
+    padding: 0.75rem;
+  }
+
+  .email-sign-up input {
+    margin-bottom: 0.5rem;
+    background-color: transparent;
+    color: white;
+  }
+
+  .email-sign-up input::placeholder {
+    color: white;
+  }
+
+  .bottom-footer-section {
+    justify-content: center;
+  }
+}
+
+/* ==== MOBILE MEDIA QUERIES ===== */
+@media (max-width: 480px) {
+
+  /* ===== Admin Login Page Styles ====== */
+  .AdminLogin {
+    /* Height of background img */
+    height: 600px;
+  }
+
+  .login-wrapper {
+    margin: 1rem;
+  }
+
+  .admin-wrapper svg {
+    font-size: 2rem;
+  }
+
+  .admin-icon {
+    margin: 0;
+  }
+
+  /* ===== Footer Styles ====== */
+  .bottom-footer-section {
+    justify-content: flex-start;
+  }
+
+  .bottom-footer-section .bottom-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bottom-footer-section .bottom-links p {
+    margin-bottom: 1rem;
   }
 }
