@@ -1,12 +1,25 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import L from "leaflet";
+import mapData from "../../data/mapdata";
 import "../../styling/map.css";
 import "leaflet/dist/leaflet.css";
+import { requirePropFactory } from "@mui/material";
 
 const Map = () => {
   const outerBounds = [
     [53.90597, -135.047459],
     [21.923872, -60.426611],
   ];
+
+  const customIcon = new L.Icon({
+    iconUrl: require("../../images/map-icon.png"),
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  });
+
+  console.log(mapData);
 
   return (
     <>
@@ -22,24 +35,17 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* {[...filteredData].map((r, index) => (
-                    <Marker key={`map component-${ r.id } - ${ index }`} position={[r.latitude, r.longitude]} >
-                        <Popup>
-                            <div className='flex flex-col'>
-                                <div className='text-lg font-bold m-2'>{r.name}</div>
-                                <div className='flex'>
-                                    <div className='m-2'>
-                                        <img className="w-48" src={r.img} alt="" />
-                                    </div>
-                                    <div className='flex flex-col m-2'>
-                                        <div className='mb-5'>Known for: {r.dsc}</div>
-                                        <div className='flex justify-end'>{r.rate} stars</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </Popup>
-                    </Marker>
-                ))} */}
+        {mapData.map((r, index) => (
+          <Marker
+            key={`map component-${r.id} - ${index}`}
+            position={[r.lat, r.lng]}
+            icon={customIcon}
+          >
+            <Popup>
+              <div className="">{r.address}</div>
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </>
   );

@@ -6,6 +6,7 @@ import ScheduledVisits from "./ScheduledVisits";
 import VisitRequests from "./VisitRequests";
 import TripPlanning from "./TripPlanning";
 import requests from "../../data/requests";
+import CompletedVisits from "./CompletedVisits";
 import "../../styling/dashboard.css";
 
 const Dashboard = () => {
@@ -28,6 +29,7 @@ const Dashboard = () => {
       {category === "trip-planning" ? (
         <TripPlanning tripView={tripView} setTripView={setTripView} />
       ) : null}
+      {category === "completed-visits" ? <CompletedVisits /> : null}
     </div>
   );
 };
