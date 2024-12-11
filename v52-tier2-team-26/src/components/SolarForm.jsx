@@ -1,9 +1,10 @@
-import { useState } from "react";
-import requests from "../data/requests";
+import { useContext, useState } from "react";
+// import requests from "../data/requests";
 import { useNavigate } from "react-router-dom";
+import RequestContext from "../contexts/RequestsContext";
 
 const SolarForm = () => {
-  const [requestsList, setRequestsList] = useState([requests]);
+  const { requestList, setRequestList, appointmentStatus } = useContext(RequestContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   // Info gathered from inputs
@@ -13,29 +14,27 @@ const SolarForm = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
-  // TO DO: Add setAppointmentStatus to Context
-  const [appointmentStatus, setAppointmentStatus] = useState("Pending");
+
   // TO DO: Need an API call to verify address input
   const [address, setAddress] = useState("");
-
-  // TO DO: Update local storage each time requestsLsit changes
 
   const addNewRequest = () => {
     const newRequest = {};
     newRequest.id = new Date().getTime().toString(36);
     newRequest.name = `${firstName} ${lastName}`;
     newRequest.email = email;
-    newRequest.phoneNumber = phoneNumber;
+    newRequest.phone = phoneNumber;
     newRequest.date = date;
     newRequest.time = preferredTime;
     newRequest.status = appointmentStatus;
+    newRequest.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
     // TO DO: Integrate address API
     newRequest.address = address;
 
-    setRequestsList([newRequest, ...requestsList]);
+    setRequestList([...requestList, newRequest]);
   };
-  console.log(requestsList);
+  console.log(requestList);
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import users from "../data/users";
 
 const UserContext = createContext();
@@ -8,24 +8,60 @@ export function useUser() {
 }
 
 export const UserProvider = ({ children }) => {
-  const [userList, setUserList] = useState(users);
-  const [user, setUser] = useState(null);
 
-  //initialize user list in localStorage
-  if (!localStorage.getItem("userList")) {
-    localStorage.setItem("userList", JSON.stringify(users));
-  }
+  // JORDANS CODE
+  const [userList, setUserList] = useState(
+    JSON.parse(localStorage.getItem("userList")) || users
+  );
+  const [currentUser, setCurrentUser] = useState( JSON.parse(localStorage.getItem("currentUser")) || "");
 
-  const login = (email) => {
-    let isValidCredentials = users.find((u) => u.email === email);
 
-    if (isValidCredentials) {
-      setUser(isValidCredentials);
-      localStorage.setItem("currentUser", JSON.stringify(isValidCredentials));
-    } else {
-      alert("login failed, please try again");
-    }
-  };
+  // UPDATE LOCAL STORAGE when User List changes
+  useEffect(() => {
+    localStorage.setItem("userList", JSON.stringify(userList));
+  }, [userList]);
+
+  // UPDATE LOCAL STORAGE when Current User changes
+  useEffect(() => {
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  }, [currentUser]);
+
+  // END JORDANS CODE!
+
+  // const [userList, setUserList] = useState(users);
+  // console.log(users);
+  // const [user, setUser] = useState(null);
+  // const [user, setUser] = useState({});
+
+
+  // //initialize user list in localStorage
+  // if (!localStorage.getItem("userList")) {
+  //   localStorage.setItem("userList", JSON.stringify(users));
+  // }
+  
+  //if user was logged in last session, use them as active account
+  // useEffect(() => {
+  //   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  //   if (storedUser) {
+  //     setUser(storedUser);
+  //   }
+
+  //   const storedUserList = JSON.parse(localStorage.getItem("userList"));
+  //   if (storedUserList) {
+  //     setUserList(storedUserList);
+  //   }
+  // }, []);
+
+  // const login = (email) => {
+  //   let isValidCredentials = users.find((u) => u.email === email);
+
+  //   if (isValidCredentials) {
+  //     // setUser(isValidCredentials);
+  //     localStorage.setItem("currentUser", JSON.stringify(isValidCredentials));
+  //   } else {
+  //     alert("login failed, please try again");
+  //   }
+  // };
 
   const updateUserinLocalStorage = (userToUpdate) => {
     let userListUpdateIndex = userList.findIndex((u) => u.id === user.id);
@@ -48,15 +84,22 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{
-        setUser,
-        useUser,
-        login,
-        updateUserinLocalStorage,
-        updateRequests,
-      }}
+      value={
+        {
+          // setUser,
+          // useUser,
+          // login,
+          // updateUserinLocalStorage,
+          userList,
+          setUserList,
+          currentUser,
+          setCurrentUser
+        }
+      }
     >
       {children}
     </UserContext.Provider>
   );
 };
+
+export default UserContext;
