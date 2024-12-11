@@ -4,9 +4,15 @@ import requests from "../../data/requests";
 import "../../styling/dashboard.css";
 
 const TrackerDash = () => {
-  const pendingTracker = requests.filter((i) => i.status === "Pending").length;
-  const scheduledTracker = requests.filter(
+  const requestList = JSON.parse(localStorage.getItem("requestList"));
+  const pendingTracker = requestList.filter(
+    (i) => i.status === "Pending"
+  ).length;
+  const scheduledTracker = requestList.filter(
     (i) => i.status === "Scheduled"
+  ).length;
+  const completedTracker = requestList.filter(
+    (i) => i.status === "Completed"
   ).length;
 
   return (
@@ -29,7 +35,7 @@ const TrackerDash = () => {
         </div>
         <div className="dash-tracker-div">
           <div className="dash-tracker-info">
-            <h3 className="dash-tracker-num">9</h3>
+            <h3 className="dash-tracker-num">{completedTracker}</h3>
             <p className="dash-tracker-p">Completed Visits</p>
           </div>
         </div>

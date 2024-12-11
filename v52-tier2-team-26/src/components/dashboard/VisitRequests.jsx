@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRef, useState } from "react";
 import { useRequest } from "../../contexts/RequestsContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
@@ -17,30 +17,53 @@ import users from "../../data/users";
 import "../../styling/dashboard.css";
 
 const VisitRequests = () => {
+  const { requestList } = useRequest();
   const [page, setPage] = useState(1);
-  const [newRequests, setNewRequests] = useState(requests);
+  const [updatedRequests, setUpdatedRequests] = useState(requestList);
+  const [sortRef, setSortRef] = useState("newest");
+  const [sortedRequests, setSortedRequests] = useState(requestList);
+  const [requestStatus, setRequestStatus] = useState();
 
-  const { updateStatus } = useRequest();
   const downloadRef = useRef(null);
 
-  const numRequests = requests.length;
+  console.log(requestList);
 
-  const page1 = requests.slice(0, 8);
-  const page2 = requests.slice(8, 16);
-  const page3 = requests.slice(16, 24);
-  const page4 = requests.slice(24, 32);
+  const numRequests = requestList.length;
+
+  const page1 = requestList.slice(0, 8);
+  const page2 = requestList.slice(8, 16);
+  const page3 = requestList.slice(16, 24);
+  const page4 = requestList.slice(24, 32);
+
+  // const handleSort = () => {
+  //   const sortRequests = [...requestList].sort((a, b) => {
+  //     const dateA = new Date(a.date);
+  //     const dateB = new Date(b.date);
+  //     if (sortRef === "date-newest") {
+  //       return dateB - dateA;
+  //     } else if (sortRef === "date-oldest") {
+  //       return dateA - dateB;
+  //     } else if (sortRef === "oldest") {
+  //       return b - a;
+  //     }
+  //   });
+  //   setSortedRequests(sortRequests);
+  // };
 
   const handleEditStatus = (id, newStatus) => {
-    setNewRequests((prevRequests) =>
-      prevRequests.map((item) => {
-        if (item.id === id) {
-          return { ...item, status: newStatus };
-          updateStatus(newStatus);
-        }
-        return item;
-      })
-    );
+    const requestList = JSON.parse(localStorage.getItem("requestList"));
+    const getRequest = requestList.find((item) => item.id === id);
+    const updateRequest = (getRequest["status"] = newStatus);
+    console.log(requestList);
+    localStorage.setItem("requestList", JSON.stringify(requestList));
+    setUpdatedRequests(requestList);
+    setSortedRequests(requestList);
+    // setSortedRequests(requestList);
   };
+
+  useEffect(() => {}, [requestList, sortedRequests]);
+
+  console.log(sortedRequests);
 
   return (
     <div ref={downloadRef} className="dash-menu">
@@ -55,12 +78,18 @@ const VisitRequests = () => {
           </p>
         </div>
         <div className="dash-menu-header-right">
-          <button className="filter-button">Sort</button>
-          <button className="cancel-button">Save Changes</button>
-          <MoreVertOutlinedIcon
-            className="dash-menu-header-icon"
-            style={{ fontSize: "0.9vw", color: "#696969" }}
-          />
+          <select
+            onChange={(e) => {
+              setSortRef(e.target.value);
+            }}
+            className="filter-button"
+          >
+            Sort
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="date-newest">Date(Newest)</option>
+            <option value="date-oldest">Date(Oldest)</option>
+          </select>
         </div>
       </div>
       <div className="dash-menu-labels">
@@ -154,6 +183,15 @@ const VisitRequests = () => {
                     </p>
                   </div>
                 ) : null}
+                <select
+                  onChange={(e) => handleEditStatus(item.id, e.target.value)}
+                >
+                  <option value={item.status}>(change status)</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Cancelled">Cancelled</option>
+                  <option value="Completed">Completed</option>
+                </select>
               </div>
             ))}
             <div className="dash-menu-req-pages-div">

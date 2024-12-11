@@ -1,8 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import { useRequest } from "../../contexts/RequestsContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -11,12 +9,12 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import "../../styling/dashboard.css";
 
-const ScheduledVisits = () => {
+const CompletedVisits = () => {
   const { requestList } = useRequest();
-  const scheduledRequests = requestList.filter((i) => i.status === "Scheduled");
-
+  const completedRequests = requestList.filter((i) => i.status === "Completed");
   return (
     <div className="dash-menu">
       <div className="dash-menu-header">
@@ -83,7 +81,7 @@ const ScheduledVisits = () => {
         </p>
       </div>
       <div className="dash-menu-req-wrapper">
-        {scheduledRequests.map((item) => (
+        {completedRequests.map((item) => (
           <div key={item.id} className="dash-menu-req-container">
             <div className="dash-menu-req-img-div">
               <img className="dash-menu-req-img" src={item.imgUrl} />
@@ -143,4 +141,4 @@ const ScheduledVisits = () => {
   );
 };
 
-export default ScheduledVisits;
+export default CompletedVisits;

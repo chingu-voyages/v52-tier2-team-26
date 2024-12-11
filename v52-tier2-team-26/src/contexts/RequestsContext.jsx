@@ -65,6 +65,7 @@ export const RequestProvider = ({ children }) => {
   return (
     <RequestContext.Provider
       value={{
+        requestList,
         setRequest,
         useRequest,
         addRequest,
