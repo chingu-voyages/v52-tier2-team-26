@@ -13,9 +13,38 @@ import SolarForm from "./components/SolarForm";
 import { useEffect, useState } from "react";
 import MissingDashboard from "./components/MissingDashboard";
 
+
 function App() {
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || "");
   // console.log(currentUser);
+  const [addresses, setAddresses] = useState([]);
+
+  const fetchAPI = async () => {
+    try {
+      const response = await fetch(
+        "https://data.lacity.org/api/views/4ca8-mxuh/rows.json"
+      );
+      const result = await response.json();
+      const data = result.data;
+      const addressesList = [];
+  
+      //gets the first 1,000 addresses of the 1.03M total
+      for (let i = 0; i < 1000; i++) {
+        addressesList.push(
+          `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`
+        );
+      }
+      setAddresses(addressesList)
+    } catch (err) {
+      console.log("Something went wrong.", err);
+    }
+  };
+  console.log(addresses);
+
+  useEffect(() => {
+    fetchAPI();
+  }, []);
+
 
   // UPDATE LOCAL STORAGE when Current User changes
   useEffect(() => {
@@ -27,7 +56,7 @@ function App() {
       <RequestProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route index element={<Home addresses={addresses} />} />
             <Route path="login" element={<UserLogin setCurrentUser={setCurrentUser} />} />
             <Route path="apply" element={<SolarForm />} />
             <Route path="dashboard" element={currentUser ? <Dashboard /> : <MissingDashboard />} />

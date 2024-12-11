@@ -1,6 +1,6 @@
 import '../styling/herosection.css';
 
-export default function HeroSection() {
+export default function HeroSection({ addresses }) {
     return (
         <div className = "hero-section-container">
             <p className = "golden-text">LA goes solar: Powered by community</p>
