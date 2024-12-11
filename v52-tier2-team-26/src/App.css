@@ -1,3 +1,6 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root {
   --home-background: rgb(243, 243, 243);
   --background: #008C66;
@@ -18,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* display: flex; */
@@ -112,7 +115,8 @@ svg {
 .Home,
 .Missing,
 .AdminLogin,
-.SolarForm {
+.SolarForm,
+.MissingDashboard {
   width: 100%;
   flex-grow: 1;
   /* grow vertically to fill space */
@@ -121,6 +125,10 @@ svg {
 }
 
 /* ===== Admin Login Page Styles ====== */
+.user-login-wrapper {
+  width: 100%;
+}
+
 .AdminLogin {
   background: url("../src/images/login-img.png");
   background-size: cover;
@@ -163,7 +171,15 @@ svg {
 .login-wrapper form button {
   padding: 0.75rem;
   border-radius: 6px;
-  border: none;
+  border: 1px solid grey;
+}
+
+p.login-err-msg {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: rgb(202, 4, 4);
+  line-height: 1.25rem;
 }
 
 .login-wrapper form button {
@@ -315,8 +331,9 @@ p.no-account {
   margin: 3rem 0 6rem 0;
 }
 
-/* ====== Missing 404 page styles ====== */
-.Missing {
+/* ====== Missing 404 page styles & Missing Dashboard ====== */
+.Missing,
+.MissingDashboard {
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -324,10 +341,33 @@ p.no-account {
   align-items: center;
 }
 
-.Missing p {
-  padding: 1rem;
+.denial-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
+.Missing h2,
+.MissingDashboard h2 {
+  font-size: 2rem;
+}
+
+.Missing p,
+.MissingDashboard p {
+  padding: 0.9rem;
+}
+
+.admin-warning,
+.MissingDashboard svg {
+  color: rgb(229, 13, 13);
+  font-size: 1.25rem;
+}
+
+.MissingDashboard svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 6px;
+}
 
 /* ========= Footer Styles ========= */
 .Footer {
@@ -446,6 +486,7 @@ form.email-sign-up {
 
   .login-wrapper {
     position: static;
+    height: auto;
   }
 
   /* ===== Solar Form Page Styles ====== */
@@ -551,6 +592,10 @@ form.email-sign-up {
 
   .admin-icon {
     margin: 0;
+  }
+
+  .building-img {
+    margin-bottom: 2rem;
   }
 
   /* ===== Footer Styles ====== */

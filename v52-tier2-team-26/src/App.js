@@ -10,17 +10,27 @@ import Missing from "./components/Missing";
 import Home from "./components/Home";
 import Dashboard from "./components/dashboard/Dashboard";
 import SolarForm from "./components/SolarForm";
+import { useEffect, useState } from "react";
+import MissingDashboard from "./components/MissingDashboard";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || "");
+  // console.log(currentUser);
+
+  // UPDATE LOCAL STORAGE when Current User changes
+  useEffect(() => {
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  }, [currentUser]);
+
   return (
     <UserProvider>
       <RequestProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="login" element={<UserLogin />} />
+            <Route path="login" element={<UserLogin setCurrentUser={setCurrentUser} />} />
             <Route path="apply" element={<SolarForm />} />
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboard" element={currentUser ? <Dashboard /> : <MissingDashboard />} />
             <Route path="*" element={<Missing />} />
           </Route>
         </Routes>
