@@ -6,6 +6,10 @@ const Navbar = () => {
   // Using 480px as the window size for mobile devices
   const isMobileDevice = useMediaQuery({ maxWidth: 480 });
 
+  // Check if there is a currentUser in Local Storage
+  const currentUserPresent = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(currentUserPresent);
+
   return (
     <nav className="Nav wrapper">
       <Link to="/" className="site-title">
@@ -15,11 +19,11 @@ const Navbar = () => {
         {/* TO DO: Add link to icon to FAQ page */}
         <FaRegQuestionCircle />
         {isMobileDevice ? (
-          <Link to="login">
+          <Link to={currentUserPresent ? "dashboard" : "login"}>
             <FaUserCircle className="admin-icon" />
           </Link>
         ) : (
-          <Link to="login" className="admin-login">
+          <Link to={currentUserPresent ? "dashboard" : "login"} className="admin-login">
             Admin Portal
           </Link>
         )}

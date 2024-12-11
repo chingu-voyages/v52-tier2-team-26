@@ -1,9 +1,11 @@
 .hero-section-container {
     background-image: url(../images/house-img.jpg);
-    margin: 50px auto;
+    background-size: cover;
+    margin: 0 auto;
     padding: 150px 100px;
-    width:1280px;
-    height:500px;
+    width: 100%;
+    /* width:1280px; */
+    height:730px;
     justify-items:left;
 }
 
@@ -12,7 +14,8 @@
     margin-bottom: 20px;
 }
 
-h1, p {
+.hero-section-container h1, 
+.hero-section-container p {
     margin-bottom:20px;
 }
 
