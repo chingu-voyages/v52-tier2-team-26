@@ -1,22 +1,22 @@
+import { useRef, useState } from "react";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import DownloadPDF from "../../ui/DownloadPDF";
 import requests from "../../data/requests";
-import GoogleMap from "./GoogleMap";
 import TripList from "./TripList";
+import Map from "./Map";
 
-const TripPlanning = ({tripView, setTripView}) => {
+const TripPlanning = ({ tripView, setTripView }) => {
+  const downloadRef = useRef(null);
 
-    
   return (
-    <div className="dash-menu">
-    <div className="dash-menu-header">
-    <div className="dash-menu-header-left">
+    <div ref={downloadRef} className="dash-menu">
+      <div className="dash-menu-header">
+        <div className="dash-menu-header-left">
           <h3 className="dash-menu-header-title">
             Admin Dashboard: Visit Scheduling & Planning
           </h3>
@@ -26,58 +26,62 @@ const TripPlanning = ({tripView, setTripView}) => {
           </p>
         </div>
         <div className="dash-menu-header-right">
-          <button className="filter-button">Filter</button>
+          <button className="filter-button">Sort</button>
           <button className="cancel-button">Generate Schedule</button>
           <MoreVertOutlinedIcon
             className="dash-menu-header-icon"
             style={{ fontSize: "0.9vw", color: "#696969" }}
           />
         </div>
-    </div>
-    { tripView === "list-view" || tripView === "full-view" ? 
+      </div>
+      {tripView === "list-view" || tripView === "full-view" ? (
         <div>
-            <div className="dash-menu-labels">
+          <div className="dash-menu-labels">
             <p className="dash-menu-label">
-            <PersonIcon
+              <PersonIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "black" }}
-            />
-            Name
+              />
+              Name
             </p>
             <p className="dash-menu-label">
-            <HomeIcon
+              <HomeIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "black" }}
-            />
-            Home Address
+              />
+              Home Address
             </p>
             <p className="dash-menu-label">
-            <PhoneIcon
+              <PhoneIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "black" }}
-            />
-            Phone Number
+              />
+              Phone Number
             </p>
             <p className="dash-menu-label">
-            <CalendarMonthIcon
+              <CalendarMonthIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "black" }}
-            />
-            Date
+              />
+              Date
             </p>
             <p className="dash-menu-label">
-            <AccessTimeFilledIcon
+              <AccessTimeFilledIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "black" }}
-            />
-            Time
+              />
+              Time
             </p>
-            </div>
-            <TripList />
-       </div> : null}
-      { tripView === "map-view" || tripView === "full-view" ? <GoogleMap /> : null }
+          </div>
+          <TripList />
+        </div>
+      ) : null}
+      {tripView === "map-view" || tripView === "full-view" ? <Map /> : null}
+      <div className="downloadPDF-div">
+        <DownloadPDF filename="Trip-Planning" contentRef={downloadRef} />
+      </div>
     </div>
-  )
+  );
 };
 
 export default TripPlanning;

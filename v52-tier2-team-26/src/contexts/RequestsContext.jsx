@@ -12,6 +12,7 @@ export const RequestProvider = ({ children }) => {
   const [appointmentStatus, setAppointmentStatus] = useState("Pending");
   // const [request, setRequest] = useState(null);
 
+
   // console.log(requestList);
 
   // UPDATE LOCAL STORAGE when Request List changes
@@ -61,9 +62,11 @@ export const RequestProvider = ({ children }) => {
   //   localStorage.setItem("requestList", JSON.stringify(newRequestList));
   // };
 
+
   return (
     <RequestContext.Provider
       value={{
+        useRequest,
         requestList,
         setRequestList,
         appointmentStatus,
