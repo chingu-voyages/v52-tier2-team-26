@@ -63,24 +63,24 @@ export const UserProvider = ({ children }) => {
   //   }
   // };
 
-  const updateUserinLocalStorage = (userToUpdate) => {
-    let userListUpdateIndex = userList.findIndex((u) => u.id === user.id);
-    let newUserList = userList;
-    newUserList[userListUpdateIndex] = userToUpdate;
-    setUser(userToUpdate);
-    localStorage.setItem("currentUser", JSON.stringify(userToUpdate));
-    setUserList(newUserList);
-    localStorage.setItem("userList", JSON.stringify(newUserList));
-  };
+  // const updateUserinLocalStorage = (userToUpdate) => {
+  //   let userListUpdateIndex = userList.findIndex((u) => u.id === user.id);
+  //   let newUserList = userList;
+  //   newUserList[userListUpdateIndex] = userToUpdate;
+  //   setUser(userToUpdate);
+  //   localStorage.setItem("currentUser", JSON.stringify(userToUpdate));
+  //   setUserList(newUserList);
+  //   localStorage.setItem("userList", JSON.stringify(newUserList));
+  // };
 
-  //function for updating user's requests in json file;
-  const updateRequests = (requestId) => {
-    const updatedUser = {
-      ...user,
-      requests: [user.requests] + [requestId],
-    };
-    updateUserinLocalStorage(updatedUser);
-  };
+  // //function for updating user's requests in json file;
+  // const updateRequests = (requestId) => {
+  //   const updatedUser = {
+  //     ...user,
+  //     requests: [user.requests] + [requestId],
+  //   };
+  //   updateUserinLocalStorage(updatedUser);
+  // };
 
   return (
     <UserContext.Provider
