@@ -32,10 +32,7 @@ function App() {
       //gets the first 100 addresses of the 1.03M total
       for (let i = 0; i < 100; i++) {
         addressesList.push({
-          streetNumber: `${data[i][11]}`,
-          streetPrefix: `${data[i][13]}`,
-          streetName: `${data[i][14]}`,
-          streetSuffix: `${data[i][15]}`,
+          addressLine: `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`,
           lat: `${data[i][19]}`,
           lng: `${data[i][20]}`,
         });
@@ -69,7 +66,13 @@ function App() {
             <Route path="apply" element={<SolarForm />} />
             <Route
               path="dashboard"
-              element={currentUser ? <Dashboard /> : <MissingDashboard />}
+              element={
+                currentUser ? (
+                  <Dashboard addresses={addresses} />
+                ) : (
+                  <MissingDashboard />
+                )
+              }
             />
             <Route path="*" element={<Missing />} />
           </Route>

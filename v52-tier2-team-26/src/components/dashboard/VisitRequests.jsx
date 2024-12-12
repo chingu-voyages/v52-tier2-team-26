@@ -14,10 +14,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import DownloadPDF from "../../ui/DownloadPDF";
 import "../../styling/dashboard.css";
 
-const VisitRequests = () => {
+const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
   const { requestList } = useRequest();
   const [page, setPage] = useState(1);
-  const [updatedRequests, setUpdatedRequests] = useState(requestList);
   const [sortRef, setSortRef] = useState("newest");
   const [sortedRequests, setSortedRequests] = useState(requestList);
   const [requestStatus, setRequestStatus] = useState();
@@ -26,12 +25,12 @@ const VisitRequests = () => {
 
   console.log(requestList);
 
-  const numRequests = requestList.length;
+  const numRequests = updatedRequests.length;
 
-  const page1 = requestList.slice(0, 10);
-  const page2 = requestList.slice(10, 20);
-  const page3 = requestList.slice(20, 30);
-  const page4 = requestList.slice(30, 40);
+  const page1 = updatedRequests.slice(0, 10);
+  const page2 = updatedRequests.slice(10, 20);
+  const page3 = updatedRequests.slice(20, 30);
+  const page4 = updatedRequests.slice(30, 40);
 
   // const handleSort = () => {
   //   const sortRequests = [...requestList].sort((a, b) => {
@@ -49,19 +48,18 @@ const VisitRequests = () => {
   // };
 
   const handleEditStatus = (id, newStatus) => {
-    const requestList = JSON.parse(localStorage.getItem("requestList"));
-    const getRequest = requestList.find((item) => item.id === id);
+    const requestsList = JSON.parse(localStorage.getItem("requestList"));
+    const getRequest = requestsList.find((item) => item.id === id);
     const updateRequest = (getRequest["status"] = newStatus);
     console.log(requestList);
-    localStorage.setItem("requestList", JSON.stringify(requestList));
-    setUpdatedRequests(requestList);
-    setSortedRequests(requestList);
+    localStorage.setItem("requestList", JSON.stringify(requestsList));
+    setUpdatedRequests(requestsList);
     // setSortedRequests(requestList);
   };
 
-  useEffect(() => {}, [requestList, sortedRequests]);
+  // useEffect(() => {}, [requestList, sortedRequests]);
 
-  console.log(sortedRequests);
+  // console.log(sortedRequests);
 
   return (
     <div ref={downloadRef} className="dash-menu">
