@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useRequest } from "../../contexts/RequestsContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import PersonIcon from "@mui/icons-material/Person";
@@ -13,10 +12,9 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "../../styling/dashboard.css";
 
-const ScheduledVisits = () => {
-  const { requestList } = useRequest();
+const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
   const [page, setPage] = useState(1);
-  const pendingRequests = requestList.filter((i) => i.status === "Pending");
+  const pendingRequests = updatedRequests.filter((i) => i.status === "Pending");
 
   const numRequests = pendingRequests.length;
 
@@ -31,6 +29,7 @@ const ScheduledVisits = () => {
     const updateRequest = (getRequest["status"] = newStatus);
     console.log(requestList);
     localStorage.setItem("requestList", JSON.stringify(requestList));
+    setUpdatedRequests(requestList);
   };
 
   return (
@@ -369,4 +368,4 @@ const ScheduledVisits = () => {
   );
 };
 
-export default ScheduledVisits;
+export default PendingVisits;

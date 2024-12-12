@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRequest } from "../../contexts/RequestsContext";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
@@ -12,10 +11,11 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import "../../styling/dashboard.css";
 
-const CompletedVisits = () => {
-  const { requestList } = useRequest();
+const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
   const [page, setPage] = useState(1);
-  const completedRequests = requestList.filter((i) => i.status === "Completed");
+  const completedRequests = updatedRequests.filter(
+    (i) => i.status === "Completed"
+  );
 
   const numRequests = completedRequests.length;
 
