@@ -112,6 +112,22 @@ svg {
   color: black;
 }
 
+.logout-btn {
+  margin-left: 1rem;
+  align-self:flex-end ;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 0.3rem .55rem;
+  border-radius: 6px;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: var(--button-hover);
+}
+
 /* GLOBAL Component styles */
 .Home,
 .Missing,

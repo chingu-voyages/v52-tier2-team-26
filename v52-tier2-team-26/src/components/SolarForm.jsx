@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import RequestContext from "../contexts/RequestsContext";
 
 const SolarForm = () => {
-  const { requestList, setRequestList, appointmentStatus } = useContext(RequestContext);
+  const { requestList, setRequestList, appointmentStatus, address, setAddress } = useContext(RequestContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   // Info gathered from inputs
@@ -15,9 +15,6 @@ const SolarForm = () => {
   const [date, setDate] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
 
-  // TO DO: Need an API call to verify address input
-  const [address, setAddress] = useState("");
-
   const addNewRequest = () => {
     const newRequest = {};
     newRequest.id = new Date().getTime().toString(36);
@@ -27,10 +24,8 @@ const SolarForm = () => {
     newRequest.date = date;
     newRequest.time = preferredTime;
     newRequest.status = appointmentStatus;
-    newRequest.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
-
-    // TO DO: Integrate address API
     newRequest.address = address;
+    newRequest.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
     setRequestList([...requestList, newRequest]);
   };
@@ -113,6 +108,7 @@ const SolarForm = () => {
                   id="address"
                   type="text"
                   required
+                  value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
 
