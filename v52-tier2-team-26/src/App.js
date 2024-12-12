@@ -13,8 +13,8 @@ import SolarForm from "./components/SolarForm";
 import { useEffect, useState } from "react";
 import MissingDashboard from "./components/MissingDashboard";
 
-
 function App() {
+  // Must keep currentUser state here (not in a Context) in order to conditionally render Dashboard component
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || "");
   // console.log(currentUser);
   const [addresses, setAddresses] = useState([]);
@@ -27,13 +27,17 @@ function App() {
       const result = await response.json();
       const data = result.data;
       const addressesList = [];
-  
-      //gets the first 1,000 addresses of the 1.03M total
-      for (let i = 0; i < 1000; i++) {
-        addressesList.push(
-          `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`
-        );
+
+      //gets the first 100 addresses of the 1.03M total
+
+      for (let i = 0; i < 100; i++) {
+        addressesList.push({
+          addressLine: `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`,
+          lat: `${data[i][19]}`,
+          lng: `${data[i][20]}`,
+        });
       }
+
       setAddresses(addressesList)
     } catch (err) {
       console.log("Something went wrong.", err);
@@ -45,7 +49,6 @@ function App() {
     fetchAPI();
   }, []);
 
-
   // UPDATE LOCAL STORAGE when Current User changes
   useEffect(() => {
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -55,11 +58,23 @@ function App() {
     <UserProvider>
       <RequestProvider>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout currentUser={currentUser} setCurrentUser={setCurrentUser} />}>
             <Route index element={<Home addresses={addresses} />} />
-            <Route path="login" element={<UserLogin setCurrentUser={setCurrentUser} />} />
+            <Route
+              path="login"
+              element={<UserLogin setCurrentUser={setCurrentUser} />}
+            />
             <Route path="apply" element={<SolarForm />} />
-            <Route path="dashboard" element={currentUser ? <Dashboard /> : <MissingDashboard />} />
+            <Route
+              path="dashboard"
+              element={
+                currentUser ? (
+                  <Dashboard addresses={addresses} />
+                ) : (
+                  <MissingDashboard />
+                )
+              }
+            />
             <Route path="*" element={<Missing />} />
           </Route>
         </Routes>

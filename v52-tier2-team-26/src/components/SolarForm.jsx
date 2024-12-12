@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import RequestContext from "../contexts/RequestsContext";
 
 const SolarForm = () => {
-  const { requestList, setRequestList, appointmentStatus } = useContext(RequestContext);
+  const { requestList, setRequestList, appointmentStatus, address, setAddress } = useContext(RequestContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   // Info gathered from inputs
@@ -13,10 +13,7 @@ const SolarForm = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
-  const [preferredTime, setPreferredTime] = useState("");
-
-  // TO DO: Need an API call to verify address input
-  const [address, setAddress] = useState("");
+  const [preferredTime, setPreferredTime] = useState("8AM - 10AM");
 
   const addNewRequest = () => {
     const newRequest = {};
@@ -27,12 +24,10 @@ const SolarForm = () => {
     newRequest.date = date;
     newRequest.time = preferredTime;
     newRequest.status = appointmentStatus;
+    newRequest.address = address;
     newRequest.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
-    // TO DO: Integrate address API
-    newRequest.address = address;
-
-    setRequestList([...requestList, newRequest]);
+    setRequestList([newRequest, ...requestList]);
   };
   console.log(requestList);
 
@@ -113,6 +108,7 @@ const SolarForm = () => {
                   id="address"
                   type="text"
                   required
+                  value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
 
@@ -147,10 +143,10 @@ const SolarForm = () => {
                   htmlFor="timeslot"
                   onChange={(e) => setPreferredTime(e.target.value)}
                 >
-                  <option value="8AM-10AM">8 AM - 10 AM</option>
-                  <option value="10AM-12PM">10 AM - 12 PM</option>
-                  <option value="12PM-2PM">12 PM - 2 PM</option>
-                  <option value="2PM-4PM">2 PM - 4 PM</option>
+                  <option value="8AM - 10AM">8 AM - 10 AM</option>
+                  <option value="10AM - 12PM">10 AM - 12 PM</option>
+                  <option value="12PM - 2PM">12 PM - 2 PM</option>
+                  <option value="2PM - 4PM">2 PM - 4 PM</option>
                 </select>
                 <p>
                   *Please note that preferred timeslots are requested but not

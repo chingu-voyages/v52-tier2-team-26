@@ -11,6 +11,7 @@ export const RequestProvider = ({ children }) => {
   const [requestList, setRequestList] = useState(JSON.parse(localStorage.getItem('requestList')) || requests);
   const [appointmentStatus, setAppointmentStatus] = useState("Pending");
   // const [request, setRequest] = useState(null);
+  const [address, setAddress] = useState("");
 
 
   // console.log(requestList);
@@ -70,7 +71,9 @@ export const RequestProvider = ({ children }) => {
         requestList,
         setRequestList,
         appointmentStatus,
-        setAppointmentStatus
+        setAppointmentStatus,
+        address,
+        setAddress
         // setRequest,
         // useRequest,
         // addRequest,

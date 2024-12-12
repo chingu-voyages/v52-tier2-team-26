@@ -4,11 +4,18 @@ import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import DownloadPDF from "../../ui/DownloadPDF";
 import TripList from "./TripList";
 import Map from "./Map";
 
-const TripPlanning = ({ tripView, setTripView }) => {
+const TripPlanning = ({
+  addresses,
+  tripView,
+  setTripView,
+  updatedRequests,
+  setUpdatedRequests,
+}) => {
   const downloadRef = useRef(null);
 
   return (
@@ -65,11 +72,29 @@ const TripPlanning = ({ tripView, setTripView }) => {
               />
               Time
             </p>
+            <p className="dash-menu-label">
+              <PendingActionsIcon
+                className="dash-nav-icon"
+                style={{ fontSize: "0.9vw", color: "black" }}
+              />
+              Status
+            </p>
           </div>
-          <TripList tripView={tripView} setTripView={setTripView} />
+          <TripList
+            tripView={tripView}
+            setTripView={setTripView}
+            updatedRequests={updatedRequests}
+            setUpdatedRequests={setUpdatedRequests}
+          />
         </div>
       ) : null}
-      {tripView === "map-view" || tripView === "full-view" ? <Map /> : null}
+      {tripView === "map-view" || tripView === "full-view" ? (
+        <Map
+          addresses={addresses}
+          updatedRequests={updatedRequests}
+          setUpdatedRequests={setUpdatedRequests}
+        />
+      ) : null}
       {tripView === "list-view" ? (
         <div className="downloadPDF-div">
           <DownloadPDF filename="Trip-Planning" contentRef={downloadRef} />
