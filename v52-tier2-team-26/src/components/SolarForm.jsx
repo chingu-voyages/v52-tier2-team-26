@@ -13,7 +13,7 @@ const SolarForm = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
-  const [preferredTime, setPreferredTime] = useState("");
+  const [preferredTime, setPreferredTime] = useState("8AM - 10AM");
 
   const addNewRequest = () => {
     const newRequest = {};
@@ -143,10 +143,10 @@ const SolarForm = () => {
                   htmlFor="timeslot"
                   onChange={(e) => setPreferredTime(e.target.value)}
                 >
-                  <option value="8AM-10AM">8 AM - 10 AM</option>
-                  <option value="10AM-12PM">10 AM - 12 PM</option>
-                  <option value="12PM-2PM">12 PM - 2 PM</option>
-                  <option value="2PM-4PM">2 PM - 4 PM</option>
+                  <option value="8AM - 10AM">8 AM - 10 AM</option>
+                  <option value="10AM - 12PM">10 AM - 12 PM</option>
+                  <option value="12PM - 2PM">12 PM - 2 PM</option>
+                  <option value="2PM - 4PM">2 PM - 4 PM</option>
                 </select>
                 <p>
                   *Please note that preferred timeslots are requested but not
