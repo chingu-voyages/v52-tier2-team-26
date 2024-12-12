@@ -53,6 +53,32 @@ const TripList = ({ tripView, setTripView }) => {
                 </div>
               </div>
               <p className="dash-menu-req-time-trip">{item.time}</p>
+              {item.status === "Scheduled" ? (
+                <div className="dash-menu-req-status-div">
+                  <p className="dash-menu-req-status-scheduled">
+                    {item.status}
+                  </p>
+                </div>
+              ) : null}
+              {item.status === "Pending" ? (
+                <div className="dash-menu-req-status-div">
+                  <p className="dash-menu-req-status-pending">{item.status}</p>
+                </div>
+              ) : null}
+              {item.status === "Cancelled" ? (
+                <div className="dash-menu-req-status-div">
+                  <p className="dash-menu-req-status-cancelled">
+                    {item.status}
+                  </p>
+                </div>
+              ) : null}
+              {item.status === "Completed" ? (
+                <div className="dash-menu-req-status-div">
+                  <p className="dash-menu-req-status-completed">
+                    {item.status}
+                  </p>
+                </div>
+              ) : null}
             </div>
           ))
         : null}

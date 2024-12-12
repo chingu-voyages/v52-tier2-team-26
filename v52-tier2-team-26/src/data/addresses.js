@@ -7,7 +7,7 @@ const fetchAddresses = async (id) => {
     const data = result.data;
     const addresses = [];
 
-    //gets the first 1,000 addresses of the 1.03M total
+    //gets the first 100 addresses of the 1.03M total
     for (let i = 0; i < 100; i++) {
       addresses.push({
         streetNumber: `${data[i][11]}`,
