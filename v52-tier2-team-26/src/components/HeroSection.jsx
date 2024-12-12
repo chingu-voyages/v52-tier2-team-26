@@ -2,16 +2,6 @@ import { useNavigate } from "react-router-dom";
 import "../styling/herosection.css";
 import Autocomplete from "./Autcomplete";
 
-const suggestions = [
-  "Apple",
-  "Banana",
-  "Cherry",
-  "Date",
-  "Elderberry",
-  "Fig",
-  "Grapes",
-];
-
 export default function HeroSection({ addresses }) {
     const navigate = useNavigate();
 
@@ -25,7 +15,7 @@ export default function HeroSection({ addresses }) {
         build a sustainable, greener future for Los Angeles!
       </p>
       <div className="row">
-        <Autocomplete suggestions={suggestions} />
+        <Autocomplete suggestions={addresses} />
         <button className="btn" onClick={() => navigate("apply")}>Take the First Step towards Solar</button>
       </div>
     </div>
