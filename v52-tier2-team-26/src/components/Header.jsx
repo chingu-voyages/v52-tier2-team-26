@@ -1,9 +1,9 @@
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ currentUser, setCurrentUser }) => {
   return (
     <header className="Header">
-      <Navbar />
+      <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
     </header>
   );
 };

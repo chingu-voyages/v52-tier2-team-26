@@ -3,6 +3,17 @@ import Reviews from "./Reviews";
 import "../styling/howto.css";
 
 const HowTo = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional for smooth scrolling
+    });
+  };
+
+  const navigateToApply = () => {
+    scrollToTop();
+  }
+
   return (
     <section className="HowTo">
       <div className="together-wrapper">
@@ -128,7 +139,10 @@ const HowTo = () => {
               </p>
             </div>
             <div className="qualify-div">
-              <button className="qualify-button">
+              <button
+                className="qualify-button"
+                onClick={navigateToApply}
+              >
                 Find Out If You Qualify
               </button>
             </div>

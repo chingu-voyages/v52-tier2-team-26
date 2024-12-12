@@ -14,9 +14,8 @@ import { useEffect, useState } from "react";
 import MissingDashboard from "./components/MissingDashboard";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("currentUser")) || ""
-  );
+  // Must keep currentUser state here (not in a Context) in order to conditionally render Dashboard component
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || "");
   // console.log(currentUser);
   const [addresses, setAddresses] = useState([]);
 
@@ -30,6 +29,7 @@ function App() {
       const addressesList = [];
 
       //gets the first 100 addresses of the 1.03M total
+
       for (let i = 0; i < 100; i++) {
         addressesList.push({
           streetNumber: `${data[i][11]}`,
@@ -40,7 +40,8 @@ function App() {
           lng: `${data[i][20]}`,
         });
       }
-      setAddresses(addressesList);
+
+      setAddresses(addressesList)
     } catch (err) {
       console.log("Something went wrong.", err);
     }
@@ -60,7 +61,7 @@ function App() {
     <UserProvider>
       <RequestProvider>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout currentUser={currentUser} setCurrentUser={setCurrentUser} />}>
             <Route index element={<Home addresses={addresses} />} />
             <Route
               path="login"
