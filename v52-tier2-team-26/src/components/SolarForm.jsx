@@ -27,7 +27,7 @@ const SolarForm = () => {
     newRequest.address = address;
     newRequest.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
-    setRequestList([...requestList, newRequest]);
+    setRequestList([newRequest, ...requestList]);
   };
   console.log(requestList);
 
