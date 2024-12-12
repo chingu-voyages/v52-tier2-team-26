@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import TrackerDash from "./TrackerDash";
 import NavbarDash from "./NavbarDash";
-import ScheduledVisits from "./ScheduledVisits";
+import ScheduledVisits from "./PendingVisits";
 import VisitRequests from "./VisitRequests";
 import TripPlanning from "./TripPlanning";
 import requests from "../../data/requests";

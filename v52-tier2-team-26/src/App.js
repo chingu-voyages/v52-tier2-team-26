@@ -13,7 +13,6 @@ import SolarForm from "./components/SolarForm";
 import { useEffect, useState } from "react";
 import MissingDashboard from "./components/MissingDashboard";
 
-
 function App() {
   // Must keep currentUser state here (not in a Context) in order to conditionally render Dashboard component
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || "");
@@ -28,8 +27,9 @@ function App() {
       const result = await response.json();
       const data = result.data;
       const addressesList = [];
-  
-      //gets the first 1,000 addresses of the 1.03M total
+
+      //gets the first 100 addresses of the 1.03M total
+
       for (let i = 0; i < 100; i++) {
         addressesList.push({
           streetNumber: `${data[i][11]}`,
@@ -52,7 +52,6 @@ function App() {
     fetchAPI();
   }, []);
 
-
   // UPDATE LOCAL STORAGE when Current User changes
   useEffect(() => {
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -64,9 +63,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout currentUser={currentUser} setCurrentUser={setCurrentUser} />}>
             <Route index element={<Home addresses={addresses} />} />
-            <Route path="login" element={<UserLogin setCurrentUser={setCurrentUser} />} />
+            <Route
+              path="login"
+              element={<UserLogin setCurrentUser={setCurrentUser} />}
+            />
             <Route path="apply" element={<SolarForm />} />
-            <Route path="dashboard" element={currentUser ? <Dashboard /> : <MissingDashboard />} />
+            <Route
+              path="dashboard"
+              element={currentUser ? <Dashboard /> : <MissingDashboard />}
+            />
             <Route path="*" element={<Missing />} />
           </Route>
         </Routes>

@@ -12,10 +12,7 @@ import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import DownloadPDF from "../../ui/DownloadPDF";
-import requests from "../../data/requests";
-import users from "../../data/users";
 import "../../styling/dashboard.css";
-import fetchAddresses from "../../data/addresses";
 
 const VisitRequests = () => {
   const { requestList } = useRequest();
@@ -35,10 +32,6 @@ const VisitRequests = () => {
   const page2 = requestList.slice(10, 20);
   const page3 = requestList.slice(20, 30);
   const page4 = requestList.slice(30, 40);
-
-  const addresses = fetchAddresses();
-
-  console.log(addresses);
 
   // const handleSort = () => {
   //   const sortRequests = [...requestList].sort((a, b) => {
@@ -278,6 +271,15 @@ const VisitRequests = () => {
                     </p>
                   </div>
                 ) : null}
+                <select
+                  onChange={(e) => handleEditStatus(item.id, e.target.value)}
+                >
+                  <option value={item.status}>(change status)</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Cancelled">Cancelled</option>
+                  <option value="Completed">Completed</option>
+                </select>
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
@@ -363,6 +365,15 @@ const VisitRequests = () => {
                     </p>
                   </div>
                 ) : null}
+                <select
+                  onChange={(e) => handleEditStatus(item.id, e.target.value)}
+                >
+                  <option value={item.status}>(change status)</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Cancelled">Cancelled</option>
+                  <option value="Completed">Completed</option>
+                </select>
               </div>
             ))}
             <div className="dash-menu-req-pages-div">

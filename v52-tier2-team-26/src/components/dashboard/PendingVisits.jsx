@@ -16,14 +16,22 @@ import "../../styling/dashboard.css";
 const ScheduledVisits = () => {
   const { requestList } = useRequest();
   const [page, setPage] = useState(1);
-  const scheduledRequests = requestList.filter((i) => i.status === "Scheduled");
+  const pendingRequests = requestList.filter((i) => i.status === "Pending");
 
-  const numRequests = scheduledRequests.length;
+  const numRequests = pendingRequests.length;
 
-  const page1 = scheduledRequests.slice(0, 10);
-  const page2 = scheduledRequests.slice(10, 20);
-  const page3 = scheduledRequests.slice(20, 30);
-  const page4 = scheduledRequests.slice(30, 40);
+  const page1 = pendingRequests.slice(0, 10);
+  const page2 = pendingRequests.slice(10, 20);
+  const page3 = pendingRequests.slice(20, 30);
+  const page4 = pendingRequests.slice(30, 40);
+
+  const handleEditStatus = (id, newStatus) => {
+    const requestList = JSON.parse(localStorage.getItem("requestList"));
+    const getRequest = requestList.find((item) => item.id === id);
+    const updateRequest = (getRequest["status"] = newStatus);
+    console.log(requestList);
+    localStorage.setItem("requestList", JSON.stringify(requestList));
+  };
 
   return (
     <div className="dash-menu">
@@ -144,6 +152,13 @@ const ScheduledVisits = () => {
                     </p>
                   </div>
                 ) : null}
+                <select
+                  onChange={(e) => handleEditStatus(item.id, e.target.value)}
+                >
+                  <option value={item.status}>(change status)</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
@@ -218,6 +233,13 @@ const ScheduledVisits = () => {
                     </p>
                   </div>
                 ) : null}
+                <select
+                  onChange={(e) => handleEditStatus(item.id, e.target.value)}
+                >
+                  <option value={item.status}>(change status)</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
@@ -303,6 +325,13 @@ const ScheduledVisits = () => {
                     </p>
                   </div>
                 ) : null}
+                <select
+                  onChange={(e) => handleEditStatus(item.id, e.target.value)}
+                >
+                  <option value={item.status}>(change status)</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
               </div>
             ))}
             <div className="dash-menu-req-pages-div">
