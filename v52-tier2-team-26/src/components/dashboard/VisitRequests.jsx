@@ -148,7 +148,6 @@ const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -187,13 +186,24 @@ const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 <select
+                  className="select-status"
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
-                  <option value={item.status}>(change status)</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Scheduled">Scheduled</option>
-                  <option value="Cancelled">Cancelled</option>
-                  <option value="Completed">Completed</option>
+                  <option className="option-change" value={item.status}>
+                    (change status)
+                  </option>
+                  <option className="option-pending" value="Pending">
+                    Pending
+                  </option>
+                  <option className="option-scheduled" value="Scheduled">
+                    Scheduled
+                  </option>
+                  <option className="option-cancelled" value="Cancelled">
+                    Cancelled
+                  </option>
+                  <option className="option-completed" value="Completed">
+                    Completed
+                  </option>
                 </select>
               </div>
             ))}
@@ -231,7 +241,6 @@ const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -270,13 +279,24 @@ const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 <select
+                  className="select-status"
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
-                  <option value={item.status}>(change status)</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Scheduled">Scheduled</option>
-                  <option value="Cancelled">Cancelled</option>
-                  <option value="Completed">Completed</option>
+                  <option className="option-change" value={item.status}>
+                    (change status)
+                  </option>
+                  <option className="option-pending" value="Pending">
+                    Pending
+                  </option>
+                  <option className="option-scheduled" value="Scheduled">
+                    Scheduled
+                  </option>
+                  <option className="option-cancelled" value="Cancelled">
+                    Cancelled
+                  </option>
+                  <option className="option-completed" value="Completed">
+                    Completed
+                  </option>
                 </select>
               </div>
             ))}
@@ -325,7 +345,6 @@ const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -364,13 +383,24 @@ const VisitRequests = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 <select
+                  className="select-status"
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
-                  <option value={item.status}>(change status)</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Scheduled">Scheduled</option>
-                  <option value="Cancelled">Cancelled</option>
-                  <option value="Completed">Completed</option>
+                  <option className="option-change" value={item.status}>
+                    (change status)
+                  </option>
+                  <option className="option-pending" value="Pending">
+                    Pending
+                  </option>
+                  <option className="option-scheduled" value="Scheduled">
+                    Scheduled
+                  </option>
+                  <option className="option-cancelled" value="Cancelled">
+                    Cancelled
+                  </option>
+                  <option className="option-completed" value="Completed">
+                    Completed
+                  </option>
                 </select>
               </div>
             ))}

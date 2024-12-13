@@ -54,17 +54,20 @@ const Map = ({ addresses, updatedRequests, setUpdatedRequests }) => {
     return null;
   };
 
+  useEffect(() => {}, [addresses]);
+
   console.log(filteredAddresses);
 
   return (
     <>
-      <div>
+      <div className="route-button-div">
         <button
+          className="route-button"
           onClick={() => {
             setRoute("On");
           }}
         >
-          Route
+          Generate Route
         </button>
       </div>
       <MapContainer

@@ -12,42 +12,44 @@ import Dashboard from "./components/dashboard/Dashboard";
 import SolarForm from "./components/SolarForm";
 import { useEffect, useState } from "react";
 import MissingDashboard from "./components/MissingDashboard";
+import addressList from "./data/addressList";
 
 function App() {
   // Must keep currentUser state here (not in a Context) in order to conditionally render Dashboard component
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("currentUser")) || "");
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("currentUser")) || ""
+  );
   // console.log(currentUser);
-  const [addresses, setAddresses] = useState([]);
+  const [addresses, setAddresses] = useState(addressList);
 
-  const fetchAPI = async () => {
-    try {
-      const response = await fetch(
-        "https://data.lacity.org/api/views/4ca8-mxuh/rows.json"
-      );
-      const result = await response.json();
-      const data = result.data;
-      const addressesList = [];
+  // const fetchAPI = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://data.lacity.org/api/views/4ca8-mxuh/rows.json"
+  //     );
+  //     const result = await response.json();
+  //     const data = result.data;
+  //     const addressesList = [];
 
-      //gets the first 100 addresses of the 1.03M total
+  //     for (let i = 0; i < 1000; i++) {
+  //       addressesList.push({
+  //         addressLine: `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`,
+  //         lat: `${data[i][19]}`,
+  //         lng: `${data[i][20]}`,
+  //       });
+  //     }
 
-      for (let i = 0; i < 100; i++) {
-        addressesList.push({
-          addressLine: `${data[i][11]} ${data[i][13]} ${data[i][14]} ${data[i][15]}`,
-          lat: `${data[i][19]}`,
-          lng: `${data[i][20]}`,
-        });
-      }
+  //     setAddresses(addressesList);
+  //   } catch (err) {
+  //     console.log("Something went wrong.", err);
+  //   }
+  // };
 
-      setAddresses(addressesList)
-    } catch (err) {
-      console.log("Something went wrong.", err);
-    }
-  };
+  // useEffect(() => {
+  //   fetchAPI();
+  // }, []);
+
   console.log(addresses);
-
-  useEffect(() => {
-    fetchAPI();
-  }, []);
 
   // UPDATE LOCAL STORAGE when Current User changes
   useEffect(() => {
@@ -58,7 +60,15 @@ function App() {
     <UserProvider>
       <RequestProvider>
         <Routes>
-          <Route path="/" element={<Layout currentUser={currentUser} setCurrentUser={setCurrentUser} />}>
+          <Route
+            path="/"
+            element={
+              <Layout
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          >
             <Route index element={<Home addresses={addresses} />} />
             <Route
               path="login"

@@ -47,7 +47,7 @@ const TripList = ({
               </div>
               <p className="dash-menu-req-time-trip">{item.time}</p>
               {item.status === "Scheduled" ? (
-                <div className="dash-menu-req-status-div">
+                <div className="dash-menu-req-status-trip-div">
                   <p className="dash-menu-req-status-scheduled">
                     {item.status}
                   </p>
@@ -73,11 +73,18 @@ const TripList = ({
                 </div>
               ) : null}
               <select
+                className="select-status"
                 onChange={(e) => handleEditStatus(item.id, e.target.value)}
               >
-                <option value={item.status}>(change status)</option>
-                <option value="Cancelled">Cancelled</option>
-                <option value="Completed">Completed</option>
+                <option className="option-change" value={item.status}>
+                  (change status)
+                </option>
+                <option className="option-cancelled" value="Cancelled">
+                  Cancelled
+                </option>
+                <option className="option-completed" value="Completed">
+                  Completed
+                </option>
               </select>
             </div>
           ))
@@ -101,7 +108,7 @@ const TripList = ({
               </div>
               <p className="dash-menu-req-time-trip">{item.time}</p>
               {item.status === "Scheduled" ? (
-                <div className="dash-menu-req-status-div">
+                <div className="dash-menu-req-status-trip-div">
                   <p className="dash-menu-req-status-scheduled">
                     {item.status}
                   </p>
@@ -127,11 +134,18 @@ const TripList = ({
                 </div>
               ) : null}
               <select
+                className="select-status"
                 onChange={(e) => handleEditStatus(item.id, e.target.value)}
               >
-                <option value={item.status}>(change status)</option>
-                <option value="Cancelled">Cancelled</option>
-                <option value="Completed">Completed</option>
+                <option className="option-change" value={item.status}>
+                  (change status)
+                </option>
+                <option className="option-cancelled" value="Cancelled">
+                  Cancelled
+                </option>
+                <option className="option-completed" value="Completed">
+                  Completed
+                </option>
               </select>
             </div>
           ))
@@ -155,7 +169,7 @@ const TripList = ({
               </div>
               <p className="dash-menu-req-time-trip">{item.time}</p>
               {item.status === "Scheduled" ? (
-                <div className="dash-menu-req-status-div">
+                <div className="dash-menu-req-status-trip-div">
                   <p className="dash-menu-req-status-scheduled">
                     {item.status}
                   </p>
@@ -181,11 +195,18 @@ const TripList = ({
                 </div>
               ) : null}
               <select
+                className="select-status"
                 onChange={(e) => handleEditStatus(item.id, e.target.value)}
               >
-                <option value={item.status}>(change status)</option>
-                <option value="Cancelled">Cancelled</option>
-                <option value="Completed">Completed</option>
+                <option className="option-change" value={item.status}>
+                  (change status)
+                </option>
+                <option className="option-cancelled" value="Cancelled">
+                  Cancelled
+                </option>
+                <option className="option-completed" value="Completed">
+                  Completed
+                </option>
               </select>
             </div>
           ))
@@ -209,7 +230,7 @@ const TripList = ({
               </div>
               <p className="dash-menu-req-time-trip">{item.time}</p>
               {item.status === "Scheduled" ? (
-                <div className="dash-menu-req-status-div">
+                <div className="dash-menu-req-status-trip-div">
                   <p className="dash-menu-req-status-scheduled">
                     {item.status}
                   </p>
@@ -235,11 +256,18 @@ const TripList = ({
                 </div>
               ) : null}
               <select
+                className="select-status"
                 onChange={(e) => handleEditStatus(item.id, e.target.value)}
               >
-                <option value={item.status}>(change status)</option>
-                <option value="Cancelled">Cancelled</option>
-                <option value="Completed">Completed</option>
+                <option className="option-change" value={item.status}>
+                  (change status)
+                </option>
+                <option className="option-cancelled" value="Cancelled">
+                  Cancelled
+                </option>
+                <option className="option-completed" value="Completed">
+                  Completed
+                </option>
               </select>
             </div>
           ))
@@ -263,7 +291,7 @@ const TripList = ({
               </div>
               <p className="dash-menu-req-time-trip">{item.time}</p>
               {item.status === "Scheduled" ? (
-                <div className="dash-menu-req-status-div">
+                <div className="dash-menu-req-status-trip-div">
                   <p className="dash-menu-req-status-scheduled">
                     {item.status}
                   </p>
@@ -289,11 +317,18 @@ const TripList = ({
                 </div>
               ) : null}
               <select
+                className="select-status"
                 onChange={(e) => handleEditStatus(item.id, e.target.value)}
               >
-                <option value={item.status}>(change status)</option>
-                <option value="Cancelled">Cancelled</option>
-                <option value="Completed">Completed</option>
+                <option className="option-change" value={item.status}>
+                  (change status)
+                </option>
+                <option className="option-cancelled" value="Cancelled">
+                  Cancelled
+                </option>
+                <option className="option-completed" value="Completed">
+                  Completed
+                </option>
               </select>
             </div>
           ))

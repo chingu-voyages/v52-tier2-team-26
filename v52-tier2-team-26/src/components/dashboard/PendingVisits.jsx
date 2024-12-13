@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import DownloadPDF from "../../ui/DownloadPDF";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import PersonIcon from "@mui/icons-material/Person";
@@ -15,6 +16,8 @@ import "../../styling/dashboard.css";
 const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
   const [page, setPage] = useState(1);
   const pendingRequests = updatedRequests.filter((i) => i.status === "Pending");
+
+  const downloadRef = useRef(null);
 
   const numRequests = pendingRequests.length;
 
@@ -33,7 +36,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
   };
 
   return (
-    <div className="dash-menu">
+    <div ref={downloadRef} className="dash-menu">
       <div className="dash-menu-header">
         <div className="dash-menu-header-left">
           <h3 className="dash-menu-header-title">
@@ -113,7 +116,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -152,11 +154,18 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 <select
+                  className="select-status"
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
-                  <option value={item.status}>(change status)</option>
-                  <option value="Scheduled">Scheduled</option>
-                  <option value="Cancelled">Cancelled</option>
+                  <option className="option-change" value={item.status}>
+                    (change status)
+                  </option>
+                  <option className="option-scheduled" value="Scheduled">
+                    Scheduled
+                  </option>
+                  <option className="option-cancelled" value="Cancelled">
+                    Cancelled
+                  </option>
                 </select>
               </div>
             ))}
@@ -194,7 +203,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -233,11 +241,18 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 <select
+                  className="select-status"
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
-                  <option value={item.status}>(change status)</option>
-                  <option value="Scheduled">Scheduled</option>
-                  <option value="Cancelled">Cancelled</option>
+                  <option className="option-change" value={item.status}>
+                    (change status)
+                  </option>
+                  <option className="option-scheduled" value="Scheduled">
+                    Scheduled
+                  </option>
+                  <option className="option-cancelled" value="Cancelled">
+                    Cancelled
+                  </option>
                 </select>
               </div>
             ))}
@@ -286,7 +301,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -325,11 +339,18 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 <select
+                  className="select-status"
                   onChange={(e) => handleEditStatus(item.id, e.target.value)}
                 >
-                  <option value={item.status}>(change status)</option>
-                  <option value="Scheduled">Scheduled</option>
-                  <option value="Cancelled">Cancelled</option>
+                  <option className="option-change" value={item.status}>
+                    (change status)
+                  </option>
+                  <option className="option-scheduled" value="Scheduled">
+                    Scheduled
+                  </option>
+                  <option className="option-cancelled" value="Cancelled">
+                    Cancelled
+                  </option>
                 </select>
               </div>
             ))}
@@ -363,6 +384,12 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
             </div>
           </div>
         ) : null}
+        <div className="downloadPDF-div">
+          <DownloadPDF
+            filename={`"Visit-Requests(page ${page})"`}
+            contentRef={downloadRef}
+          />
+        </div>
       </div>
     </div>
   );
