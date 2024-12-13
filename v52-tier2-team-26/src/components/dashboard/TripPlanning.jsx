@@ -30,9 +30,6 @@ const TripPlanning = ({
             and plan logistics all in one place.
           </p>
         </div>
-        <div className="dash-menu-header-right">
-          <button className="cancel-button">Generate Schedule</button>
-        </div>
       </div>
       {tripView === "list-view" || tripView === "full-view" ? (
         <div>

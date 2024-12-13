@@ -6,6 +6,8 @@ import { PiX } from "react-icons/pi";
 const DownloadPDF = ({ filename, contentRef }) => {
   const pdfOptions = {
     filename,
+    margin: 1,
+    fontSize: "10px",
     width: "1000px",
   };
 
@@ -16,7 +18,7 @@ const DownloadPDF = ({ filename, contentRef }) => {
 
   return (
     <div data-html2canvas-ignore>
-      <button className="cancel-button" onClick={convertToPDF}>
+      <button className="downloadPDF-button" onClick={convertToPDF}>
         Download PDF
       </button>
     </div>

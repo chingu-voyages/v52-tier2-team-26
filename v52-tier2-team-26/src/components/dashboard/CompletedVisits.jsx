@@ -97,7 +97,6 @@ const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -129,7 +128,7 @@ const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 {item.status === "Completed" ? (
-                  <div className="dash-menu-req-status-div">
+                  <div className="dash-menu-req-status-completed-div">
                     <p className="dash-menu-req-status-completed">
                       {item.status}
                     </p>
@@ -171,7 +170,6 @@ const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -203,7 +201,7 @@ const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 {item.status === "Completed" ? (
-                  <div className="dash-menu-req-status-div">
+                  <div className="dash-menu-req-status-completed-div">
                     <p className="dash-menu-req-status-completed">
                       {item.status}
                     </p>
@@ -256,7 +254,6 @@ const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <p className="dash-menu-req-address">{item.address}</p>
                 <p className="dash-menu-req-phone">{item.phone}</p>
                 <div className="dash-menu-req-date-div">
-                  <p className="dash-menu-req-date-title">Date</p>
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
                     <CalendarTodayIcon
@@ -288,7 +285,7 @@ const CompletedVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   </div>
                 ) : null}
                 {item.status === "Completed" ? (
-                  <div className="dash-menu-req-status-div">
+                  <div className="dash-menu-req-status-completed-div">
                     <p className="dash-menu-req-status-completed">
                       {item.status}
                     </p>

@@ -8,7 +8,7 @@ const requests = [
     address: "12431 N HENZIE PL",
     phone: "1 (555) 555-5555",
     date: "2024-12-20",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -20,7 +20,7 @@ const requests = [
     address: "15070 W PADDOCK ST",
     phone: "1 (555) 555-5555",
     date: "2024-12-22",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -32,7 +32,7 @@ const requests = [
     address: "19829 W TURTLE SPRINGS WAY",
     phone: "1 (555) 555-5555",
     date: "2024-12-23",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Cancelled",
   },
   {
@@ -44,7 +44,7 @@ const requests = [
     address: "12055 N SHADOW RIDGE WAY",
     phone: "1 (555) 555-5555",
     date: "2024-12-27",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Cancelled",
   },
   {
@@ -56,7 +56,7 @@ const requests = [
     address: "12259 N LOUISE AVE",
     phone: "1 (555) 555-5555",
     date: "2024-12-27",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -68,7 +68,7 @@ const requests = [
     address: "12520 N CASCADE CANYON DR",
     phone: "1 (555) 555-5555",
     date: "2024-12-29",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -80,7 +80,7 @@ const requests = [
     address: "17528 W ORNA DR",
     phone: "1 (555) 555-5555",
     date: "2024-12-30",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -92,7 +92,7 @@ const requests = [
     address: "15084 W FLORENTINE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-02",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -104,7 +104,7 @@ const requests = [
     address: "14606 W BLEDSOE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-03",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Cancelled",
   },
   {
@@ -116,7 +116,7 @@ const requests = [
     address: "14992 W ORO GRANDE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-05",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -128,7 +128,7 @@ const requests = [
     address: "12676 N COMETA AVE",
     phone: "1 (555) 555-5555",
     date: "2025-01-01",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -140,7 +140,7 @@ const requests = [
     address: "15125 W NURMI ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-07",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -152,7 +152,7 @@ const requests = [
     address: "12564 N RALSTON AVE",
     phone: "1 (555) 555-5555",
     date: "2025-01-08",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Cancelled",
   },
   {
@@ -164,7 +164,7 @@ const requests = [
     address: "14709 W LAKESIDE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-10",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -176,7 +176,7 @@ const requests = [
     address: "17031 W NANETTE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-02",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -188,7 +188,7 @@ const requests = [
     address: "14703 W LAKESIDE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-11",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -200,7 +200,7 @@ const requests = [
     address: "12591 N HUNNEWELL AVE",
     phone: "1 (555) 555-5555",
     date: "2025-01-12",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -212,7 +212,7 @@ const requests = [
     address: "15563 W SANDRA LANE",
     phone: "1 (555) 555-5555",
     date: "2025-01-12",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
   {
@@ -224,7 +224,7 @@ const requests = [
     address: "617 S CENTRE ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-15",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Cancelled",
   },
   {
@@ -236,7 +236,7 @@ const requests = [
     address: "17235 W OROZCO ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-03",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Pending",
   },
   {
@@ -248,7 +248,7 @@ const requests = [
     address: "14510 W PADDOCK ST",
     phone: "1 (555) 555-5555",
     date: "2025-01-10",
-    time: "2PM - 4PM PST",
+    time: "2PM - 4PM",
     status: "Scheduled",
   },
 ];

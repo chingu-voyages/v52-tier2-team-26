@@ -12,6 +12,8 @@ const Autocomplete = ({ suggestions }) => {
   const onChange = (e) => {
     const userInput = e.currentTarget.value;
 
+    console.log(suggestions);
+
     // Filter suggestions that match the input
     const filtered = suggestions.filter(
       (suggestion) =>
@@ -30,7 +32,7 @@ const Autocomplete = ({ suggestions }) => {
     // Update address state with input
     setAddress(e.currentTarget.innerText);
   };
-//   console.log(address);
+  //   console.log(address);
 
   const renderSuggestions = () => {
     if (showSuggestions && userInput) {
