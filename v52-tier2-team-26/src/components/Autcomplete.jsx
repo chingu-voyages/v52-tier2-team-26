@@ -6,7 +6,7 @@ import addressList from "../data/addressList";
 const Autocomplete = () => {
   const [query, setQuery] = useState(""); // track user input
   const [suggestions, setSuggestions] = useState([]); // list of address suggestions
-  const { setAddress } = useContext(RequestContext);
+  const { setAddress, setBtnDisabled } = useContext(RequestContext);
   const [showErrMsg, setShowErrMsg] = useState(false);
 
   // Sample address data to simulate suggestions
@@ -42,6 +42,7 @@ const Autocomplete = () => {
     setSuggestions([]); // Clear the suggestions
     setAddress(suggestion.addressLine); // Prefills address in form
     setShowErrMsg(false); // Remove any error msg
+    setBtnDisabled(false); // Allow user to click btn
   };
 
   return (
