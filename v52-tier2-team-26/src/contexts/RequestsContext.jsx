@@ -13,7 +13,8 @@ export const RequestProvider = ({ children }) => {
   // const [request, setRequest] = useState(null);
   const [address, setAddress] = useState("");
 
-
+  // Disable button for address autocomlete
+  const [btnDisabled, setBtnDisabled] = useState(true);
 
   // console.log(requestList);
 
@@ -75,6 +76,8 @@ export const RequestProvider = ({ children }) => {
         setAppointmentStatus,
         address,
         setAddress,
+        btnDisabled,
+        setBtnDisabled
         // setRequest,
         // useRequest,
         // addRequest,
