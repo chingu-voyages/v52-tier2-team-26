@@ -20,7 +20,7 @@ function App() {
     JSON.parse(localStorage.getItem("currentUser")) || ""
   );
   // console.log(currentUser);
-  const [addresses, setAddresses] = useState(addressList);
+  // const [addresses, setAddresses] = useState(addressList);
 
   // const fetchAPI = async () => {
   //   try {
@@ -49,7 +49,7 @@ function App() {
   //   fetchAPI();
   // }, []);
 
-  console.log(addresses);
+  // console.log(addresses);
 
   // UPDATE LOCAL STORAGE when Current User changes
   useEffect(() => {
@@ -69,7 +69,7 @@ function App() {
               />
             }
           >
-            <Route index element={<Home addresses={addresses} />} />
+            <Route index element={<Home />} />
             <Route
               path="login"
               element={<UserLogin setCurrentUser={setCurrentUser} />}
@@ -79,7 +79,7 @@ function App() {
               path="dashboard"
               element={
                 currentUser ? (
-                  <Dashboard addresses={addresses} />
+                  <Dashboard addresses={addressList} />
                 ) : (
                   <MissingDashboard />
                 )
