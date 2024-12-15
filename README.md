@@ -8,31 +8,31 @@ This app provides a way to connect Los Angeles residents and city hall employees
 
 ## Features
 
-**<u>Homepage</u>**
+**<u>Homepage:</u>**
 Users can view a green inspired homepage for information on the benefits of using solar. In order to access the application form, residents must input a valid Los Angeles address from a dropdown list of suggested addresses.
 
-**<u>Application Form</u>**
+**<u>Application Form:</u>**
 Residents must select a valid address from the dropdown list in order to continue completing the application form. Filling out the form requires information such as; name, email, phone number, date, and time. Residents are informed that their preffered timeslot is not gaurenteed and are given contact information in case they have questions. The request is saved on the administrator dashboard for scheduling purposes.
 
-**<u>Administrator Login</u>**
+**<u>Administrator Login:</u>**
 City hall employees may log in using a valid email address. In order to access admin features, input the following email; "admin@cityhall.com".
 
-**<u>Administrator Dashboard</u>**
+**<u>Administrator Dashboard:</u>**
 All visit requests are displayed on the dashboard for city hall employees to use. Admins can view pending visit requests, scheduled visit requests, and completed visit requests in separate tabs. The number of pending evaluations, scheduled visits, and completed visits are tracked in the header. Scheduled appointments can be viewed on an interactive map using leaflet. 
 
-**<u>Update Requests</u>**
+**<u>Update Requests:</u>**
 A logged in user can edit the status of a visit request. The request updates immediately and is saved in local storage.
 
-**<u>Interactive Map</u>**
+**<u>Interactive Map:</u>**
 Leaflet map shows markers for all scheduled visit addresses. Scheduled requests can be filtered by date for optimized trip planning. Admins can generate a trip route for the order of addresses to be visited.
 
-**<u>Download PDF</u>**
+**<u>Download PDF:</u>**
 Admins can download and print lists of all visit requests, pending requests, and scheduled requests in a downloadable PDF format. For optimal print view, reduce the size of web page window.
 
-**<u>Local Storage</u>**
+**<u>Local Storage:</u>**
 All request information and admin login information is saved in local storage. Logged in admins can remain logged in through different sessions or log out using the log out button.
 
-**<u>Responsiveness</u>**
+**<u>Responsiveness:</u>**
 Our app is easy to navigate and is viewable on desktop, mobile, and tablet.
 
 ## Deployed
