@@ -15,7 +15,7 @@ Users can view a green inspired homepage for information on the benefits of usin
 Residents must select a valid address from the dropdown list in order to continue completing the application form. Filling out the form requires information such as; name, email, phone number, date, and time. Residents are informed that their preffered timeslot is not gaurenteed and are given contact information in case they have questions. The request is saved on the administrator dashboard for scheduling purposes.
 
 **<u>Administrator Login</u>**
-City hall employees may log in using a valid email address. In order to access admin features, input one of the following emails; "jordan@cityhall.com", "john@cityhall.com", "erica@cityhall.com","matthew@cityhall.com", "bethany@cityhall.com", "sam@cityhall.com", "sarah@cityhall.com", "ben@cityhall.com", "rob@cityhall.com", "admin@cityhall.com".
+City hall employees may log in using a valid email address. In order to access admin features, input the following email; "admin@cityhall.com".
 
 **<u>Administrator Dashboard</u>**
 All visit requests are displayed on the dashboard for city hall employees to use. Admins can view pending visit requests, scheduled visit requests, and completed visit requests in separate tabs. The number of pending evaluations, scheduled visits, and completed visits are tracked in the header. Scheduled appointments can be viewed on an interactive map using leaflet. 
