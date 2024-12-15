@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/c865ae95-adeb-4dbf-b9ff-a848f44aecbb)
 
-## Overview:
+## Overview
 
 This app provides a way to connect Los Angeles residents and city hall employees for solar panel evaluations. Residents can create visit requests and city hall employees can schedule them accordingly.
 
