@@ -41,10 +41,10 @@ Our app is easy to navigate and is viewable on desktop, mobile, and tablet.
 
 ## Our Team
 
-- Jordan Jackson: [GitHub](https://github.com/jordanr2m) / [LinkedIn](https://www.linkedin.com/in/jordanjacksondeveloper/)
-- Erica Chong: [GitHub](https://github.com/chonger878) / 
+- Jordan Jackson (Developer): [GitHub](https://github.com/jordanr2m) / [LinkedIn](https://www.linkedin.com/in/jordanjacksondeveloper/)
+- Erica Chong (Developer): [GitHub](https://github.com/chonger878) / 
 [LinkedIn](https://linkedin.com/in/charwaeericachong)
-- Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
-- Lisa Rexroad: [GitHub](https://github.com/lrexroad) / [LinkedIn](https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/)
-- Patrick Pate:  [GitHub](https://github.com/Patpate89)) / [LinkedIn](https://www.linkedin.com/in/patrick-pate)
-- Teresa Green:  [GitHub](https://github.com/Tegsy)) / [LinkedIn](https://www.linkedin.com/in/t-g-78b60b5/)
+- Matthew Neie (Developer): [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
+- Lisa Rexroad (Secondary Scrum Master): [GitHub](https://github.com/lrexroad) / [LinkedIn](https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/)
+- Patrick Pate (Product Owner / UX|UI Designer):  [GitHub](https://github.com/Patpate89)) / [LinkedIn](https://www.linkedin.com/in/patrick-pate)
+- Teresa Green (Secondary Scrum Master):  [GitHub](https://github.com/Tegsy)) / [LinkedIn](https://www.linkedin.com/in/t-g-78b60b5/)
