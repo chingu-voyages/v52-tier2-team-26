@@ -1,5 +1,5 @@
 .map-container {
-  height: 100vh;
+  height: 70vh;
   width: 100%;
 }
 
@@ -16,7 +16,7 @@
   font-size: 0.65vw;
   margin-right: 0.5vw;
   border-radius: 5px;
-  color: #ffb800;
+  color: white;
   cursor: pointer;
   background-color: #008c66;
   border: 0.1vw solid #696969;
@@ -32,4 +32,10 @@
   border-radius: 5px;
   background-color: white;
   border: 0.1vw solid #e2e2e2;
+}
+
+.map-route-return {
+  margin-top: 40vh;
+  width: 100%;
+  height: 200vh;
 }

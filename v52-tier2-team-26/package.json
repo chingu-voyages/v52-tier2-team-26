@@ -14,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@vis.gl/react-google-maps": "^1.4.2",
     "html2pdf.js": "^0.10.2",
+    "jspdf": "^2.5.2",
     "leaflet": "^1.9.4",
     "leaflet-routing-machine": "^3.2.12",
     "react": "^18.3.1",

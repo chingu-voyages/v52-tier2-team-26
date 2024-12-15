@@ -267,10 +267,9 @@
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .dash-menu-req-date {
-  margin-left: 0.5vw;
   color: #929292;
 }
 
@@ -384,7 +383,8 @@
 
 .dash-menu-previous-div {
   padding: 0.2vw;
-  background-color: #f0f0f0;
+  color: white;
+  background-color: #008c66;
   border: 1px solid #c9c9c9;
   border-radius: 5px;
   height: 3vh;
@@ -403,7 +403,8 @@
 }
 .dash-menu-next-div {
   padding: 0.2vw;
-  background-color: #f0f0f0;
+  color: white;
+  background-color: #008c66;
   border: 1px solid #c9c9c9;
   border-radius: 5px;
   height: 3vh;
@@ -521,11 +522,12 @@
 }
 .dash-menu-req-time-trip {
   margin-left: 7vw;
+  width: 6vw;
   font-size: 0.65vw;
   font-weight: 600;
 }
 .dash-menu-req-status-trip-div {
-  margin-left: 6.68vw;
+  margin-left: 4vw;
 }
 
 .dash-menu-req-pages-div-trip {
@@ -601,8 +603,15 @@
   font-size: 0.65vw;
   margin-right: 0.5vw;
   border-radius: 5px;
-  color: #ffb800;
+  color: white;
   cursor: pointer;
   background-color: #008c66;
   border: 0.1vw solid #696969;
+}
+
+.date-selector {
+  padding: 0.4vw;
+  border: 1px solid #c9c9c9;
+  border-radius: 7px;
+  color: #696969;
 }

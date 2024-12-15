@@ -7,8 +7,6 @@ const DownloadPDF = ({ filename, contentRef }) => {
   const pdfOptions = {
     filename,
     margin: 1,
-    fontSize: "10px",
-    width: "1000px",
   };
 
   const convertToPDF = async () => {

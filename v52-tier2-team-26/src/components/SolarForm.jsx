@@ -2,9 +2,16 @@ import { useContext, useState } from "react";
 // import requests from "../data/requests";
 import { useNavigate } from "react-router-dom";
 import RequestContext from "../contexts/RequestsContext";
+import PhoneInput from "../ui/PhoneInput";
 
 const SolarForm = () => {
-  const { requestList, setRequestList, appointmentStatus, address, setAddress } = useContext(RequestContext);
+  const {
+    requestList,
+    setRequestList,
+    appointmentStatus,
+    address,
+    setAddress,
+  } = useContext(RequestContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   // Info gathered from inputs
@@ -25,7 +32,8 @@ const SolarForm = () => {
     newRequest.time = preferredTime;
     newRequest.status = appointmentStatus;
     newRequest.address = address;
-    newRequest.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
+    newRequest.imgUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
     setRequestList([newRequest, ...requestList]);
   };
@@ -119,13 +127,10 @@ const SolarForm = () => {
                   required
                   onChange={(e) => setEmail(e.target.value)}
                 />
-
                 <label htmlFor="phone">Phone Number</label>
-                <input
-                  id="phone"
-                  type="number"
-                  required
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                <PhoneInput
+                  phoneNumber={phoneNumber}
+                  setPhoneNumber={setPhoneNumber}
                 />
 
                 <h3>Choose Your Preferred Timeslot!</h3>
