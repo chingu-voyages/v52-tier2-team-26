@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -17,6 +17,20 @@ const TripPlanning = ({
   setUpdatedRequests,
 }) => {
   const downloadRef = useRef(null);
+  const scheduledRequests = updatedRequests.filter(
+    (i) => i.status === "Scheduled"
+  );
+  const [filteredRequests, setFilteredRequests] = useState(scheduledRequests);
+  const [page, setPage] = useState(1);
+
+  const filterDate = (e) => {
+    const getRequests = scheduledRequests.filter(
+      (item) => item.date === e.target.value
+    );
+    setFilteredRequests(getRequests);
+  };
+
+  useEffect(() => {}, [filteredRequests]);
 
   return (
     <div ref={downloadRef} className="dash-menu">
@@ -29,6 +43,14 @@ const TripPlanning = ({
             Easily manage and schedule solar evaluations, track visit requests,
             and plan logistics all in one place.
           </p>
+        </div>
+        <div className="dash-menu-header-right">
+          <input
+            id="date"
+            type="date"
+            className="date-selector"
+            onChange={(e) => filterDate(e)}
+          />
         </div>
       </div>
       {tripView === "list-view" || tripView === "full-view" ? (
@@ -78,10 +100,12 @@ const TripPlanning = ({
             </p>
           </div>
           <TripList
+            page={page}
+            setPage={setPage}
             tripView={tripView}
-            setTripView={setTripView}
-            updatedRequests={updatedRequests}
             setUpdatedRequests={setUpdatedRequests}
+            filteredRequests={filteredRequests}
+            setFilteredRequests={setFilteredRequests}
           />
         </div>
       ) : null}
@@ -90,11 +114,16 @@ const TripPlanning = ({
           addresses={addresses}
           updatedRequests={updatedRequests}
           setUpdatedRequests={setUpdatedRequests}
+          filteredRequests={filteredRequests}
+          setFilteredRequests={setFilteredRequests}
         />
       ) : null}
       {tripView === "list-view" ? (
         <div className="downloadPDF-div">
-          <DownloadPDF filename="Trip-Planning" contentRef={downloadRef} />
+          <DownloadPDF
+            filename={`"Trip-Planning(page ${page})"`}
+            contentRef={downloadRef}
+          />
         </div>
       ) : null}
     </div>

@@ -7,14 +7,20 @@ import { LatLng } from "leaflet";
 import "../../styling/map.css";
 import "leaflet/dist/leaflet.css";
 
-const Map = ({ addresses, updatedRequests, setUpdatedRequests }) => {
+const Map = ({
+  addresses,
+  updatedRequests,
+  setUpdatedRequests,
+  filteredRequests,
+  setFilteredRequests,
+}) => {
   const scheduledRequests = updatedRequests.filter(
     (i) => i.status === "Scheduled"
   );
   const [route, setRoute] = useState("off");
 
-  const filteredAddresses = addresses.filter((item) =>
-    scheduledRequests.some((item2) => item2.address === item.addressLine)
+  const mapAddresses = addresses.filter((item) =>
+    filteredRequests.some((item2) => item2.address === item.addressLine)
   );
 
   const outerBounds = [
@@ -38,7 +44,7 @@ const Map = ({ addresses, updatedRequests, setUpdatedRequests }) => {
     useEffect(() => {
       if (leafletMap) {
         // Create waypoints array from the addresses
-        const waypoints = filteredAddresses.map(
+        const waypoints = mapAddresses.map(
           (address) => new LatLng(address.lat, address.lng)
         );
 
@@ -55,8 +61,6 @@ const Map = ({ addresses, updatedRequests, setUpdatedRequests }) => {
   };
 
   useEffect(() => {}, [addresses]);
-
-  console.log(filteredAddresses);
 
   return (
     <>
@@ -83,7 +87,7 @@ const Map = ({ addresses, updatedRequests, setUpdatedRequests }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="© OpenStreetMap contributors"
         />
-        {filteredAddresses.map((r, index) => (
+        {mapAddresses.map((r, index) => (
           <Marker
             key={`map component-${r.id} - ${index}`}
             position={[r.lat, r.lng]}
@@ -94,7 +98,7 @@ const Map = ({ addresses, updatedRequests, setUpdatedRequests }) => {
             </Popup>
           </Marker>
         ))}
-        {route === "On" ? <MapWithRoute /> : null}
+        {route === "On" ? <MapWithRoute className="map-route-return" /> : null}
       </MapContainer>
     </>
   );

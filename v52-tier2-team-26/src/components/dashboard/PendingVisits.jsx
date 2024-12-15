@@ -30,7 +30,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
     const requestList = JSON.parse(localStorage.getItem("requestList"));
     const getRequest = requestList.find((item) => item.id === id);
     const updateRequest = (getRequest["status"] = newStatus);
-    console.log(requestList);
     localStorage.setItem("requestList", JSON.stringify(requestList));
     setUpdatedRequests(requestList);
   };
@@ -118,10 +117,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <div className="dash-menu-req-date-div">
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
-                    <CalendarTodayIcon
-                      className="dash-menu-req-date-icon"
-                      style={{ fontSize: "0.9vw", color: "#929292" }}
-                    />
                   </div>
                 </div>
                 <p className="dash-menu-req-time">{item.time}</p>
@@ -181,7 +176,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   <p className="dash-menu-next-text">Next</p>
                   <ArrowForwardIosIcon
                     className="dash-menu-forward-icon"
-                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                    style={{ fontSize: "0.7vw", color: "white" }}
                   />
                 </div>
               )}
@@ -205,10 +200,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <div className="dash-menu-req-date-div">
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
-                    <CalendarTodayIcon
-                      className="dash-menu-req-date-icon"
-                      style={{ fontSize: "0.9vw", color: "#929292" }}
-                    />
                   </div>
                 </div>
                 <p className="dash-menu-req-time">{item.time}</p>
@@ -265,7 +256,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
               >
                 <ArrowBackIosIcon
                   className="dash-menu-back-icon"
-                  style={{ fontSize: "0.7vw", color: "#929292" }}
+                  style={{ fontSize: "0.7vw", color: "white" }}
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
@@ -279,7 +270,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   <p className="dash-menu-next-text">Next</p>
                   <ArrowForwardIosIcon
                     className="dash-menu-forward-icon"
-                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                    style={{ fontSize: "0.7vw", color: "white" }}
                   />
                 </div>
               )}
@@ -303,10 +294,6 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                 <div className="dash-menu-req-date-div">
                   <div className="dash-menu-req-date-container">
                     <p className="dash-menu-req-date">{item.date}</p>
-                    <CalendarTodayIcon
-                      className="dash-menu-req-date-icon"
-                      style={{ fontSize: "0.9vw", color: "#929292" }}
-                    />
                   </div>
                 </div>
                 <p className="dash-menu-req-time">{item.time}</p>
@@ -363,7 +350,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
               >
                 <ArrowBackIosIcon
                   className="dash-menu-back-icon"
-                  style={{ fontSize: "0.7vw", color: "#929292" }}
+                  style={{ fontSize: "0.7vw", color: "white" }}
                 />
                 <p className="dash-menu-previous-text">Previous</p>
               </div>
@@ -377,7 +364,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
                   <p className="dash-menu-next-text">Next</p>
                   <ArrowForwardIosIcon
                     className="dash-menu-forward-icon"
-                    style={{ fontSize: "0.7vw", color: "#929292" }}
+                    style={{ fontSize: "0.7vw", color: "white" }}
                   />
                 </div>
               )}
@@ -386,7 +373,7 @@ const PendingVisits = ({ updatedRequests, setUpdatedRequests }) => {
         ) : null}
         <div className="downloadPDF-div">
           <DownloadPDF
-            filename={`"Visit-Requests(page ${page})"`}
+            filename={`"Pending-Visits(page ${page})"`}
             contentRef={downloadRef}
           />
         </div>

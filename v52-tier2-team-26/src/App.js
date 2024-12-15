@@ -49,7 +49,7 @@ function App() {
   //   fetchAPI();
   // }, []);
 
-  // console.log(addresses);
+  // console.log(addressList);
 
   // UPDATE LOCAL STORAGE when Current User changes
   useEffect(() => {
