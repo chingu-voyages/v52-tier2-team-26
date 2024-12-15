@@ -1,4 +1,41 @@
 .map-container {
-  height: 50vh;
+  height: 70vh;
   width: 100%;
+}
+
+.route-button-div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.route-button:hover {
+  width: 7vw;
+  height: 3vh;
+  font-size: 0.65vw;
+  margin-right: 0.5vw;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  background-color: #008c66;
+  border: 0.1vw solid #696969;
+}
+
+.route-button {
+  width: 7vw;
+  height: 3vh;
+  font-size: 0.65vw;
+  margin-right: 0.5vw;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  border-radius: 5px;
+  background-color: white;
+  border: 0.1vw solid #e2e2e2;
+}
+
+.map-route-return {
+  margin-top: 40vh;
+  width: 100%;
+  height: 200vh;
 }

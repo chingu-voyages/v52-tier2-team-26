@@ -1,15 +1,79 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import L from "leaflet";
+import "leaflet-routing-machine";
+import { LatLng } from "leaflet";
 import "../../styling/map.css";
 import "leaflet/dist/leaflet.css";
 
-const Map = () => {
+const Map = ({
+  addresses,
+  updatedRequests,
+  setUpdatedRequests,
+  filteredRequests,
+  setFilteredRequests,
+}) => {
+  const scheduledRequests = updatedRequests.filter(
+    (i) => i.status === "Scheduled"
+  );
+  const [route, setRoute] = useState("off");
+
+  const mapAddresses = addresses.filter((item) =>
+    filteredRequests.some((item2) => item2.address === item.addressLine)
+  );
+
   const outerBounds = [
     [53.90597, -135.047459],
     [21.923872, -60.426611],
   ];
 
+  const customIcon = new L.Icon({
+    iconUrl: require("../../images/map-icon.png"),
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  });
+
+  const [map, setMap] = useState(null);
+
+  // Add route on map load
+  const MapWithRoute = () => {
+    const leafletMap = useMap();
+
+    useEffect(() => {
+      if (leafletMap) {
+        // Create waypoints array from the addresses
+        const waypoints = mapAddresses.map(
+          (address) => new LatLng(address.lat, address.lng)
+        );
+
+        // Create routing machine instance
+        const route = L.Routing.control({
+          waypoints: waypoints,
+          routeWhileDragging: true, // Optional: Enable dragging the route
+          createMarker: () => null, // Optional: Hide markers
+        }).addTo(leafletMap);
+      }
+    }, [leafletMap]);
+
+    return null;
+  };
+
+  useEffect(() => {}, [addresses]);
+
   return (
     <>
+      <div className="route-button-div">
+        <button
+          className="route-button"
+          onClick={() => {
+            setRoute("On");
+          }}
+        >
+          Generate Route
+        </button>
+      </div>
       <MapContainer
         className="map-container"
         center={[34.05, -118.25]}
@@ -17,29 +81,24 @@ const Map = () => {
         minZoom={4}
         scrollWheelZoom={true}
         maxBounds={outerBounds}
+        whenCreated={(mapInstance) => setMap(mapInstance)}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="© OpenStreetMap contributors"
         />
-        {/* {[...filteredData].map((r, index) => (
-                    <Marker key={`map component-${ r.id } - ${ index }`} position={[r.latitude, r.longitude]} >
-                        <Popup>
-                            <div className='flex flex-col'>
-                                <div className='text-lg font-bold m-2'>{r.name}</div>
-                                <div className='flex'>
-                                    <div className='m-2'>
-                                        <img className="w-48" src={r.img} alt="" />
-                                    </div>
-                                    <div className='flex flex-col m-2'>
-                                        <div className='mb-5'>Known for: {r.dsc}</div>
-                                        <div className='flex justify-end'>{r.rate} stars</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </Popup>
-                    </Marker>
-                ))} */}
+        {mapAddresses.map((r, index) => (
+          <Marker
+            key={`map component-${r.id} - ${index}`}
+            position={[r.lat, r.lng]}
+            icon={customIcon}
+          >
+            <Popup>
+              <div className="">{r.addressLine}</div>
+            </Popup>
+          </Marker>
+        ))}
+        {route === "On" ? <MapWithRoute className="map-route-return" /> : null}
       </MapContainer>
     </>
   );

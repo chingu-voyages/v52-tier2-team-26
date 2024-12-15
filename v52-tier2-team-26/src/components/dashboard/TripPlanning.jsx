@@ -1,17 +1,36 @@
-import { useRef, useState } from "react";
-import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
+import { useEffect, useRef, useState } from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import DownloadPDF from "../../ui/DownloadPDF";
-import requests from "../../data/requests";
 import TripList from "./TripList";
 import Map from "./Map";
 
-const TripPlanning = ({ tripView, setTripView }) => {
+const TripPlanning = ({
+  addresses,
+  tripView,
+  setTripView,
+  updatedRequests,
+  setUpdatedRequests,
+}) => {
   const downloadRef = useRef(null);
+  const scheduledRequests = updatedRequests.filter(
+    (i) => i.status === "Scheduled"
+  );
+  const [filteredRequests, setFilteredRequests] = useState(scheduledRequests);
+  const [page, setPage] = useState(1);
+
+  const filterDate = (e) => {
+    const getRequests = scheduledRequests.filter(
+      (item) => item.date === e.target.value
+    );
+    setFilteredRequests(getRequests);
+  };
+
+  useEffect(() => {}, [filteredRequests]);
 
   return (
     <div ref={downloadRef} className="dash-menu">
@@ -26,11 +45,11 @@ const TripPlanning = ({ tripView, setTripView }) => {
           </p>
         </div>
         <div className="dash-menu-header-right">
-          <button className="filter-button">Sort</button>
-          <button className="cancel-button">Generate Schedule</button>
-          <MoreVertOutlinedIcon
-            className="dash-menu-header-icon"
-            style={{ fontSize: "0.9vw", color: "#696969" }}
+          <input
+            id="date"
+            type="date"
+            className="date-selector"
+            onChange={(e) => filterDate(e)}
           />
         </div>
       </div>
@@ -72,14 +91,41 @@ const TripPlanning = ({ tripView, setTripView }) => {
               />
               Time
             </p>
+            <p className="dash-menu-label">
+              <PendingActionsIcon
+                className="dash-nav-icon"
+                style={{ fontSize: "0.9vw", color: "black" }}
+              />
+              Status
+            </p>
           </div>
-          <TripList />
+          <TripList
+            page={page}
+            setPage={setPage}
+            tripView={tripView}
+            setUpdatedRequests={setUpdatedRequests}
+            filteredRequests={filteredRequests}
+            setFilteredRequests={setFilteredRequests}
+          />
         </div>
       ) : null}
-      {tripView === "map-view" || tripView === "full-view" ? <Map /> : null}
-      <div className="downloadPDF-div">
-        <DownloadPDF filename="Trip-Planning" contentRef={downloadRef} />
-      </div>
+      {tripView === "map-view" || tripView === "full-view" ? (
+        <Map
+          addresses={addresses}
+          updatedRequests={updatedRequests}
+          setUpdatedRequests={setUpdatedRequests}
+          filteredRequests={filteredRequests}
+          setFilteredRequests={setFilteredRequests}
+        />
+      ) : null}
+      {tripView === "list-view" ? (
+        <div className="downloadPDF-div">
+          <DownloadPDF
+            filename={`"Trip-Planning(page ${page})"`}
+            contentRef={downloadRef}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

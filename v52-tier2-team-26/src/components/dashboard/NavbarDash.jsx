@@ -52,7 +52,7 @@ const NavbarDash = ({ category, setCategory, tripView, setTripView }) => {
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "#1212ce" }}
               />{" "}
-              Schedule Visits
+              Pending Visits
             </p>
           </div>
         ) : (
@@ -66,7 +66,7 @@ const NavbarDash = ({ category, setCategory, tripView, setTripView }) => {
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "#159461" }}
               />{" "}
-              Schedule Visits
+              Pending Visits
             </p>
           </div>
         )}
@@ -99,32 +99,32 @@ const NavbarDash = ({ category, setCategory, tripView, setTripView }) => {
             </p>
           </div>
         )}
-        {category === "my-visits" ? (
+        {category === "completed-visits" ? (
           <div
             className="dash-nav-tab"
             style={{ backgroundColor: "white", color: "#1212ce" }}
-            onClick={() => setCategory("my-visits")}
+            onClick={() => setCategory("completed-visits")}
           >
             <p className="dash-nav-p">
               <AccountCircleOutlinedIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "#1212ce" }}
               />{" "}
-              My Visits
+              Completed Visits
             </p>
           </div>
         ) : (
           <div
             className="dash-nav-tab"
             style={{ color: "#159461" }}
-            onClick={() => setCategory("my-visits")}
+            onClick={() => setCategory("completed-visits")}
           >
             <p className="dash-nav-p">
               <AccountCircleOutlinedIcon
                 className="dash-nav-icon"
                 style={{ fontSize: "0.9vw", color: "#159461" }}
               />{" "}
-              My Visits
+              Completed Visits
             </p>
           </div>
         )}

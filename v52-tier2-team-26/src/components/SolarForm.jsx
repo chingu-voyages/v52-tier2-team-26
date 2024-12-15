@@ -1,9 +1,17 @@
-import { useState } from "react";
-import requests from "../data/requests";
+import { useContext, useState } from "react";
+// import requests from "../data/requests";
 import { useNavigate } from "react-router-dom";
+import RequestContext from "../contexts/RequestsContext";
+import PhoneInput from "../ui/PhoneInput";
 
 const SolarForm = () => {
-  const [requestsList, setRequestsList] = useState([requests]);
+  const {
+    requestList,
+    setRequestList,
+    appointmentStatus,
+    address,
+    setAddress,
+  } = useContext(RequestContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   // Info gathered from inputs
@@ -12,30 +20,24 @@ const SolarForm = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [date, setDate] = useState("");
-  const [preferredTime, setPreferredTime] = useState("");
-  // TO DO: Add setAppointmentStatus to Context
-  const [appointmentStatus, setAppointmentStatus] = useState("Pending");
-  // TO DO: Need an API call to verify address input
-  const [address, setAddress] = useState("");
-
-  // TO DO: Update local storage each time requestsLsit changes
+  const [preferredTime, setPreferredTime] = useState("8AM - 10AM");
 
   const addNewRequest = () => {
     const newRequest = {};
     newRequest.id = new Date().getTime().toString(36);
     newRequest.name = `${firstName} ${lastName}`;
     newRequest.email = email;
-    newRequest.phoneNumber = phoneNumber;
+    newRequest.phone = phoneNumber;
     newRequest.date = date;
     newRequest.time = preferredTime;
     newRequest.status = appointmentStatus;
-
-    // TO DO: Integrate address API
     newRequest.address = address;
+    newRequest.imgUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
 
-    setRequestsList([newRequest, ...requestsList]);
+    setRequestList([newRequest, ...requestList]);
   };
-  console.log(requestsList);
+  console.log(requestList);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -114,6 +116,7 @@ const SolarForm = () => {
                   id="address"
                   type="text"
                   required
+                  value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
 
@@ -124,13 +127,10 @@ const SolarForm = () => {
                   required
                   onChange={(e) => setEmail(e.target.value)}
                 />
-
                 <label htmlFor="phone">Phone Number</label>
-                <input
-                  id="phone"
-                  type="number"
-                  required
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                <PhoneInput
+                  phoneNumber={phoneNumber}
+                  setPhoneNumber={setPhoneNumber}
                 />
 
                 <h3>Choose Your Preferred Timeslot!</h3>
@@ -148,10 +148,10 @@ const SolarForm = () => {
                   htmlFor="timeslot"
                   onChange={(e) => setPreferredTime(e.target.value)}
                 >
-                  <option value="8AM-10AM">8 AM - 10 AM</option>
-                  <option value="10AM-12PM">10 AM - 12 PM</option>
-                  <option value="12PM-2PM">12 PM - 2 PM</option>
-                  <option value="2PM-4PM">2 PM - 4 PM</option>
+                  <option value="8AM - 10AM">8 AM - 10 AM</option>
+                  <option value="10AM - 12PM">10 AM - 12 PM</option>
+                  <option value="12PM - 2PM">12 PM - 2 PM</option>
+                  <option value="2PM - 4PM">2 PM - 4 PM</option>
                 </select>
                 <p>
                   *Please note that preferred timeslots are requested but not
