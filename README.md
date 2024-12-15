@@ -46,5 +46,5 @@ Our app is easy to navigate and is viewable on desktop, mobile, and tablet.
 [LinkedIn](https://linkedin.com/in/charwaeericachong)
 - Matthew Neie (Developer): [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
 - Lisa Rexroad (Secondary Scrum Master): [GitHub](https://github.com/lrexroad) / [LinkedIn](https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/)
-- Patrick Pate (Product Owner / UX|UI Designer):  [GitHub](https://github.com/Patpate89)) / [LinkedIn](https://www.linkedin.com/in/patrick-pate)
+- Patrick Pate (Product Owner, UX/UI Designer):  [GitHub](https://github.com/Patpate89)) / [LinkedIn](https://www.linkedin.com/in/patrick-pate)
 - Teresa Green (Secondary Scrum Master):  [GitHub](https://github.com/Tegsy)) / [LinkedIn](https://www.linkedin.com/in/t-g-78b60b5/)
