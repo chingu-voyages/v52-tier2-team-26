@@ -48,3 +48,5 @@ Our app is easy to navigate and is viewable on desktop, mobile, and tablet.
 - Lisa Rexroad (Secondary Scrum Master): [GitHub](https://github.com/lrexroad) / [LinkedIn](https://www.linkedin.com/in/lisa-rexroad-csm-sa-ccmp-b556511b/)
 - Patrick Pate (Product Owner, UX/UI Designer):  [GitHub](https://github.com/Patpate89)) / [LinkedIn](https://www.linkedin.com/in/patrick-pate)
 - Teresa Green (Secondary Scrum Master):  [GitHub](https://github.com/Tegsy)) / [LinkedIn](https://www.linkedin.com/in/t-g-78b60b5/)
+
+- Adding Carolina now!
